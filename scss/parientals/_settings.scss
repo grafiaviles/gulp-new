@@ -1,0 +1,31 @@
+body,
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main-module * {
+    box-sizing: border-box;
+    font-weight: 400;
+    font-family: $font-lato;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.main-module {
+    background: $color-corp;
+    width: 100%;
+    max-width: 100%;
+}
+
+.hide {
+    display: none!important;
+}
+
+div,
+article,
+section,
+hgroup,
+span {
+    display: block;
+}

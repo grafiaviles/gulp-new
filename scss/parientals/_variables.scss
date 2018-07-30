@@ -1,6 +1,38 @@
-// Color
+/*********************
+VARIABLES
+*********************/
+
 $color-corp: #B5D332;
+$color-corp-2: #8FCA00;
 $grey-dark-corp: #333333;
+$grey-medium-corp: #666666;
 $grey-light-corp: #888888;
-//Font
-//Breakpoint
+$grey-line: #f0f0f0;
+$lighten-color-corp: lighten( $color-corp, 60%);
+$darken-color-corp: darken( $color-corp, 60%);
+
+/* Fonts */
+
+$font-lato: 'Lato',
+sans-serif;
+$fontSizeText: 13px;
+$fontSizetitle: 15px;
+
+/*********************
+MAPS BREACKPOINTS
+*********************/
+
+$breakpoints: ( 'super-small': ( min-width: 425px), 'small': ( min-width: 767px), 'medium': ( min-width: 992px), 'large': ( min-width: 1200px), 'full-large': ( min-width: 1360px)) !default;
+@mixin respond-to($breakpoint) {
+    // If the key exists in the map 
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Prints a media query based on the value 
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+    // If the key doesn't exist in the map 
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}

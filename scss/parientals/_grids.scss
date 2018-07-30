@@ -1,0 +1,44 @@
+.grid-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.grid-full-container {
+    @extend .grid-container;
+    max-width: 100%;
+}
+
+.grid-1-4,
+.grid-1-3,
+.grid-1-2 {
+    position: relative;
+    padding: 2rem 1rem;
+}
+
+.grid-1-4 {
+    width: 100%;
+    @include respond-to('small') {
+        width: 50%;
+    }
+    @include respond-to('medium') {
+        width: 25%;
+    }
+}
+
+.grid-1-3 {
+    width: 100%;
+    @include respond-to('large') {
+        width: 33.3%;
+    }
+}
+
+.grid-1-2 {
+    width: 100%;
+    @include respond-to('large') {
+        width: 50%;
+    }
+}
