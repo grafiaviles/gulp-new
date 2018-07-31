@@ -1,0 +1,89 @@
+/*********************
+VARIABLES COLOURS
+*********************/
+
+// Branded //
+$color-rio-grande: #aad500;
+$color-pistachio: #8fca00;
+$color-limeade: #74b700;
+$color-limeade-2: #77b805;
+$color-red: #ff0000;
+$color-mine-shaft: #333333;
+$color-mine-shaft-2: #2A2A2A; // TODO
+$color-gray: #888888;
+$color-silver: #bbbbbb;
+$color-silver-2: #b8b8b8; // TODO
+$color-alto: #e0e0e0;
+$color-gallery: #f0f0f0;
+$color-gallery-2: #eeeeee; // TODO
+$color-alabaster: #f8f8f8;
+$color-alabaster-2: #fcfcfc; // TODO
+$color-cod-gray: #1a1a1a;
+$color-white: #ffffff;
+$color-cinnabar: #ee4b4b;
+$color-dusty-gray: #999999;
+$color-mercury: #e8e8e8;
+$color-wild-sand: #f5f5f5;
+$color-red-ribbon: #e4022d;
+$color-amber: #ffc000;
+$color-mario-star-yellow: #ffde00;
+$color-grey-3: #6b6b6b;
+$color-disabled-grey: #d1d1d1;
+$color-btn-grey: #dedede;
+$color-btn-black: #333333;
+$color-black-grey: #3d3d3d;
+$color-border-black-grey: #616161;
+$color-alabaster-3: #f9fcf2;
+$color-cookie-warning-banner: #DE5752;
+$color-alabaster-4: #fefff8;
+$lighten: lighten( $color-rio-grande, 60%);
+$darken: darken( $color-rio-grande, 60%);
+// Social Subset
+// --------------------------------------------------
+$color-steel-blue: #5479bd;
+$color-polo-blue: #7694ca;
+$color-picton-blue: #55acee;
+$color-scarlet: #f01b0a;
+$color-flamingo: #f3493b;
+$color-monza: #bd081c;
+$color-dodger-blue: #458eff;
+$color-mountain-meadow: #25D366;
+$color-black: #000000;
+$color-sweet-pink: #e1306c;
+$shadow: rgba(0, 0, 0, .1);
+$shadow-dark: rgba(0, 0, 0, .25);
+// --------------------------------------------------
+// Colour Gradient mixins
+// --------------------------------------------------
+@mixin greenGradientBackground() {
+    background: $color-rio-grande;
+    background: linear-gradient(90deg, $color-rio-grande, $color-limeade);
+}
+
+
+/*********************
+FONT FAMLILY
+*********************/
+
+$font-family-text: 'Lato',
+sans-serif !default;
+$font-family: $font-family-text !default;
+
+/*********************
+MAPS BREACKPOINTS
+*********************/
+
+$breakpoints: ( 'super-small': ( max-width: 321px), 'small': ( min-width: 767px), 'medium': ( min-width: 992px), 'large': ( min-width: 1200px), 'full-large': ( min-width: 1360px)) !default;
+@mixin respond-to($breakpoint) {
+    // If the key exists in the map 
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Prints a media query based on the value 
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+    // If the key doesn't exist in the map 
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}

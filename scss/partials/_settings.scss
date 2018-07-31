@@ -1,19 +1,24 @@
-body,
-* {
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .main-module * {
     box-sizing: border-box;
-    font-weight: 400;
-    font-family: $font-lato;
+    font-weight: 500;
+    font-family: $font-family-text;
+    text-align: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 .main-module {
-    background: $color-corp;
+    @include greenGradientBackground;
     width: 100%;
     max-width: 100%;
 }
@@ -26,6 +31,15 @@ div,
 article,
 section,
 hgroup,
-span {
+span,
+img,
+figure,
+footer,
+header,
+main,
+aside,
+nav,
+blockquote,
+figcaption {
     display: block;
 }
