@@ -21,6 +21,13 @@ body {
     @include greenGradientBackground;
     width: 100%;
     max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .hide {
@@ -42,4 +49,17 @@ nav,
 blockquote,
 figcaption {
     display: block;
+}
+
+//Colores
+.white-text {
+    color: white!important;
+}
+
+.green-corp-text {
+    color: $color-rio-grande!important;
+}
+
+.grey-dark-text {
+    color: $color-mine-shaft!important;
 }
