@@ -73,7 +73,7 @@ $font-family: $font-family-text !default;
 MAPS BREACKPOINTS
 *********************/
 
-$breakpoints: ( 'super-small': ( max-width: 321px), 'small': ( min-width: 767px), 'medium': ( min-width: 992px), 'large': ( min-width: 1200px), 'full-large': ( min-width: 1360px)) !default;
+$breakpoints: ( 'super-small': ( max-width: 321px), 'small': ( max-width: 767px), 'medium': ( max-width: 992px), 'large': ( min-width: 1200px), 'full-large': ( max-width: 1360px)) !default;
 @mixin respond-to($breakpoint) {
     // If the key exists in the map 
     @if map-has-key($breakpoints, $breakpoint) {
