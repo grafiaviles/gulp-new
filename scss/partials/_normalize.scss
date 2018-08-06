@@ -16,6 +16,17 @@ body {
     font-family: $font-family;
 }
 
+.main-module {
+    background: $color-rio-grande;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
 .hide {
     display: none!important;
 }
@@ -205,6 +216,10 @@ textarea {
     /* 1 */
     margin: 0;
     /* 2 */
+}
+
+li {
+    list-style: none;
 }
 
 

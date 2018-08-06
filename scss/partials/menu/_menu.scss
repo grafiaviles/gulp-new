@@ -1,0 +1,194 @@
+/*********************
+VARIABLES
+**********************/
+
+$link-vertical-padding:20px; //Controls Menu top & bottom padding
+$link-horizontal-padding:20px; //Contols Menu left & right padding
+
+/*********************
+RESPONSIVE BREAKPOINT
+**********************/
+
+@mixin breakpoint($point) {
+    @if $point==715 {
+        @media (max-width: 715px) {
+            @content;
+        }
+    }
+    @else if $point==another-break-point {
+        @media (max-width: 0) {
+            @content;
+        }
+    }
+}
+
+
+/*********************
+NAVIGATION STYLES
+**********************/
+
+nav {
+    width: 100%;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, .35);
+    background: $color-rio-grande;
+    @include breakpoint(715) {
+        margin: 55px 0 0 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.5s ease;
+        background: darken(#262626, 5%);
+    }
+}
+
+nav ul {
+    margin: 0;
+    list-style: none;
+    @include breakpoint(715) {
+        margin: 0;
+        padding: 0;
+        z-index: 15;
+    }
+    li {
+        float: left;
+        position: relative;
+        z-index: 1;
+        @include breakpoint(715) {
+            float: none;
+            position: relative;
+            margin: 0;
+        }
+        a {
+            display: block;
+            padding: $link-vertical-padding $link-horizontal-padding;
+            text-align: center;
+            color: $color-white;
+            text-decoration: none;
+            transition-duration: 0.3s;
+            &:hover {
+                box-shadow: inset 0 -5px 0 0 white;
+                @include breakpoint(715) {
+                    box-shadow: none;
+                }
+            }
+            @include breakpoint(715) {
+                display: table;
+                margin: 0;
+                padding: 15px 2px;
+                color: white;
+                border-top: 1px solid rgba(0, 0, 0, .15);
+                box-shadow: inset 0px 1px 3px rgba(255, 255, 255, .03);
+                text-shadow: none;
+                width: 100%;
+            }
+        }
+        &:hover ul {
+            opacity: 1;
+            max-height: 1000px;
+            transition-duration: 0.3s;
+            @include breakpoint(715) {
+                max-height: 0;
+            }
+        }
+        /******************
+    SUBNAV
+    ******************/
+        ul {
+            background: darken($color-mine-shaft, 10%);
+            list-style: none;
+            padding: 0;
+            position: absolute;
+            width: 200px;
+            max-height: 0;
+            z-index: 0;
+            opacity: 0;
+            overflow: hidden;
+            font-size: .9em;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, .5);
+            transition-duration: 0.3s;
+            @include breakpoint(715) {
+                max-height: 0;
+                opacity: 1;
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+                box-shadow: inset 0px 2px 2px rgba(0, 0, 0, .5);
+                transition-duration: 2s;
+            }
+            li {
+                float: none;
+                margin: 0;
+                @include breakpoint(715) {
+                    margin: 0;
+                }
+                a {
+                    display: block;
+                    text-align: left;
+                    padding: $link-vertical-padding/1.5 $link-horizontal-padding/1.5;
+                    margin: 0;
+                    border-right: none;
+                    border-top: 1px solid darken($color-mine-shaft, 12%);
+                    box-shadow: inset 0px 1px 3px rgba(255, 255, 255, .03);
+                    text-transform: none;
+                    text-shadow: none;
+                    transition-duration: 0.2s;
+                    &:hover {
+                        color: $color-rio-grande;
+                        background: lighten($color-mine-shaft, 5%);
+                        transition-duration: 0.5s;
+                    }
+                    @include breakpoint(715) {
+                        color: white;
+                        padding-left: 20px;
+                        background: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/***************************
+MOBILE NAV STYLES
+***************************/
+
+.mobile {
+    display: none!important;
+    margin: 0;
+    padding: 20px;
+    position: absolute;
+    color: white;
+    text-decoration: none;
+    top: 15px;
+    right: 15px;
+    line-height: 0;
+    @include breakpoint(715) {
+        display: flex!important;
+    }
+}
+
+.active {
+    max-height: 9000px !important;
+    transition-duration: 1s;
+}
+
+@include breakpoint(715) {
+    .arrow {
+        display: block;
+        background: url(http://www.jasonkinney.me/images/arrow.png) no-repeat;
+        float: right;
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        right: 25px;
+        top: 10px;
+        transition-duration: 0.3s;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .rotate {
+        transition-duration: 0.3s;
+        transform: rotate(-180deg);
+    }
+}
