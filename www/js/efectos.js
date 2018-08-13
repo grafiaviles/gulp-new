@@ -29,4 +29,21 @@ if (hamburgers.length > 0) {
             this.classList.toggle("is-active");
         }, false);
     });
-}
+};
+
+//Scroll Animation
+$("a").on('click', function(event) {
+
+    if (this.hash !== "") {
+        event.preventDefault();
+
+        var hash = this.hash;
+
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 800, function() {
+
+            window.location.hash = hash;
+        });
+    }
+});

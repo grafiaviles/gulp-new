@@ -15,11 +15,13 @@ body {
     font-weight: 400;
     font-family: $font-family;
     text-align: center;
+    font-size: 13px;
 }
 
 .main-module {
-    background: $color-rio-grande;
+    background: $color-gallery;
     max-width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
