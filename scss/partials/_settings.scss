@@ -26,6 +26,9 @@ body {
     align-content: center;
     align-items: center;
     justify-content: center;
+    @include respond-to('medium') {
+        min-height: auto;
+    }
 }
 
 .hide {
