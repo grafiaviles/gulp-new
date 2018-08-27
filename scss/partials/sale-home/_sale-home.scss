@@ -1,4 +1,90 @@
-/* ----------- iPad 1, 2, Mini and Air ----------- */
+.grid-1-3-ipad {
+    width: 33%;
+    @include respond-to('small') {
+        width: 50%;
+    }
+}
 
-
-/* Portrait and Landscape */
+.home-category {
+    width: 100%;
+    min-height: 100vh;
+    background: $color-gallery;
+    padding: 2rem;
+    @include respond-to('small') {
+        padding: 1rem;
+    }
+    & .title-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 2rem;
+        & .title-text {
+            font-size: 25px;
+            font-weight: 300;
+            text-align: left;
+            padding-left: .5rem;
+            margin: 0;
+        }
+    }
+    & .category {
+        width: 100%;
+        position: relative;
+        & .content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            & li {
+                display: block;
+                margin-bottom: .75rem;
+                & .card-category {
+                    position: relative;
+                    background: $color-white;
+                    background-position: center;
+                    overflow: hidden;
+                    margin: 0 2.5px;
+                    min-height: 250px;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: center;
+                    cursor: pointer;
+                    z-index: 1;
+                    @include respond-to('small') {
+                        min-height: auto;
+                        margin-bottom: 1rem;
+                    }
+                    & h2 {
+                        color: $color-mine-shaft;
+                        padding: .8rem;
+                        background: rgba($color-white, .85);
+                        font-weight: 400;
+                        font-size: 1.2rem;
+                        width: 90%;
+                        margin-bottom: 1rem;
+                    }
+                }
+                //Background Section
+                & .bg-tecnologia {
+                    background-image: url(../img/sale/test-1.jpg);
+                }
+                & .bg-decohogar {
+                    background-image: url(../img/sale/test-2.jpg);
+                }
+                & .bg-dormitorio {
+                    background-image: url(../img/sale/test-3.jpg);
+                }
+                & .all-content {
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    background: salmon;
+                    transition: all .4s;
+                    visibility: hidden;
+                    opacity: 0;
+                    z-index: 100;
+                }
+            }
+        }
+    }
+}
