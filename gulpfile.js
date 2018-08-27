@@ -61,7 +61,7 @@ gulp.task('img-compression', function() {
 });
 
 // Live Server
-gulp.task('live-server', ['sass', 'compressJs'], function() {
+gulp.task('live-server', ['sass', 'compressJs', 'obsHtml'], function() {
 
     browserSync.init({
         server: "./www"

@@ -66,6 +66,7 @@ $shadow-dark: rgba(0, 0, 0, .25);
 $transition1: all .4s;
 $transition2: all .3s;
 $transition3: all .2s;
+$transitionSlow: all 1s;
 
 /*********************
 FONT FAMLILY
@@ -79,7 +80,7 @@ $font-family: $font-family-text !default;
 MAPS BREACKPOINTS
 *********************/
 
-$breakpoints: ( 'super-small': ( max-width: 321px), 'small': ( max-width: 767px), 'medium': ( max-width: 992px), 'large': ( min-width: 1200px), 'full-large': ( max-width: 1360px)) !default;
+$breakpoints: ( 'super-small': ( max-width: 321px), 'small': ( max-width: 767px), 'medium': ( max-width: 992px), 'large': ( max-width: 1200px), 'full-large': ( max-width: 1360px)) !default;
 @mixin respond-to($breakpoint) {
     // If the key exists in the map 
     @if map-has-key($breakpoints, $breakpoint) {
