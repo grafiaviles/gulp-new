@@ -8,23 +8,8 @@ UX Falabella.com - César Avilés
 
 @import "partials/variables";
 @import "partials/grids";
-@import "partials/mixins";
 @import "partials/lato";
-@import "partials/icon_svg.scss";
-@import "partials/normalize";
-
-/* CARRUSEL */
-
-@import "partials/carrusel/swiper";
-@import "partials/carrusel/carrusel";
-
-/* LOGIN */
-
-@import "partials/login/login";
-
-/* PARALAX HEADER */
-
-@import "partials/paralax-header/paralax";
+@import "partials/settings";
 
 /* SALE HOME */
 

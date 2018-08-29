@@ -12,7 +12,8 @@ body {
     box-sizing: border-box;
     font-weight: 500;
     font-family: $font-family-text;
-    text-align: center;
+    margin: 0;
+    padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -26,6 +27,7 @@ body {
     align-content: center;
     align-items: center;
     justify-content: center;
+    background: $color-gallery;
     @include respond-to('medium') {
         min-height: auto;
     }
@@ -50,6 +52,19 @@ nav,
 blockquote,
 figcaption {
     display: block;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    border: none;
 }
 
 //Colores

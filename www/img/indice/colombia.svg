@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="23px" viewBox="0 0 34 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>colombia</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Indice-de-Empresas---Desktop" transform="translate(-401.000000, -598.000000)" fill-rule="nonzero">
+            <g id="colombia" transform="translate(401.000000, 598.000000)">
+                <path d="M33.9337901,16.5659893 L0,16.5659893 L0,21.5012614 C0,21.8219087 0.261992207,22.0819126 0.585091628,22.0819126 L33.3486984,22.0819126 C33.6717979,22.0819126 33.9337901,21.8219087 33.9337901,21.5012614 L33.9337901,16.5659893 Z" id="Shape" fill="#FF4B55"></path>
+                <path d="M33.9337901,11.050066 L0,11.050066 L0,0.598804772 C0,0.278157445 0.261992207,0.0181535714 0.585091628,0.0181535714 L33.3486984,0.0181535714 C33.6717979,0.0181535714 33.9337901,0.278157445 33.9337901,0.598804772 L33.9337901,11.050066 Z" id="Shape" fill="#FFE15A"></path>
+                <rect id="Rectangle-path" fill="#41479B" x="0" y="11.050066" width="33.9337238" height="5.51579176"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
