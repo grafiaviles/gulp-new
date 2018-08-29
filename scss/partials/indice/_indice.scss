@@ -1,46 +1,134 @@
-.header {
-    width: 100%;
-    height: 350px;
-    overflow: hidden;
-    background: $color-rio-grande;
-}
+/* VARIABLES FONTS RESPONSIVE */
 
-.header__background {
-    background-image: url("../img/paralax/top-bg.png");
-    background-size: cover;
-    background-position: bottom center;
-    width: inherit;
-    height: inherit;
-    display: table;
-}
-
-.header__centered {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
-}
-
-.header__centered>img {
-    display: block;
-    margin: 0 auto;
-    width: 130px;
-    border: 1px solid #fff;
-    border-radius: 100%;
-}
-
-.header__centered>h1 {
-    font-size: 2em;
-    color: #fff;
-}
-
-.inner {
-    max-width: 1200px;
-    padding: 20px;
-    margin: 0 auto;
-}
-
-.inner>p {
-    font-size: 16px;
-    line-height: 40px;
+$h1-size: 45px;
+$h3-size: 32px;
+$p-size: 14px;
+.main-module {
+    height: 100%;
+    /* HEADER */
+    & .header {
+        width: 100%;
+        height: 340px;
+        overflow: hidden;
+        background: $color-pistachio;
+        @include respond-to('medium') {
+            height: 200px;
+        }
+        & .header-background {
+            background-image: url("../img/indice/top-bg.png");
+            background-size: cover;
+            background-position: bottom center;
+            width: inherit;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        & .header-left {
+            text-align: left;
+            width: 100%;
+            max-width: 1280px;
+            margin: auto;
+            & .title-header {
+                color: $color-white;
+                display: inline-block;
+                background: $color-pistachio;
+                padding: 1rem 1.5rem;
+                font-weight: 300;
+                font-size: $h1-size;
+                @include respond-to('medium') {
+                    font-size: 30px;
+                    padding: 1rem;
+                }
+                @include respond-to('super-small') {
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+    /* NAV */
+    & .nav-indice {
+        background: $color-white;
+        height: 80px;
+        line-height: 80px;
+        width: 100%;
+        box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.05);
+        & .nav-wrapper {
+            width: 100%;
+            max-width: 1280px;
+            height: 100%;
+            position: relative;
+            margin: auto;
+            overflow-y: auto;
+            & ul {
+                margin: 0;
+                display: flex;
+                justify-content: space-between;
+                & li {
+                    height: 80px;
+                    line-height: 80px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 .4rem;
+                    &:first-child {
+                        margin-left: .7rem;
+                    }
+                    & a.link-country {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 40px;
+                        width: 60px;
+                        height: 60px;
+                        transition: $transition1;
+                        border: 1px solid $color-gallery;
+                        &:hover,
+                        &:active {
+                            border: 2px solid $color-pistachio;
+                        }
+                        & .flag-country {
+                            text-align: center;
+                            align-self: center;
+                            display: inline-block;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            width: 36px;
+                            height: 24px;
+                        }
+                        & .flag-ar {
+                            background-image: url('../img/indice/argentina.svg');
+                        }
+                        & .flag-cl {
+                            background-image: url('../img/indice/chile.svg');
+                        }
+                        & .flag-co {
+                            background-image: url('../img/indice/colombia.svg');
+                        }
+                        & .flag-pe {
+                            background-image: url('../img/indice/peru.svg');
+                        }
+                        & .flag-br {
+                            background-image: url('../img/indice/brazil.svg');
+                        }
+                        & .flag-me {
+                            background-image: url('../img/indice/mexico.svg');
+                        }
+                        & .flag-ur {
+                            background-image: url('../img/indice/uruguay.svg');
+                        }
+                        & .flag-pa {
+                            background-image: url('../img/indice/panama.svg');
+                        }
+                        & .flag-ec {
+                            background-image: url('../img/indice/ecuador.svg');
+                        }
+                        & .flag-ve {
+                            background-image: url('../img/indice/venezuela.svg');
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
