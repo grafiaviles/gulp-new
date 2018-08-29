@@ -4,14 +4,11 @@ UX Falabella.com - César Avilés
 
 @charset "UTF-8";
 
-/* VARIABLES MAIN */
+/* PARTIALS MAIN */
 
 @import "partials/variables";
 @import "partials/grids";
-@import "partials/mixins";
-@import "partials/lato";
-@import "partials/icon_svg.scss";
-@import "partials/normalize";
+@import "partials/settings";
 
 /* CARRUSEL */
 
