@@ -3,8 +3,14 @@
 $h1-size: 45px;
 $h3-size: 32px;
 $p-size: 14px;
+// BG
+$bg-section-country: #fafafa;
+
+/* INIT STYLE COUNTRY */
+
 .main-module {
     height: 100%;
+    background: $bg-section-country;
     /* HEADER */
     & .header {
         width: 100%;
@@ -14,7 +20,7 @@ $p-size: 14px;
         @include respond-to('medium') {
             height: 200px;
         }
-        & .header-background {
+        & .header__background {
             background-image: url("../img/indice/top-bg.png");
             background-size: cover;
             background-position: bottom center;
@@ -52,7 +58,7 @@ $p-size: 14px;
         height: 80px;
         line-height: 80px;
         width: 100%;
-        box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.03);
         & .nav-wrapper {
             width: 100%;
             max-width: 1280px;
@@ -131,4 +137,6 @@ $p-size: 14px;
             }
         }
     }
+    /* CONTENT COUNTRY */
+    & .content-country {}
 }
