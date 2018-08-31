@@ -17,7 +17,7 @@ $p-size: 16px;
         width: 100%;
         height: 340px;
         overflow: hidden;
-        background: $color-pistachio;
+        background: $color-white;
         @include respond-to('medium') {
             height: 160px;
         }
@@ -27,7 +27,7 @@ $p-size: 16px;
         & .header__background {
             background-image: url("../img/indice/top-bg.png");
             background-size: cover;
-            background-position: bottom center;
+            background-position: top center;
             width: inherit;
             height: inherit;
             display: flex;
@@ -92,15 +92,21 @@ $p-size: 16px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    flex-wrap: wrap;
                     margin: 0 .25rem;
                     position: relative;
                     @include respond-to('large') {
                         margin: 0 1rem;
                     }
+                    @include respond-to('medium') {
+                        height: auto;
+                        line-height: inherit;
+                        padding: .5rem 0;
+                    }
                     @include respond-to('small') {
-                        margin: 0 .25rem;
+                        margin: 0;
                         &:first-child {
-                            margin-left: .7rem;
+                            margin-left: .5rem;
                         }
                     }
                     @include respond-to('super-small') {
@@ -119,6 +125,10 @@ $p-size: 16px;
                         &:hover,
                         &:active {
                             border: 1px solid $color-pistachio;
+                        }
+                        &:hover .tooltips-country,
+                        &:active .tooltips-country {
+                            border: $color-pistachio;
                         }
                         & .flag-country {
                             text-align: center;
@@ -163,15 +173,14 @@ $p-size: 16px;
                     & .tooltips-country {
                         position: absolute;
                         bottom: -30px;
-                        background: $color-pistachio;
+                        background: $color-white;
+                        color: $color-pistachio;
                         font-size: 10px;
                         line-height: 30px;
                         height: 30px;
                         width: 80px;
                         display: inline-block;
                         text-align: center;
-                        z-index: 1;
-                        color: $color-white;
                         font-weight: 600;
                         letter-spacing: 1px;
                         padding: 0 .5rem;
@@ -180,18 +189,33 @@ $p-size: 16px;
                         opacity: 0;
                         transition: $transition1;
                         transform: translateY(-10px);
+                        box-shadow: 0 5px 75px rgba(0, 0, 0, .1);
                         @include respond-to('medium') {
-                            display: none;
+                            position: relative;
+                            color: $color-mine-shaft;
+                            box-shadow: none;
+                            font-size: 9.5px;
+                            visibility: visible;
+                            opacity: 1;
+                            bottom: inherit;
+                            transform: none;
+                            height: auto;
+                            line-height: inherit;
+                            padding: 4px 0 2px 0;
+                            overflow: hidden;
                         }
                         &::after {
                             content: "";
-                            border-color: transparent transparent $color-pistachio transparent;
+                            border-color: transparent transparent $color-white transparent;
                             border-style: solid;
                             border-width: 5px;
                             top: -10px;
                             position: absolute;
                             left: -webkit-calc(50% - 5px);
                             left: calc(50% - 5px);
+                            @include respond-to('medium') {
+                                display: none;
+                            }
                         }
                     }
                     &:hover .tooltips-country,
@@ -211,7 +235,7 @@ $p-size: 16px;
         transition: $transition1;
     }
     .sticky+.content-country {
-        padding-top: 80px;
+        padding-top: 100px;
     }
     /* CONTENT COUNTRY */
     & .content-country {
@@ -227,14 +251,28 @@ $p-size: 16px;
             padding: 2rem;
             margin-top: 2.5rem;
             box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.02);
+            border: 1px solid $color-white;
+            transition: $transition1;
+            position: relative;
+            &:hover {
+                box-shadow: 0 5px 75px rgba(0, 0, 0, .05);
+            }
             @include respond-to('small') {
                 margin-top: 1rem;
             }
             &:first-child {
                 margin-top: 0;
             }
-            font-family: $font-family-text;
+            & a.target {
+                position: absolute;
+                left: 0px;
+                top: -80px;
+                @include respond-to('small') {
+                    top: -90px;
+                }
+            }
             & .title-module-country {
+                font-family: $font-family-text;
                 margin-bottom: 2rem;
                 padding-bottom: 1.5rem;
                 border-bottom: $color-pistachio 1px solid;
@@ -246,6 +284,9 @@ $p-size: 16px;
                 & h3 {
                     font-weight: 300;
                     font-size: $h3-size;
+                    @include respond-to('super-small') {
+                        font-size: 22px;
+                    }
                     & .arrow {
                         background-image: url('../img/indice/arrow.svg');
                         background-position: center;
@@ -291,10 +332,12 @@ $p-size: 16px;
                             font-weight: 500;
                             display: inline-block;
                             font-size: $p-size;
-                            //box-shadow: 0 1px 0 0 $color-mine-shaft;
                             transition: $transition1;
                             position: relative;
                             text-align: left;
+                            @include respond-to('super-small') {
+                                font-size: 14px;
+                            }
                             &:hover {
                                 color: $color-pistachio;
                             }
