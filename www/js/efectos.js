@@ -23,3 +23,26 @@ $(document).ready(function() {
         moving__background.css('opacity', 1 - ($(window).scrollTop()) / moving__background.height()); // Fading out
     });
 });
+
+/* Sticky Menu */
+var header = document.querySelector('.nav-indice');
+var origOffsetY = header.offsetTop;
+
+function onScroll(e) {
+    window.scrollY >= origOffsetY ? header.classList.add('sticky') :
+        header.classList.remove('sticky');
+}
+document.addEventListener('scroll', onScroll);
+
+
+
+/* var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("nav-indice").style.top = "0";
+    } else {
+        document.getElementById("nav-indice").style.top = "-80px";
+    }
+    prevScrollpos = currentScrollPos;
+} */

@@ -1,16 +1,17 @@
 /* VARIABLES FONTS RESPONSIVE */
 
 $h1-size: 45px;
-$h3-size: 32px;
-$p-size: 14px;
-// BG
-$bg-section-country: #fafafa;
+$h3-size: 25px;
+$p-size: 16px;
 
 /* INIT STYLE COUNTRY */
 
 .main-module {
     height: 100%;
-    background: $bg-section-country;
+    background: rgba($color-gallery, .5);
+    @include respond-to('medium') {
+        background: $color-gallery;
+    }
     /* HEADER */
     & .header {
         width: 100%;
@@ -18,7 +19,10 @@ $bg-section-country: #fafafa;
         overflow: hidden;
         background: $color-pistachio;
         @include respond-to('medium') {
-            height: 200px;
+            height: 160px;
+        }
+        @include respond-to('super-small') {
+            height: 150px;
         }
         & .header__background {
             background-image: url("../img/indice/top-bg.png");
@@ -33,7 +37,7 @@ $bg-section-country: #fafafa;
         & .header-left {
             text-align: left;
             width: 100%;
-            max-width: 1280px;
+            max-width: 1200px;
             margin: auto;
             & .title-header {
                 color: $color-white;
@@ -42,9 +46,15 @@ $bg-section-country: #fafafa;
                 padding: 1rem 1.5rem;
                 font-weight: 300;
                 font-size: $h1-size;
+                margin-left: 1rem;
+                @include respond-to('large') {
+                    margin-left: 2rem;
+                    font-size: 35px;
+                }
                 @include respond-to('medium') {
                     font-size: 30px;
                     padding: 1rem;
+                    margin-left: 0;
                 }
                 @include respond-to('super-small') {
                     font-size: 25px;
@@ -55,30 +65,46 @@ $bg-section-country: #fafafa;
     /* NAV */
     & .nav-indice {
         background: $color-white;
-        height: 80px;
-        line-height: 80px;
         width: 100%;
         box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.03);
+        z-index: 100;
+        transition: $transition1;
         & .nav-wrapper {
             width: 100%;
-            max-width: 1280px;
+            max-width: 1200px;
             height: 100%;
             position: relative;
             margin: auto;
-            overflow-y: auto;
+            @include respond-to('medium') {
+                overflow-y: auto;
+            }
             & ul {
                 margin: 0;
                 display: flex;
                 justify-content: space-between;
+                padding: 0 1rem;
+                @include respond-to('medium') {
+                    padding: 0;
+                }
                 & li {
                     height: 80px;
                     line-height: 80px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    margin: 0 .4rem;
-                    &:first-child {
-                        margin-left: .7rem;
+                    margin: 0 .25rem;
+                    position: relative;
+                    @include respond-to('large') {
+                        margin: 0 1rem;
+                    }
+                    @include respond-to('small') {
+                        margin: 0 .25rem;
+                        &:first-child {
+                            margin-left: .7rem;
+                        }
+                    }
+                    @include respond-to('super-small') {
+                        margin: 0 .3rem;
                     }
                     & a.link-country {
                         display: flex;
@@ -89,9 +115,10 @@ $bg-section-country: #fafafa;
                         height: 60px;
                         transition: $transition1;
                         border: 1px solid $color-gallery;
+                        background: $color-white;
                         &:hover,
                         &:active {
-                            border: 2px solid $color-pistachio;
+                            border: 1px solid $color-pistachio;
                         }
                         & .flag-country {
                             text-align: center;
@@ -133,10 +160,161 @@ $bg-section-country: #fafafa;
                             background-image: url('../img/indice/venezuela.svg');
                         }
                     }
+                    & .tooltips-country {
+                        position: absolute;
+                        bottom: -30px;
+                        background: $color-pistachio;
+                        font-size: 10px;
+                        line-height: 30px;
+                        height: 30px;
+                        width: 80px;
+                        display: inline-block;
+                        text-align: center;
+                        z-index: 1;
+                        color: $color-white;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        padding: 0 .5rem;
+                        text-transform: uppercase;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: $transition1;
+                        transform: translateY(-10px);
+                        @include respond-to('medium') {
+                            display: none;
+                        }
+                        &::after {
+                            content: "";
+                            border-color: transparent transparent $color-pistachio transparent;
+                            border-style: solid;
+                            border-width: 5px;
+                            top: -10px;
+                            position: absolute;
+                            left: -webkit-calc(50% - 5px);
+                            left: calc(50% - 5px);
+                        }
+                    }
+                    &:hover .tooltips-country,
+                    &:active .tooltips-country {
+                        visibility: visible;
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
                 }
             }
         }
     }
+    .sticky {
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        transition: $transition1;
+    }
+    .sticky+.content-country {
+        padding-top: 80px;
+    }
     /* CONTENT COUNTRY */
-    & .content-country {}
+    & .content-country {
+        width: 100%;
+        max-width: 1200px;
+        padding: 1rem;
+        margin: 2rem 0;
+        @include respond-to('small') {
+            margin-top: 0;
+        }
+        & .module-country {
+            background: $color-white;
+            padding: 2rem;
+            margin-top: 2.5rem;
+            box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.02);
+            @include respond-to('small') {
+                margin-top: 1rem;
+            }
+            &:first-child {
+                margin-top: 0;
+            }
+            font-family: $font-family-text;
+            & .title-module-country {
+                margin-bottom: 2rem;
+                padding-bottom: 1.5rem;
+                border-bottom: $color-pistachio 1px solid;
+                color: $color-mine-shaft;
+                @include respond-to('small') {
+                    margin-bottom: 1rem;
+                    padding-bottom: 1rem;
+                }
+                & h3 {
+                    font-weight: 300;
+                    font-size: $h3-size;
+                    & .arrow {
+                        background-image: url('../img/indice/arrow.svg');
+                        background-position: center;
+                        background-size: cover;
+                        display: inline-block;
+                        background-repeat: no-repeat;
+                        width: 16px;
+                        height: 27px;
+                        vertical-align: bottom;
+                        margin-right: 1rem;
+                        @include respond-to('small') {
+                            width: 12px;
+                            height: 23px;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+            & .business-country {
+                position: relative;
+                & ul {
+                    margin: 0;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+                    padding: 0 1.95rem;
+                    width: 100%;
+                    @include respond-to('small') {
+                        flex-flow: column wrap;
+                        padding: 0 1.75rem;
+                    }
+                    & li {
+                        margin-bottom: 1.5rem;
+                        width: 20%;
+                        @include respond-to('small') {
+                            width: 100%;
+                        }
+                        &:last-child {
+                            margin-bottom: 3px;
+                        }
+                        & .link-business {
+                            font-weight: 500;
+                            display: inline-block;
+                            font-size: $p-size;
+                            //box-shadow: 0 1px 0 0 $color-mine-shaft;
+                            transition: $transition1;
+                            position: relative;
+                            text-align: left;
+                            &:hover {
+                                color: $color-pistachio;
+                            }
+                            &::after {
+                                content: "";
+                                width: 0;
+                                height: 1px;
+                                background: $color-pistachio;
+                                position: absolute;
+                                left: 0;
+                                bottom: -1px;
+                                transition: $transition1;
+                            }
+                            &:hover:after {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
