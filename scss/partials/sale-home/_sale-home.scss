@@ -13,13 +13,16 @@
     max-width: 1024px;
     min-height: 100vh;
     background: transparent;
-    padding: 1rem;
+    padding: 4rem;
+    @include respond-to('small') {
+        padding: 1.5rem;
+    }
     & .title-container {
         display: flex;
         justify-content: flex-start;
         align-items: center;
         margin-bottom: 3rem;
-        padding-top: 2.5rem;
+        //padding-top: 2.5rem;
         @include respond-to('small') {
             padding: 0;
         }
@@ -95,7 +98,7 @@
         display: inline-block;
         color: $color-mine-shaft;
         padding: 1rem;
-        line-height: 35px;
+        line-height: 30px;
         background: rgba($color-white, .95);
         font-weight: 700;
         font-size: 15px;
@@ -107,7 +110,6 @@
         border-radius: 3px;
         font-family: $font-family-text;
         z-index: 1;
-        letter-spacing: .5px;
         &:hover,
         &:active {
             background: $color-white;
@@ -142,7 +144,7 @@
 .accordion-section-content {
     position: relative;
     width: 100%;
-    padding: 3rem 3rem .5rem 3rem;
+    padding: 4rem 4rem .5rem 4rem;
     display: none;
     background-color: $color-white;
     margin-bottom: 2rem;
@@ -187,7 +189,7 @@
         & .sub-menu {
             display: flex;
             align-items: flex-start;
-            justify-content: center;
+            justify-content: flex-start;
             margin-bottom: 2rem;
             width: 22.5%;
             margin-right: 0;
@@ -195,7 +197,6 @@
             flex: auto;
             @include respond-to('small') {
                 width: 50%;
-                justify-content: flex-start;
             }
             & ul {
                 margin: 0;
