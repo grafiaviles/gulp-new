@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/static/RDF/site/content/landing/guidedSelling/css/main.min.css">
-    <link rel="stylesheet" href="css/main.min.css">
+    <!-- <link rel="stylesheet" href="css/main.min.css"> -->
     <title>Guide Settings - Falabella.com</title>
 </head>
 
@@ -33,7 +33,15 @@
                 <!-- Content Dinamico Tecno -->
                 <div id="accordion-1" class="accordion-section-content">
                     <span class="triangulo-left"></span>
-                    <div class="dynamic-sub-menu">
+                    <div class="cont-cargador">
+                        <div class="lds-ring">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="dynamic-sub-menu hide">
                         <!-- All sub-menu 1 -->
                         <div class="sub-menu">
                             <ul>
@@ -1572,7 +1580,7 @@
 
     <!-- Script -->
     <script src="/static/RDF/site/content/landing/guidedSelling/js/lib/jquery-3.3.1.min.js"></script>
-    <script src="js/lib/jquery-3.3.1.min.js"></script>
+    <!-- <script src="js/lib/jquery-3.3.1.min.js"></script> -->
     <script>
         $(document).ready(function() {
             function close_accordion_section() {
