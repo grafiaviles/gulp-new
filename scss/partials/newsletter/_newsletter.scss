@@ -5,9 +5,117 @@ body {
     background-repeat: no-repeat;
 }
 
-.main-module {
-    background: rgba(black, .6);
+.overlay {
+    background: rgba(black, .5);
     min-height: 100vh;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    animation: cont-overlay 1s .2s 1 backwards;
+    position: fixed;
+    max-width: 100%;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    @include respond-to('small') {
+        justify-content: flex-start;
+    }
+}
+
+@keyframes cont-overlay {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* SEND MESSAGE */
+
+.overlay-send {
+    background: transparent;
+    overflow: hidden;
+    position: relative;
+    & .send-message {
+        background: $color-white;
+        position: fixed;
+        left: 25px;
+        bottom: 25px;
+        padding: 25px;
+        box-shadow: 0 1px 20px 0 rgba(0, 0, 0, .15);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        animation: cont-message .75s .4s 1 backwards;
+        @include respond-to('small') {
+            max-width: 100%;
+            left: 0;
+            bottom: 0;
+            justify-content: center;
+            padding: 15px;
+            box-shadow: 0 -5px 20px 0 rgba(0, 0, 0, 0.05);
+        }
+        & .cont-icon {
+            position: relative;
+            width: 45px;
+            height: 45px;
+            margin-right: 15px;
+            animation: icon-message .75s .6s 1 backwards;
+            & .icon-send {
+                background-image: url(../img/news/icon-enviado.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                display: inline-block;
+                height: 45px;
+                width: 45px;
+            }
+        }
+        @keyframes icon-message {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        & .text-send {
+            color: $color-mine-shaft;
+            font-size: 13px;
+            font-weight: 400;
+            & .mark {
+                color: $color-pistachio;
+                font-weight: 700;
+                display: block;
+            }
+        }
+    }
+    @keyframes cont-message {
+        0% {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
 }
 
 
@@ -22,13 +130,13 @@ body {
     padding: 30px;
     background-image: url(../img/news/model.png);
     background-size: contain;
-    background-position: 280px center;
+    background-position: 275px center;
     background-repeat: no-repeat;
     position: relative;
+    animation: cont-form 1s .2s 1 backwards;
     @include respond-to('small') {
         background-image: none;
-        align-content: center;
-        min-height: 100vh;
+        align-content: flex-start;
         flex-wrap: wrap;
         display: flex;
     }
@@ -81,11 +189,15 @@ body {
                 display: none;
                 @include respond-to('small') {
                     display: block;
+                    max-width: 100%;
                 }
             }
         }
         & .form-newsletter {
             margin: 25px 0 0 0;
+            @include respond-to('small') {
+                margin: 0;
+            }
             //Data Radio
             & .row-data {
                 width: 100%;
@@ -107,13 +219,13 @@ body {
             }
             & .terminos {
                 color: $color-pistachio;
+                text-decoration: underline;
                 cursor: pointer;
             }
             //Data Input Boton Enviar
             & .row-data:nth-child(4) {
                 @include respond-to('small') {
-                    position: absolute;
-                    bottom: 0;
+                    margin-top: 2rem;
                 }
             }
             & .btn-enviar {
@@ -128,7 +240,6 @@ body {
                 max-width: 120px;
                 border: none;
                 outline: none;
-                border-radius: 3px;
                 cursor: pointer;
                 letter-spacing: 1px;
                 font-weight: 600;
@@ -137,12 +248,23 @@ body {
                     height: 55px;
                     line-height: 55px;
                     max-width: 100%;
+                    font-size: 13px;
+                    letter-spacing: 2px;
                 }
                 &:hover {
                     background: darken($color-mine-shaft, 20%);
                 }
             }
         }
+    }
+}
+
+@keyframes cont-form {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
 
@@ -186,7 +308,7 @@ body {
 
 [type="radio"]:not(:checked)+span:before,
 [type="radio"]:not(:checked)+span:after {
-    border: 2px solid $color-silver;
+    border: 1px solid $color-silver;
     border-radius: 50%;
 }
 
@@ -206,12 +328,12 @@ body {
 [type="radio"]:checked+span:after,
 [type="radio"].with-gap:checked+span:before,
 [type="radio"].with-gap:checked+span:after {
-    border: 2px solid $color-pistachio;
+    border: 1px solid $color-pistachio;
 }
 
 [type="radio"]:checked+span:before {
     border-radius: 50%;
-    border: 2px solid $color-pistachio;
+    border: 1px solid $color-pistachio;
 }
 
 [type="radio"]:checked+span:after {
@@ -237,7 +359,6 @@ input[type=text]:not(.browser-default) {
     background-color: transparent;
     border: none;
     border: 1px solid $color-silver;
-    border-radius: 3px;
     outline: none;
     height: 45px;
     line-break: 45px;
@@ -250,6 +371,7 @@ input[type=text]:not(.browser-default) {
     transition: all .3s;
     padding: 0 15px;
     color: $color-mine-shaft;
+    border-radius: 0;
     -webkit-appearance: none;
     @include respond-to('small') {
         height: 55px;
@@ -264,9 +386,57 @@ input[type=text]:not(.browser-default):focus {
     border: 1px solid $color-pistachio;
 }
 
-button,
-input {
-    overflow: visible;
+//Checkbox
+[type="checkbox"]+span:not(.lever) {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1rem;
+    font-size: 12px;
+    user-select: none;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+[type="checkbox"]+span:not(.lever):before,
+[type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    z-index: 0;
+    border: 1px solid $color-silver;
+    margin-top: 3px;
+    transition: .2s;
+}
+
+[type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+    border: 0;
+    transform: scale(0);
+}
+
+[type="checkbox"]:checked+span:not(.lever):before {
+    top: -4px;
+    left: -5px;
+    width: 10px;
+    height: 20px;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid $color-pistachio;
+    border-bottom: 1px solid $color-pistachio;
+    transform: rotate(40deg);
+    backface-visibility: hidden;
+    transform-origin: 100% 100%;
 }
 
 *::-webkit-input-placeholder {
@@ -296,63 +466,4 @@ input {
 ::-ms-input-placeholder {
     color: $color-silver;
     font-size: 14.5px;
-}
-
-//Checkbox
-[type="checkbox"]+span:not(.lever) {
-    position: relative;
-    padding-left: 35px;
-    cursor: pointer;
-    display: inline-block;
-    height: 25px;
-    line-height: 25px;
-    font-size: 1rem;
-    font-size: 12px;
-    user-select: none;
-}
-
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-
-[type="checkbox"]+span:not(.lever):before,
-[type="checkbox"]:not(.filled-in)+span:not(.lever):after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 16px;
-    height: 16px;
-    z-index: 0;
-    border: 2px solid $color-silver;
-    border-radius: 1px;
-    margin-top: 3px;
-    -webkit-transition: .2s;
-    transition: .2s;
-}
-
-[type="checkbox"]:not(.filled-in)+span:not(.lever):after {
-    border: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-}
-
-[type="checkbox"]:checked+span:not(.lever):before {
-    top: -4px;
-    left: -5px;
-    width: 10px;
-    height: 20px;
-    border-top: 2px solid transparent;
-    border-left: 2px solid transparent;
-    border-right: 2px solid $color-pistachio;
-    border-bottom: 2px solid $color-pistachio;
-    -webkit-transform: rotate(40deg);
-    transform: rotate(40deg);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-origin: 100% 100%;
-    transform-origin: 100% 100%;
 }

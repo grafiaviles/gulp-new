@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-.main-module * {
+.overlay * {
     box-sizing: border-box;
     font-weight: 500;
     font-family: $font-family-text;
@@ -13,40 +13,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.main-module {
-    max-width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    //background: $color-gallery;
-    @include respond-to('medium') {
-        min-height: auto;
-    }
-}
-
 .hide {
     display: none!important;
-}
-
-div,
-article,
-section,
-hgroup,
-span,
-img,
-figure,
-footer,
-header,
-main,
-aside,
-nav,
-blockquote,
-figcaption {
-    //display: block;
 }
 
 a {
