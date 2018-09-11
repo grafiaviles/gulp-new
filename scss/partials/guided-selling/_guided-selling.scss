@@ -11,10 +11,12 @@
 .home-category {
     width: 100%;
     max-width: 1024px;
-    min-height: 100vh;
     background: transparent;
     padding: 4rem;
+    min-height: 100vh;
+    animation: accordion 1s 1 alternate;
     @include respond-to('small') {
+        min-height: auto;
         padding: 1.5rem;
     }
     & .title-container {
@@ -33,6 +35,17 @@
             padding-left: 15px;
             margin: 0;
         }
+    }
+}
+
+@keyframes accordion {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -191,20 +204,16 @@
             align-items: flex-start;
             justify-content: flex-start;
             margin-bottom: 2rem;
-            width: 22.5%;
+            width: 25%;
             margin-right: 0;
             align-self: flex-start;
-            flex: auto;
             @include respond-to('small') {
                 width: 50%;
             }
             & ul {
                 margin: 0;
                 & li {
-                    display: block;
-                    &:last-child>.link-sub-category {
-                        font-weight: 700;
-                    }
+                    display: table;
                     & a {
                         color: $color-mine-shaft;
                         text-decoration: none;
@@ -221,7 +230,7 @@
                         margin-bottom: .5em;
                         color: $color-pistachio;
                         text-transform: uppercase;
-                        font-size: 14px;
+                        font-size: 13px;
                         letter-spacing: 1px;
                         border-bottom: 1px solid $color-white;
                         padding-bottom: .5rem;
@@ -241,7 +250,7 @@
                         margin-bottom: 1.2rem;
                         font-weight: 400;
                         color: $color-mine-shaft;
-                        font-size: 14px;
+                        font-size: 13px;
                         position: relative;
                         display: inline-block;
                         @include respond-to('super-small') {
@@ -266,6 +275,9 @@
                         }
                     }
                 }
+                & .last-bold {
+                    font-weight: 700;
+                }
             }
         }
     }
@@ -289,10 +301,13 @@
 
 .cont-cargador {
     width: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3rem;
+    position: absolute;
+    background: transparent;
+    z-index: 100;
 }
 
 .lds-ring {
@@ -308,8 +323,8 @@
     position: absolute;
     width: 51px;
     height: 51px;
-    margin: 6px;
-    border: 6px solid $color-pistachio;
+    margin: 3px;
+    border: 3px solid $color-pistachio;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: $color-pistachio transparent transparent transparent;
