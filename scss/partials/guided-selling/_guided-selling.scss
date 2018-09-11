@@ -137,17 +137,30 @@
             content: '\002B';
             color: $color-mine-shaft;
             font-weight: 300;
-            left: 15px;
+            left: 10px;
             font-size: 20px;
             position: absolute;
             transition: $transition1;
             top: 50%;
             transform: translateY(-50%);
             font-weight: 400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 25px;
+            width: 25px;
+            height: 25px;
         }
     }
     & .active::after {
         content: "\2212";
+        line-height: 25px;
+        width: 25px;
+        height: 25px;
+        transition: $transition1;
+        background-color: $color-pistachio;
+        color: $color-white;
+        border-radius: 3px;
     }
 }
 
@@ -276,7 +289,7 @@
                     }
                 }
                 & .last-bold {
-                    font-weight: 700;
+                    font-weight: 700!important;
                 }
             }
         }

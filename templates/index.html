@@ -32,39 +32,47 @@
     <!-- Script -->
     <script src="/static/RDF/site/content/landing/guidedSelling/js/lib/jquery-3.3.1.min.js"></script>
     <script>
-        //@@Array of Object with taxonomies
-
-        function guidedSellingMenuWrapper(array) {
+        function guidedSellingMenuWrapper(array, divClass) {
             let accordionContainer = document.querySelector(".home-category");
             let accordion = document.createElement("div");
-            accordion.classList.add("accordion", "hide-only-mobile");
-
+            accordion.classList.add("accordion", divClass);
+            let isDesktop = divClass === "hide-only-mobile" ? true : false;
             array.forEach((el, index) => {
                 let header = createSectionHeader(el.label, index + 1);
                 accordion.appendChild(header);
-                accordion.appendChild(guidedSellingFirstLevel(el, index + 1));
+                accordion.appendChild(guidedSellingFirstLevel(el, index + 1, isDesktop));
             });
 
             accordionContainer.appendChild(accordion);
-
+            if (isDesktop === true) {
+                allocateAccordionSection(accordion);
+            }
         }
 
-        //@@object with a label and array of subCategories
+        function allocateAccordionSection(div) {
 
-        function guidedSellingFirstLevel(object, index) {
+            let accordionArray = div.querySelectorAll(".accordion-section-content");
+            let accordionHeaderArray = div.querySelectorAll(".accordion-section");
+            let position;
+            accordionArray.forEach((el, index) => {
+                position = (Math.floor(index / 3) * 3 + 3);
+                div.insertBefore(el, accordionHeaderArray[position])
+            });
+        }
 
-            // Create Section with object.label
+        function guidedSellingFirstLevel(object, index, isDesktop) {
+
             let dynamicSubMenu = document.createElement("div");
             dynamicSubMenu.classList.add("dynamic-sub-menu");
-            // these are the second level console.table(object.subCategories);
             object.subCategories.forEach((el) => {
                 dynamicSubMenu.appendChild(guidedSellingSecondLevel(el));
             });
             let accordionSection = createAccordionSection(index);
-            accordionSection.appendChild(createTriangle(index));
+            accordionSection.appendChild(createTriangle(index, isDesktop));
             accordionSection.appendChild(dynamicSubMenu);
             return accordionSection;
-        };
+        }
+
 
         function createSectionHeader(label, index) {
             let sectionHeaderDiv = document.createElement("div");
@@ -100,38 +108,42 @@
             return accordionElement;
         }
 
-        function createTriangle(number) {
+        function createTriangle(number, boolean) {
+
             let triangleSpan = document.createElement("span");
-            switch (number) {
-                case 1:
-                case 4:
-                case 7:
-                case 10:
-                    triangleSpan.classList.add("triangulo-left");
-                    break;
-                case 2:
-                case 5:
-                case 8:
-                case 11:
-                    triangleSpan.classList.add("triangulo-center");
-                    break;
-                case 3:
-                case 6:
-                case 9:
-                case 12:
-                    triangleSpan.classList.add("triangulo-right");
-                    break;
-                default:
-                    triangleSpan.classList.add("triangulo-left");
-                    break;
+            if (boolean) {
+                switch (number) {
+                    case 1:
+                    case 4:
+                    case 7:
+                    case 10:
+                        triangleSpan.classList.add("triangulo-left");
+                        break;
+                    case 2:
+                    case 5:
+                    case 8:
+                    case 11:
+                        triangleSpan.classList.add("triangulo-center");
+                        break;
+                    case 3:
+                    case 6:
+                    case 9:
+                    case 12:
+                        triangleSpan.classList.add("triangulo-right");
+                        break;
+                    default:
+                        triangleSpan.classList.add("triangulo-left");
+                        break;
+                }
+            } else {
+                triangleSpan.classList.add("triangulo-center");
             }
+
             return triangleSpan;
         }
 
-        //Receives an object with label, a link, and array of leafCategories label: "TV ", link: "/category/cat1012/TV", leafCategories: Array(5)
         function guidedSellingSecondLevel(object) {
 
-            //create level 2 item
             let secondLevelItemUL = document.createElement("ul");
             let secondLevelItem = document.createElement("li");
             let secondLevelItemLink = document.createElement("a");
@@ -140,28 +152,30 @@
             secondLevelItemLink.setAttribute("href", object.link);
             secondLevelItem.appendChild(secondLevelItemLink);
 
-            //append secondlevel to UL
+
             secondLevelItemUL.appendChild(secondLevelItem);
             object.leafCategories.forEach((el) => {
-                    //append each third to the corresponding UL
-                    secondLevelItemUL.appendChild(guidedSellingThirdLevel(el));
-                })
-                //this is second level wrapper, a div
+
+                secondLevelItemUL.appendChild(guidedSellingThirdLevel(el));
+            })
+
             let secondLevelItemWrapper = document.createElement("div");
             secondLevelItemWrapper.classList.add("sub-menu");
             secondLevelItemWrapper.appendChild(secondLevelItemUL);
-            //return Div to the first level handler
             return secondLevelItemWrapper;;
         }
-        //label: "Televisores LED", link: "/category/cat7190148/Televisores-LED", isHighlightLink: false
+
         function guidedSellingThirdLevel(object) {
-            //create third level
+
             let thirdLevelItem = document.createElement("li");
             let thirdLevelItemLink = document.createElement("a");
             thirdLevelItemLink.classList.add("link-sub-category");
             thirdLevelItemLink.innerText = object.label;
             thirdLevelItemLink.setAttribute("href", object.link);
             thirdLevelItem.appendChild(thirdLevelItemLink);
+            if (object.isHighlightLink === true) {
+                thirdLevelItemLink.classList.add("last-bold");
+            }
             return thirdLevelItem;
         }
 
@@ -177,17 +191,16 @@
             contentType: 'application/json',
             success: function(msg, status, xhrRequest) {
                 document.querySelector(".cont-cargador").classList.add("hide");
-                guidedSellingMenuWrapper(msg.state.rootCategories);
-                //console.log(msg.state.rootCategories);
+                guidedSellingMenuWrapper(msg.state.rootCategories, "hide-only-mobile");
+                guidedSellingMenuWrapper(msg.state.rootCategories, "hide-only-tablet-desktop");
 
-                //cesar script
                 function close_accordion_section() {
                     $('.accordion .accordion-section-title').removeClass('active');
                     $('.accordion .accordion-section-content').slideUp(300).removeClass('open');
                 }
 
                 $('.accordion-section-title').click(function(e) {
-                    // Grab current anchor value
+
                     var currentAttrValue = $(this).attr('href');
 
                     if ($(e.target).is('.active')) {
@@ -195,9 +208,9 @@
                     } else {
                         close_accordion_section();
 
-                        // Add active class to section title
+
                         $(this).addClass('active');
-                        // Open up the hidden content panel
+
                         $('.accordion ' + currentAttrValue).slideDown(300).addClass('open');
                     }
 
@@ -206,7 +219,7 @@
 
             },
             error: function(msg, status, xhrRequest) {
-                console.log('Error! There was an error in the request');
+                alert('Error!');
             }
         });
     </script>
