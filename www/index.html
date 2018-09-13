@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="/static/RDF/site/content/landing/guidedSelling/css/main.min.css"><title>Guided Selling - Falabella.com</title></head><body><main class="main-module"><!-- Spinners --><div class="cont-cargador"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div><section class="home-category"><div class="title-container"><img width="15" src="/static/RDF/site/content/landing/guidedSelling/img/sale/arrow.svg" title="Arrow"><h1 class="title-text">Búsqueda por categorías principales</h1></div></section></main><!-- Script --><script src="/static/RDF/site/content/landing/guidedSelling/js/lib/jquery-3.3.1.min.js"></script><script>function guidedSellingMenuWrapper(array, divClass) {
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="/static/RDF/site/content/guided-selling/css/main.min.css"><title>Guided Selling - Falabella.com</title></head><body><main class="main-module"><!-- Spinners --><div class="cont-cargador"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div><section class="home-category"><div class="title-container"><img width="15" src="/static/RDF/site/content/guided-selling/img/sale/arrow.svg" title="Arrow"><h1 class="title-text">Búsqueda por categorías principales</h1></div></section></main><script>//@@Array of Object with taxonomies
+        //hide-only-tablet-desktop
+        function guidedSellingMenuWrapper(array, divClass) {
             let accordionContainer = document.querySelector(".home-category");
             let accordion = document.createElement("div");
             accordion.classList.add("accordion", divClass);
@@ -15,6 +17,8 @@
             }
         }
 
+        //@@object with a label and array of subCategories, index, true or false
+
         function allocateAccordionSection(div) {
 
             let accordionArray = div.querySelectorAll(".accordion-section-content");
@@ -28,8 +32,10 @@
 
         function guidedSellingFirstLevel(object, index, isDesktop) {
 
+            // Create Section with object.label
             let dynamicSubMenu = document.createElement("div");
             dynamicSubMenu.classList.add("dynamic-sub-menu");
+            // these are the second level console.table(object.subCategories);
             object.subCategories.forEach((el) => {
                 dynamicSubMenu.appendChild(guidedSellingSecondLevel(el));
             });
@@ -38,7 +44,6 @@
             accordionSection.appendChild(dynamicSubMenu);
             return accordionSection;
         }
-
 
         function createSectionHeader(label, index) {
             let sectionHeaderDiv = document.createElement("div");
@@ -108,36 +113,39 @@
             return triangleSpan;
         }
 
+        //Receives an object with label, a link, and array of leafCategories label: "TV ", link: "/category/cat1012/TV", leafCategories: Array(5)
         function guidedSellingSecondLevel(object) {
 
+            //create level 2 item
             let secondLevelItemUL = document.createElement("ul");
             let secondLevelItem = document.createElement("li");
             let secondLevelItemLink = document.createElement("a");
             secondLevelItemLink.classList.add("title-sub-category");
             secondLevelItemLink.innerText = object.label;
-            secondLevelItemLink.setAttribute("href", object.link);
+            secondLevelItemLink.setAttribute("href", "/falabella-cl" + object.link);
             secondLevelItem.appendChild(secondLevelItemLink);
 
-
+            //append secondlevel to UL
             secondLevelItemUL.appendChild(secondLevelItem);
             object.leafCategories.forEach((el) => {
-
-                secondLevelItemUL.appendChild(guidedSellingThirdLevel(el));
-            })
-
+                    //append each third to the corresponding UL
+                    secondLevelItemUL.appendChild(guidedSellingThirdLevel(el));
+                })
+                //this is second level wrapper, a div
             let secondLevelItemWrapper = document.createElement("div");
             secondLevelItemWrapper.classList.add("sub-menu");
             secondLevelItemWrapper.appendChild(secondLevelItemUL);
+            //return Div to the first level handler
             return secondLevelItemWrapper;;
         }
-
+        //label: "Televisores LED", link: "/category/cat7190148/Televisores-LED", isHighlightLink: false
         function guidedSellingThirdLevel(object) {
-
+            //create third level
             let thirdLevelItem = document.createElement("li");
             let thirdLevelItemLink = document.createElement("a");
             thirdLevelItemLink.classList.add("link-sub-category");
             thirdLevelItemLink.innerText = object.label;
-            thirdLevelItemLink.setAttribute("href", object.link);
+            thirdLevelItemLink.setAttribute("href", "/falabella-cl" + object.link);
             thirdLevelItem.appendChild(thirdLevelItemLink);
             if (object.isHighlightLink === true) {
                 thirdLevelItemLink.classList.add("last-bold");
@@ -145,46 +153,68 @@
             return thirdLevelItem;
         }
 
-        $.ajax({
-            url: "/rest/model/falabella/rest/browse/BrowseActor/get-header-main-menu",
-            method: "get",
-            data: JSON.stringify({
-                "ACCESS-CHANNEL": "GUIDEDSELLING",
-                "ACCESS_KEY": "GUIDEDSELLING_get-header-main-menu",
-                "ACCESS-TIMESTAMP": "Tue Sep 04 12:38:20 GMT-04:00 2018",
-                "ACCESS-SIGN": "7778c20d1c693371fb1785fd6264d4972d7f64693cb5fd787d53d177414f3650"
-            }),
-            contentType: 'application/json',
-            success: function(msg, status, xhrRequest) {
-                document.querySelector(".cont-cargador").classList.add("hide");
-                guidedSellingMenuWrapper(msg.state.rootCategories, "hide-only-mobile");
-                guidedSellingMenuWrapper(msg.state.rootCategories, "hide-only-tablet-desktop");
+        //XMLHttpRequest
 
+        var guidedSellingXMLHTTP = new XMLHttpRequest();
+        var guidedSellingURL = "/rest/model/falabella/rest/browse/BrowseActor/get-header-main-menu";
+        var guidedSellingFormData = new FormData();
+
+        guidedSellingFormData.append("ACCESS-CHANNEL", "GUIDEDSELLING");
+        guidedSellingFormData.append("ACCESS_KEY", "GUIDEDSELLING_get-header-main-menu");
+        guidedSellingFormData.append("ACCESS-TIMESTAMP", "Tue Sep 04 12:38:20 GMT-04:00 2018");
+        guidedSellingFormData.append("ACCESS-SIGN", "7778c20d1c693371fb1785fd6264d4972d7f64693cb5fd787d53d177414f3650");
+
+        guidedSellingXMLHTTP.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var daResponse = JSON.parse(this.responseText);
+                document.querySelector(".cont-cargador").classList.add("hide");
+                guidedSellingMenuWrapper(daResponse.state.rootCategories, "hide-only-mobile");
+                guidedSellingMenuWrapper(daResponse.state.rootCategories, "hide-only-tablet-desktop");
+                console.log(daResponse);
+
+                //cesar script
                 function close_accordion_section() {
-                    $('.accordion .accordion-section-title').removeClass('active');
-                    $('.accordion .accordion-section-content').slideUp(300).removeClass('open');
+                    document.querySelectorAll('.accordion .accordion-section-title').forEach((el) => {
+                        el.classList.remove('active')
+                    });
+                    //.slideUp(300).removeClass('open');
+                    document.querySelectorAll('.accordion .accordion-section-content').forEach((el) => {
+                        el.classList.remove('open');
+                        el.style.display = "none";
+                    });
                 }
 
-                $('.accordion-section-title').click(function(e) {
+                var accordionSectionTitles = document.querySelectorAll('.accordion-section-title');
+                accordionSectionTitles.forEach((el) => {
+                    el.addEventListener("click", (e) => {
 
-                    var currentAttrValue = $(this).attr('href');
+                        console.log(e.target);
 
-                    if ($(e.target).is('.active')) {
-                        close_accordion_section();
-                    } else {
-                        close_accordion_section();
+                        var currentAttrValue = e.target.getAttribute('href');
+                        console.log(currentAttrValue);
+                        if ((e.target).classList.contains('active')) {
+                            close_accordion_section();
+                        } else {
+                            close_accordion_section();
 
+                            // Add active class to section title
+                            e.target.classList.add('active');
+                            // Open up the hidden content panel
+                            document.querySelectorAll(currentAttrValue).forEach((el) => {
+                                el.classList.add('open')
+                            });
+                            //slideDown
+                            document.querySelectorAll(currentAttrValue).forEach((el) => {
+                                el.style.display = "block"
+                            });
+                        }
 
-                        $(this).addClass('active');
+                        e.preventDefault();
 
-                        $('.accordion ' + currentAttrValue).slideDown(300).addClass('open');
-                    }
-
-                    e.preventDefault();
+                    });
                 });
 
-            },
-            error: function(msg, status, xhrRequest) {
-                alert('Error!');
             }
-        });</script></body></html>
+        };
+        guidedSellingXMLHTTP.open("GET", guidedSellingURL, true);
+        guidedSellingXMLHTTP.send(guidedSellingFormData);</script></body></html>
