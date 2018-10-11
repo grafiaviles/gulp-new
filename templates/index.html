@@ -202,7 +202,6 @@
                 document.querySelector(".cont-cargador").classList.add("hide");
                 guidedSellingMenuWrapper(daResponse.state.rootCategories, "hide-only-mobile");
                 guidedSellingMenuWrapper(daResponse.state.rootCategories, "hide-only-tablet-desktop");
-                console.log(daResponse);
 
                 //cesar script
                 function close_accordion_section() {
@@ -220,10 +219,8 @@
                 accordionSectionTitles.forEach((el) => {
                     el.addEventListener("click", (e) => {
 
-                        console.log(e.target);
 
                         var currentAttrValue = e.target.getAttribute('href');
-                        console.log(currentAttrValue);
                         if ((e.target).classList.contains('active')) {
                             close_accordion_section();
                         } else {
