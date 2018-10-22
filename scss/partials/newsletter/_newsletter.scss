@@ -138,6 +138,7 @@ body {
     background-repeat: no-repeat;
     position: relative;
     animation: cont-form 1s .2s 1 backwards;
+    border-radius: 5px;
     @include respond-to('small') {
         background-image: none;
         align-content: flex-start;
