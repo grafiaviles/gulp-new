@@ -1,5 +1,8 @@
     .module-swiper {
         position: relative;
+        @include respond-to('medium') {
+            min-height: 100vh;
+        }
         .swiper-section {
             width: 100%;
             max-width: 1280px;
@@ -40,7 +43,11 @@
                         text-align: left;
                         outline: none;
                         font-weight: normal;
-                        & img {
+                        &:hover .img-slider-big {
+                            opacity: .8;
+                        }
+                        & .img-slider-big {
+                            transition: $transition1;
                             margin-bottom: .5rem;
                         }
                         & .brand-product {
@@ -77,62 +84,6 @@
                         & .price-two {
                             font-size: 9px;
                             color: $color-mine-shaft;
-                        }
-                    }
-                }
-                //Swiper Slider 2
-                & .swiper-slide-2 {
-                    position: relative;
-                    & .cont-img {
-                        position: relative;
-                    }
-                    & .cont-description {
-                        visibility: hidden;
-                        opacity: 0;
-                        height: 0;
-                        transition: $transition1;
-                        @include respond-to('medium') {
-                            height: auto;
-                            visibility: visible;
-                            opacity: 1;
-                        }
-                    }
-                }
-                & .swiper-slide-2:hover .cont-description,
-                .cont-description-active {
-                    height: auto;
-                    visibility: visible;
-                    opacity: 1;
-                }
-                //Swiper Slider 3
-                & .swiper-slide-3 {
-                    position: relative;
-                    & .link-product {
-                        @include respond-to('medium') {
-                            margin-bottom: 1rem;
-                        }
-                    }
-                    & .cont-img {
-                        position: relative;
-                        & .image-product {
-                            margin-bottom: 0;
-                            transition: $transition1;
-                            transform: translateY(0);
-                        }
-                    }
-                    & .cont-description {
-                        visibility: hidden;
-                        transition: $transition1;
-                        position: absolute;
-                        bottom: -20px;
-                        background: $color-white;
-                        padding: .5rem;
-                        transform: translateY(100px);
-                        @include respond-to('medium') {
-                            visibility: visible;
-                            opacity: 1;
-                            position: relative;
-                            transform: translateY(0);
                         }
                     }
                 }
@@ -183,7 +134,7 @@
                 }
             }
         }
-        //OPTION 4
+        //OPTION SMALL
         & .swiper-section-2 {
             display: flex;
             justify-content: space-between;
@@ -204,17 +155,21 @@
                     display: none;
                 }
                 & .title-new {
-                    border: 1px solid $color-rio-grande;
+                    border-right: 1px solid $color-gallery;
                     padding: 1rem;
                     margin-right: 1rem;
                     width: 170px;
                     max-height: 170px;
                     height: 100%;
                     margin-left: 1.5rem;
+                    //New Stile
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     & h1 {
                         font-size: 1.5rem;
                         font-weight: 300;
-                        color: $color-rio-grande;
+                        color: $color-mine-shaft;
                         text-align: left;
                         margin: 0;
                     }
@@ -297,10 +252,8 @@
                         }
                     }
                     & .link-product:hover {
-                        transform: scale(1.1) translateY(-37.5px);
-                        padding: .5rem;
-                        height: 100%;
-                        box-shadow: 0 0 20px rgba(0, 0, 0, .05);
+                        opacity: .8;
+                        cursor: pointer;
                         @include respond-to('medium') {
                             box-shadow: none;
                             padding: 0;
@@ -429,16 +382,20 @@
         & .next-section {
             position: absolute;
             bottom: 4%;
-            width: 55px;
-            height: 55px;
+            padding: 20px;
             border-radius: 50%;
+            border: solid 1px $color-alto;
             display: flex;
             align-items: center;
             justify-content: center;
             animation: arrow-next 1s infinite alternate;
             transition: $transition1;
+            @include respond-to('medium') {
+                display: none;
+            }
             & img {
-                width: 20px;
+                width: 30px;
+                height: 30px;
                 margin: auto;
             }
             &:active {
@@ -455,31 +412,11 @@
         }
         //Arrow Back Section
         & .back-section {
-            position: absolute;
+            @extend .next-section;
             top: 4%;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: arrow-next 1s infinite alternate;
-            transition: $transition1;
+            bottom: inherit;
             & img {
                 transform: rotate(180deg);
-                width: 20px;
-                margin: auto;
-            }
-            &:active {
-                background: $color-alto;
-            }
-        }
-        @keyframes arrow-next {
-            from {
-                transform: translateY(0);
-            }
-            to {
-                transform: translateY(10px);
             }
         }
         & .volver-inicio {
@@ -490,5 +427,10 @@
             letter-spacing: 2px;
             font-size: .8rem;
             animation: none;
+            border: solid 1px $color-alto;
+            border-radius: 3px;
+            line-height: 35px;
+            height: 35px;
+            padding: 0 30px;
         }
     }
