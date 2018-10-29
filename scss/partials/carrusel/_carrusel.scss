@@ -1,3 +1,11 @@
+    .cover {
+        h1 {
+            padding-left: 1rem!important;
+            padding-right: 1rem!important;
+            text-align: center;
+        }
+    }
+    
     .module-swiper {
         position: relative;
         @include respond-to('medium') {
@@ -150,28 +158,34 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                border-right: 1px solid $color-gallery;
                 @include respond-to('medium') {
                     position: relative;
                     display: none;
                 }
                 & .title-new {
-                    border-right: 1px solid $color-gallery;
-                    padding: 1rem;
-                    margin-right: 1rem;
+                    padding: 0 1.5rem;
                     width: 170px;
                     max-height: 170px;
                     height: 100%;
-                    margin-left: 1.5rem;
-                    //New Stile
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    @include respond-to('medium') {
+                        width: 130px;
+                        padding: 1rem;
+                    }
                     & h1 {
                         font-size: 1.5rem;
                         font-weight: 300;
                         color: $color-mine-shaft;
                         text-align: left;
                         margin: 0;
+                        width: 100%;
+                        max-width: 85px;
+                        @include respond-to('medium') {
+                            font-size: 1.3rem;
+                        }
                     }
                 }
             }
@@ -196,12 +210,12 @@
                     margin-left: 0;
                     min-height: 170px;
                     @include respond-to('super-small') {
-                        min-height: 220px;
+                        //min-height: 220px;
                     }
                 }
             }
             & .swiper-wrapper {
-                left: 17.5%;
+                left: 13.5%;
                 @include respond-to('medium') {
                     left: 0;
                 }
@@ -270,6 +284,9 @@
                         opacity: 1;
                     }
                 }
+            }
+            & .swiper-button-prev {
+                left: 175px!important;
             }
         }
         //OPTION 5
@@ -390,13 +407,18 @@
             justify-content: center;
             animation: arrow-next 1s infinite alternate;
             transition: $transition1;
-            @include respond-to('medium') {
-                display: none;
+            @include respond-to('small') {
+                padding: 15px;
+                bottom: 3%;
             }
             & img {
                 width: 30px;
                 height: 30px;
                 margin: auto;
+                @include respond-to('small') {
+                    width: 20px;
+                    height: 20px;
+                }
             }
             &:active {
                 background: $color-alto;
@@ -415,6 +437,9 @@
             @extend .next-section;
             top: 4%;
             bottom: inherit;
+            @include respond-to('small') {
+                top: 0%;
+            }
             & img {
                 transform: rotate(180deg);
             }
