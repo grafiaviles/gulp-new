@@ -67,7 +67,6 @@
             // Create Section with object.label
             let dynamicSubMenu = document.createElement("div");
             dynamicSubMenu.classList.add("dynamic-sub-menu");
-            // these are the second level console.table(object.subCategories);
             object.subCategories.forEach((el) => {
                 dynamicSubMenu.appendChild(guidedSellingSecondLevel(el));
             });
@@ -190,7 +189,6 @@
         var guidedSellingXMLHTTP = new XMLHttpRequest();
         var guidedSellingURL = "/rest/model/falabella/rest/browse/BrowseActor/get-header-main-menu";
         var guidedSellingFormData = new FormData();
-
         guidedSellingFormData.append("ACCESS-CHANNEL", "GUIDEDSELLING");
         guidedSellingFormData.append("ACCESS_KEY", "GUIDEDSELLING_get-header-main-menu");
         guidedSellingFormData.append("ACCESS-TIMESTAMP", "Tue Sep 04 12:38:20 GMT-04:00 2018");
@@ -208,17 +206,17 @@
                     document.querySelectorAll('.accordion .accordion-section-title').forEach((el) => {
                         el.classList.remove('active')
                     });
-                    //.slideUp(300).removeClass('open');
                     document.querySelectorAll('.accordion .accordion-section-content').forEach((el) => {
-                        el.classList.remove('open');
-                        el.style.display = "none";
+                        if (el.classList.contains('open')) {
+                            el.classList.remove('open');
+                        }
+
                     });
                 }
 
                 var accordionSectionTitles = document.querySelectorAll('.accordion-section-title');
                 accordionSectionTitles.forEach((el) => {
                     el.addEventListener("click", (e) => {
-
 
                         var currentAttrValue = e.target.getAttribute('href');
                         if ((e.target).classList.contains('active')) {
@@ -232,10 +230,7 @@
                             document.querySelectorAll(currentAttrValue).forEach((el) => {
                                 el.classList.add('open')
                             });
-                            //slideDown
-                            document.querySelectorAll(currentAttrValue).forEach((el) => {
-                                el.style.display = "block"
-                            });
+
                         }
 
                         e.preventDefault();
@@ -244,8 +239,13 @@
                 });
 
             }
-        };
+        }
+
         guidedSellingXMLHTTP.open("GET", guidedSellingURL, true);
-        guidedSellingXMLHTTP.send(guidedSellingFormData);
+        if (document.location.href.match(/falabella-cl/)) {
+            guidedSellingXMLHTTP.send(guidedSellingFormData);
+        } else {
+            guidedSellingXMLHTTP.send();
+        }
     </script>
 </body>
