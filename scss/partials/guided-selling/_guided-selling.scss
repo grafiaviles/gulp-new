@@ -306,7 +306,7 @@
 }
 
 .accordion-section-content.open {
-    transition: $transition1;
+    transition: opacity 1s ease;
     opacity: 1;
     position: relative;
     visibility: visible;
