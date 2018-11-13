@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="/static/RDF/site/content/guided-selling/css/main.min.css"><title>Guided Selling - Falabella.com</title></head><body><main class="main-module"><!-- Spinners --><div class="cont-cargador"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div><section class="home-category"><div class="title-container"><img width="15" src="/static/RDF/site/content/guided-selling/img/sale/arrow.svg" title="Arrow"><h1 class="title-text">Búsqueda por categorías principales</h1></div></section></main><script>//@@Array of Object with taxonomies
-        //hide-only-tablet-desktop
-        function guidedSellingMenuWrapper(array, divClass) {
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="/static/RDF/site/content/guided-selling/css/main.min.css"><title>Guided Selling - Falabella.com</title></head><body><main class="main-module"><!-- Spinners --><div class="cont-cargador"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div><section class="home-category"><div class="title-container"><img width="15" src="/static/RDF/site/content/guided-selling/img/sale/arrow.svg" title="Arrow"><h1 class="title-text">Búsqueda por categorías principales</h1></div></section></main><script>function guidedSellingMenuWrapper(array, divClass) {
             let accordionContainer = document.querySelector(".home-category");
             let accordion = document.createElement("div");
             accordion.classList.add("accordion", divClass);
@@ -17,8 +15,6 @@
             }
         }
 
-        //@@object with a label and array of subCategories, index, true or false
-
         function allocateAccordionSection(div) {
 
             let accordionArray = div.querySelectorAll(".accordion-section-content");
@@ -32,7 +28,6 @@
 
         function guidedSellingFirstLevel(object, index, isDesktop) {
 
-            // Create Section with object.label
             let dynamicSubMenu = document.createElement("div");
             dynamicSubMenu.classList.add("dynamic-sub-menu");
             object.subCategories.forEach((el) => {
@@ -58,15 +53,25 @@
 
         function buildHeaderClass(sentence) {
             let fixedSentence = sentence.toLowerCase().replace(/ /g, "-");
-            if (fixedSentence === "electro-y-tecnología") {
+
+            if (fixedSentence.match(/electro/)) {
                 fixedSentence = "tecnologia";
             }
-            if (fixedSentence === "niños") {
+            if (fixedSentence === "niños" || fixedSentence.match(/infantil/)) {
                 fixedSentence = "ninos";
             }
 
             if (fixedSentence === "hombre") {
                 fixedSentence = "moda-hombre";
+            }
+            if (fixedSentence === "mujer") {
+                fixedSentence = "moda-mujer";
+            }
+            if (fixedSentence.match(/deco/) && fixedSentence.match(/hogar/)) {
+                fixedSentence = "decohogar";
+            }
+            if (fixedSentence === "calzado") {
+                fixedSentence = "zapatos";
             }
             return "bg-" + fixedSentence;
         }
@@ -112,39 +117,30 @@
             return triangleSpan;
         }
 
-        //Receives an object with label, a link, and array of leafCategories label: "TV ", link: "/category/cat1012/TV", leafCategories: Array(5)
         function guidedSellingSecondLevel(object) {
-
-            //create level 2 item
             let secondLevelItemUL = document.createElement("ul");
             let secondLevelItem = document.createElement("li");
             let secondLevelItemLink = document.createElement("a");
             secondLevelItemLink.classList.add("title-sub-category");
             secondLevelItemLink.innerText = object.label;
-            secondLevelItemLink.setAttribute("href", "/falabella-cl" + object.link);
+            secondLevelItemLink.setAttribute("href", fbCountrySufix() + object.link);
             secondLevelItem.appendChild(secondLevelItemLink);
-
-            //append secondlevel to UL
             secondLevelItemUL.appendChild(secondLevelItem);
             object.leafCategories.forEach((el) => {
-                    //append each third to the corresponding UL
-                    secondLevelItemUL.appendChild(guidedSellingThirdLevel(el));
-                })
-                //this is second level wrapper, a div
+                secondLevelItemUL.appendChild(guidedSellingThirdLevel(el));
+            })
             let secondLevelItemWrapper = document.createElement("div");
             secondLevelItemWrapper.classList.add("sub-menu");
             secondLevelItemWrapper.appendChild(secondLevelItemUL);
-            //return Div to the first level handler
             return secondLevelItemWrapper;;
         }
-        //label: "Televisores LED", link: "/category/cat7190148/Televisores-LED", isHighlightLink: false
+
         function guidedSellingThirdLevel(object) {
-            //create third level
             let thirdLevelItem = document.createElement("li");
             let thirdLevelItemLink = document.createElement("a");
             thirdLevelItemLink.classList.add("link-sub-category");
             thirdLevelItemLink.innerText = object.label;
-            thirdLevelItemLink.setAttribute("href", "/falabella-cl" + object.link);
+            thirdLevelItemLink.setAttribute("href", fbCountrySufix() + object.link);
             thirdLevelItem.appendChild(thirdLevelItemLink);
             if (object.isHighlightLink === true) {
                 thirdLevelItemLink.classList.add("last-bold");
@@ -152,7 +148,17 @@
             return thirdLevelItem;
         }
 
-        //XMLHttpRequest
+        function fbCountrySufix() {
+
+            var falabellaUrl = document.location.href.match(/falabella\.com\.(\w\w)/);
+            if (falabellaUrl) {
+                return '/falabella-' + falabellaUrl[1];
+
+            } else {
+                return '/falabella-cl';
+            }
+
+        }
 
         var guidedSellingXMLHTTP = new XMLHttpRequest();
         var guidedSellingURL = "/rest/model/falabella/rest/browse/BrowseActor/get-header-main-menu";
@@ -169,7 +175,6 @@
                 guidedSellingMenuWrapper(daResponse.state.rootCategories, "hide-only-mobile");
                 guidedSellingMenuWrapper(daResponse.state.rootCategories, "hide-only-tablet-desktop");
 
-                //cesar script
                 function close_accordion_section() {
                     document.querySelectorAll('.accordion .accordion-section-title').forEach((el) => {
                         el.classList.remove('active')
@@ -192,9 +197,7 @@
                         } else {
                             close_accordion_section();
 
-                            // Add active class to section title
                             e.target.classList.add('active');
-                            // Open up the hidden content panel
                             document.querySelectorAll(currentAttrValue).forEach((el) => {
                                 el.classList.add('open')
                             });
