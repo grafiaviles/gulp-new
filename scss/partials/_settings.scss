@@ -15,7 +15,7 @@ body {
 
 .main-module {
     max-width: 100%;
-    min-height: 100vh;
+    //min-height: 100vh;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -30,6 +30,24 @@ body {
 
 .hide {
     display: none!important;
+}
+
+.hide-mobile {
+    @include respond-to('small') {
+        display: none!important;
+    }
+}
+
+.hide-tablet {
+    @include respond-to('medium') {
+        display: none!important;
+    }
+}
+
+.hide-desktop {
+    @include respond-to('large') {
+        display: none!important;
+    }
 }
 
 div,
