@@ -33,10 +33,10 @@
             </div>
             <!-- Formulario de Regalos -->
             <form class="form-regalos" id="contact-regalos" name="contacto-regalos" action="data-regalos.php" method="POST" autocomplete="off">
-                <!-- Contentainer Active -->
+                <!-- Container User 1 Autofocus -->
                 <div class="cont-form">
                     <figure class="cont-icons-user">
-                        <img src="img/user-active.svg" alt="">
+                        <img src="img/user-1.svg" alt="Usuario">
                     </figure>
                     <div class="cont-input">
                         <div class="grid-1-4 input-field">
@@ -44,22 +44,25 @@
                             <label class="new-input hide" for="nombreApodo" class="">Nombre / Apodo</label>
                         </div>
                         <div class="grid-1-4 input-field">
-                            <select id="tipo" class="browser-default">
-                                <option value="" disabled selected>Tipo</option>
-                                <option value="1">Mujer</option>
-                                <option value="2">Hombre</option>
-                                <option value="3">Niños</option>
-                                <option value="3">Teens</option>
-                                <option value="3">Mascotas</option>
+
+                            <select id="tipo" class="select">
+                                    <option value="hide">Tipo</option>
+                                    <option value="1">Mujer</option>
+                                    <option value="2">Hombre</option>
+                                    <option value="3">Niños</option>
+                                    <option value="3">Teens</option>
+                                    <option value="3">Mascotas</option>
                             </select>
                         </div>
+
                         <div class="grid-1-4 input-field">
-                            <input class="new-input" id="edad" type="number" placeholder="Nombre / Apodo">
+                            <input class="new-input" id="edad" type="number" placeholder="Edad">
                             <label class="new-input hide" for="edad" class="">Edad</label>
                         </div>
+
                         <div class="grid-1-4 input-field">
-                            <select id="interes" class="browser-default">
-                                <option value="" disabled selected>Intereses</option>
+                            <select id="interes" class="select">
+                                <option value="hide">Intereses</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
                                 <option value="3">Option 3</option>
@@ -67,10 +70,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- Contentainer 2 -->
-                <div class="cont-form">
+                <!-- Contentainer User 2 -->
+                <div class="cont-form hide-mobile">
                     <figure class="cont-icons-user">
-                        <img src="img/user-off.svg" alt="">
+                        <img src="img/user-2.svg" alt="Usuario">
                     </figure>
                     <div class="cont-input">
                         <div class="grid-1-4 input-field">
@@ -78,8 +81,8 @@
                             <label class="new-input hide" for="nombreApodo" class="">Nombre / Apodo</label>
                         </div>
                         <div class="grid-1-4 input-field">
-                            <select id="tipo" class="browser-default">
-                                <option value="" disabled selected>Tipo</option>
+                            <select id="tipo" class="select">
+                                <option value="hide">Tipo</option>
                                 <option value="1">Mujer</option>
                                 <option value="2">Hombre</option>
                                 <option value="3">Niños</option>
@@ -88,23 +91,27 @@
                             </select>
                         </div>
                         <div class="grid-1-4 input-field">
-                            <input class="new-input" id="edad" type="number" placeholder="Nombre / Apodo">
+                            <input class="new-input" id="edad" type="number" placeholder="Edad">
                             <label class="new-input hide" for="edad" class="">Edad</label>
                         </div>
                         <div class="grid-1-4 input-field">
-                            <select id="interes" class="browser-default">
-                                <option value="" disabled selected>Intereses</option>
+                            <select id="interes" class="select">
+                                <option value="hide">Intereses</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
                                 <option value="3">Option 3</option>
                             </select>
                         </div>
                     </div>
+                    <!-- Delete Row -->
+                    <div class="delete-row">
+                        <img class="close-img" src="img/close.svg" width="17">
+                    </div>
                 </div>
                 <!-- Container Agregar Usuario -->
                 <div class="cont-form">
                     <figure id="agregar-usuario" class="cont-icons-user cont-icons-user-plus">
-                        <img src="img/user-plus.svg" alt="">
+                        <img src="img/user-plus.svg" alt="Agregar otro usuario">
                         <span class="text-agregar">Agregar otro</span>
                     </figure>
                 </div>
@@ -114,22 +121,81 @@
                         <p>
                             <label>
                                 <input type="checkbox"/>
-                                <span>Acepto <a href="" class="terminos">términos y condiciones</a></span>
+                                <span>Al enviar estás aceptando <a href="" class="terminos">términos y condiciones</a></span>
                             </label>
                         </p>
                     </div>
                     <div class="row-data grid-1-2">
-                        <button class="btn-enviar" type="submit" name="action">ENVIAR</button>
-                        <div class="lds-ring">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                        <div class="cont-input grid-1-2">
+                            <figure class="cont-icons-user">
+                                <img src="img/mail.svg" alt="Ingresa tu email">
+                            </figure>
+                            <input id="email" type="email" placeholder="Ingresa tu email">
                         </div>
+                        <button class="grid-1-2 btn-enviar btn-disabled" type="submit" name="action">ENVIAR
+                            <div class="lds-ring hide">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </form>
         </section>
     </main>
+
+    <iframe src="" id="iframeChristmas" width="50" height="500" frameborder="0" scrolling="no"></iframe>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $('select').each(function() {
+            var $this = $(this),
+                numberOfOptions = $(this).children('option').length;
+
+            $this.addClass('select-hidden');
+            $this.wrap('<div class="select"></div>');
+            $this.after('<div class="select-styled"></div>');
+
+            var $styledSelect = $this.next('div.select-styled');
+            $styledSelect.text($this.children('option').eq(0).text());
+
+            var $list = $('<ul />', {
+                'class': 'select-options'
+            }).insertAfter($styledSelect);
+
+            for (var i = 0; i < numberOfOptions; i++) {
+                $('<li />', {
+                    text: $this.children('option').eq(i).text(),
+                    rel: $this.children('option').eq(i).val()
+                }).appendTo($list);
+            }
+
+            var $listItems = $list.children('li');
+
+            $styledSelect.click(function(e) {
+                e.stopPropagation();
+                $('div.select-styled.active').not(this).each(function() {
+                    $(this).removeClass('active').next('ul.select-options').hide();
+                });
+                $(this).toggleClass('active').next('ul.select-options').toggle();
+            });
+
+            $listItems.click(function(e) {
+                e.stopPropagation();
+                $styledSelect.text($(this).text()).removeClass('active');
+                $this.val($(this).attr('rel'));
+                $list.hide();
+                //console.log($this.val());
+            });
+
+            $(document).click(function() {
+                $styledSelect.removeClass('active');
+                $list.hide();
+            });
+
+        });
+    </script>
 
 </body>
