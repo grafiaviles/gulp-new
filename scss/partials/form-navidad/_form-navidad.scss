@@ -1,502 +1,677 @@
-/* HOME CATEGORY TABLET */
-
-.container-module {
-    animation: accordion 1s 1 alternate;
-    border: 1px solid $color-gallery;
-    min-height: 100vh;
-    /* Title + Banner */
-    & .title-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 1.5rem;
-        border-bottom: 1px solid $color-gallery;
+$h1-size: 40px;
+$h3-size: 25px;
+$h5-size: 20px;
+$p-size: 14px;
+.main-module {
+    height: 100%;
+    background: transparent;
+    position: relative;
+    @include respond-to('medium') {
+        background: $color-gallery;
+    }
+    /* HEADER */
+    & .header {
         width: 100%;
-        @include respond-to('small') {
-            border-bottom: 3px solid $color-gallery;
-            margin-bottom: .5rem;
-        }
-        & .title-and-text {
-            padding: 1rem 2rem;
-            @include respond-to('small') {
-                padding: 1.5rem;
-            }
-            & .title-text {
-                font-size: 30px!important;
-                font-weight: 300!important;
-                text-align: left!important;
-                margin-bottom: .5rem !important;
-                @include respond-to('small') {
-                    font-size: 25px!important;
-                }
-            }
-            & .paragraph-text {
-                font-size: 14px!important;
-                font-weight: 400!important;
-                text-align: left!important;
-                margin: 0!important;
-            }
-        }
-        & img.banner-navidad {
-            width: 100%;
-        }
-    }
-}
-
-@keyframes accordion {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/*----- FORMULARIO NAVIDAD -----*/
-
-.form-regalos {
-    width: 100%;
-    & .cont-form {
-        padding: 0 2rem;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        height: 380px;
+        overflow: hidden;
+        background: #f4f5f7;
         position: relative;
         @include respond-to('medium') {
-            padding: 1.5rem;
-            flex-wrap: wrap;
-            flex-direction: column;
-            align-items: flex-start;
+            height: 320px;
         }
-        & .cont-icons-user {
-            position: relative;
-            & img {
-                margin-right: 1rem;
-                width: 100%;
-                max-width: 30px;
-                @include respond-to('small') {
-                    max-width: 35px;
-                }
-            }
-        }
-        & .cont-icons-user-plus {
-            margin: 1rem 0 2rem 0;
-            cursor: pointer;
+        & .header__background {
+            background-image: url("../img/header.jpg");
+            background-size: cover;
+            background-position: top center;
+            width: inherit;
+            height: inherit;
             display: flex;
             align-items: center;
-            @include respond-to('small') {
-                width: 100%;
-                margin-top: 0;
-            }
-            & .text-agregar {
-                padding: 0 .75rem;
-                font-size: 14px;
-                border: 1px solid $color-mine-shaft;
-                padding: 0 1.5rem;
-                line-height: 2rem;
-                border-radius: $border-botones;
-                overflow: hidden;
-                transition: $transition1;
-                margin-left: .5rem;
-                &:hover {
-                    background: $color-mine-shaft;
-                    color: $color-white;
-                    box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
-                }
-                &:active {
-                    transform: scale(.95);
-                }
-            }
-        }
-        & .cont-input {
-            flex: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            width: 100%;
-            & .input-field {
-                position: relative;
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-                padding: 0 .75rem;
-                min-height: 1px;
-                @include respond-to('small') {
-                    padding: 0;
-                }
-                & input[type=text],
-                input[type=tel],
-                input[type=email],
-                input[type=number],
-                input[type=url] {
-                    background-color: transparent;
-                    border: none;
-                    border-bottom: 1px solid $color-silver;
-                    border-radius: 0;
-                    outline: none;
-                    height: 3rem;
-                    width: 100%;
-                    font-size: 14px;
-                    margin: 0 0 8px 0;
-                    padding: 0;
-                    box-shadow: none;
-                    box-sizing: content-box;
-                    transition: border .3s, -webkit-box-shadow .3s;
-                    transition: box-shadow .3s, border .3s;
-                    transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
-                    &:focus {
-                        border-bottom: 1px solid $color-pistachio;
-                        box-shadow: 0 1px 0 0 $color-pistachio;
-                    }
-                }
-                & label {
-                    color: $color-silver;
-                    position: absolute;
-                    left: .75rem!important;
-                    top: 0;
-                    left: 0;
-                    font-size: 1rem;
-                    cursor: text;
-                    transition: color .2s ease-out, -webkit-transform .2s ease-out;
-                    transition: transform .2s ease-out, color .2s ease-out;
-                    transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
-                    transform-origin: 0% 100%;
-                    text-align: initial;
-                    transform: translateY(12px);
-                    &:focus,
-                    &:active {
-                        color: $color-pistachio;
-                        transform: translateY(-24px) scale(.8);
-                    }
-                    &:after {
-                        display: block;
-                        content: "";
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        opacity: 0;
-                        -webkit-transition: .2s opacity ease-out, .2s color ease-out;
-                        transition: .2s opacity ease-out, .2s color ease-out;
-                    }
-                }
-                //Select
-                & .select {
-                    background-color: transparent;
-                    color: $color-silver;
-                    border: none;
-                    border-bottom: 1px solid $color-silver;
-                    border-radius: 0;
-                    outline: none;
-                    height: 3rem;
-                    width: 100%;
-                    font-size: 14px;
-                    margin: 0 0 8px 0;
-                    padding: 0;
-                    box-shadow: none;
-                    box-sizing: content-box;
-                    transition: border .3s, -webkit-box-shadow .3s;
-                    transition: box-shadow .3s, border .3s;
-                    transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
-                    position: relative;
-                    cursor: pointer;
-                    display: inline-block;
-                    &:focus {
-                        border-bottom: 1px solid $color-pistachio;
-                        box-shadow: 0 1px 0 0 $color-pistachio;
-                    }
-                }
-                & .select-styled {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    left: 0;
-                    line-height: 3rem;
-                    background-color: $color-white;
-                    transition: all 0.2s ease-in;
-                }
-                .select-styled:after {
-                    content: "";
-                    width: 0;
-                    height: 0;
-                    border: 7px solid transparent;
-                    border-color: $color-mine-shaft transparent transparent transparent;
-                    position: absolute;
-                    top: 25px;
-                    right: 10px;
-                }
-                .select-styled:active,
-                .select-styled.active {
-                    border-bottom: 1px solid $color-pistachio;
-                    box-shadow: 0 1px 0 0 $color-pistachio;
-                }
-                .select-styled:active:after,
-                .select-styled.active:after {
-                    top: 9px;
-                    border-color: transparent transparent $color-mine-shaft transparent;
-                }
-                .select-options {
-                    display: none;
-                    position: absolute;
-                    top: 100%;
-                    right: 0;
-                    left: 0;
-                    z-index: 999;
-                    margin: 0;
-                    padding: 0;
-                    list-style: none;
-                    background-color: $color-white;
-                    box-shadow: 0 5px 20px -7px rgba(0, 0, 0, 0.2);
-                }
-                .select-options li {
-                    margin: 0;
-                    padding: 1rem 0;
-                    text-indent: 15px;
-                    color: $color-mine-shaft;
-                    transition: all 0.15s ease-in;
-                }
-                .select-options li:hover {
-                    background: $color-alabaster;
-                    box-shadow: 3px 0 0 $color-pistachio inset;
-                }
-                .select-options li[rel="hide"] {
-                    display: none;
-                }
-            }
-        }
-        & .delete-row {
-            position: absolute;
-            right: 10px;
-            top: 0;
-            padding: 5px;
-            border: 1px solid transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: $border-botones-2;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: $transition1;
-            & .tooltips-row {
-                position: absolute;
-                font-size: 9px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                right: 30px;
-                top: 50%;
-                //background: $color-silver;
-                color: rgba($color-mine-shaft, .4);
-                font-size: 9px;
-                line-height: 30px;
-                height: 30px;
-                width: auto;
-                display: inline-block;
-                text-align: center;
-                font-weight: 600;
-                letter-spacing: 1px;
-                //padding: 0 .5rem;
-                text-transform: uppercase;
-                visibility: hidden;
-                opacity: 0;
-                transition: $transition1;
-                transform: translateY(-50%);
-                //box-shadow: 0 5px 75px rgba(0, 0, 0, 0.1);
-                &::after {
-                    content: "";
-                    border-color: transparent transparent #fff transparent;
-                    border-style: solid;
-                    border-width: 5px;
-                    top: -10px;
-                    position: absolute;
-                    left: -webkit-calc(50% - 5px);
-                    left: calc(50% - 5px);
-                }
-            }
-            & .close-img {
-                transition: $transition1;
-                opacity: .4;
-            }
-            & .close-img:hover {
-                opacity: .7;
-            }
-        }
-        &:hover .delete-row {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
-    & .cont-form:nth-of-type(1) {
-        @include respond-to('small') {
-            padding-bottom: 1rem;
-        }
-    }
-    & .cont-form:nth-of-type(3) {
-        border-bottom: 1px solid $color-gallery;
-        @include respond-to('small') {
-            border-bottom: 3px solid $color-gallery;
-            padding: 0 1.5rem;
-        }
-    }
-    //Boton enviar
-    & .cont-btn {
-        display: block;
-        & .row-data {
-            display: flex;
             justify-content: flex-start;
-            align-items: center;
-            position: relative;
-            margin-top: 15px;
-        }
-        & .conten-radio {
-            margin-right: 25px;
-        }
-        & .terminos {
-            color: $color-pistachio;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        & .row-data:nth-child(1) {
-            margin-top: 2rem;
-            padding-left: 3px;
-            @include respond-to('small') {
-                margin-top: 0;
-                //padding-left: 0;
+            background-repeat: no-repeat;
+            @include respond-to('medium') {
+                background-image: url("../img/header-mobile.jpg");
+                background-position: center top;
+                height: 320px;
+                position: relative;
             }
         }
-        //Data Input Boton Enviar
-        & .row-data:nth-child(2) {
-            max-width: 100%;
+        & .header-left {
+            text-align: left;
             width: 100%;
-            flex-wrap: wrap;
-            @include respond-to('small') {
-                margin-top: 1rem;
-                max-width: 100%;
+            max-width: 1280px;
+            margin: auto;
+            animation: intro 1s 1 alternate;
+            @include respond-to('medium') {
+                background: transparent;
+                height: auto;
+                bottom: 80px;
+                margin: 0;
+                position: absolute;
             }
-            & .cont-input {
-                padding-right: 1.5rem;
-                justify-content: flex-start;
+            & .title-header {
+                color: $color-white;
+                position: relative;
+                display: inline-block;
+                background: $color-rio-grande;
+                padding: .5rem 1rem;
+                font-weight: 300;
+                font-size: $h1-size;
+                background-image: url("../img/decoration.svg");
+                background-position-y: bottom;
+                background-repeat: no-repeat;
+                margin-bottom: 1rem;
+                @include respond-to('large') {
+                    margin-left: 2rem;
+                    font-size: 35px;
+                }
                 @include respond-to('medium') {
-                    padding-right: 0;
-                    margin-bottom: 2rem;
-                    align-items: center;
+                    font-size: 20px;
+                    padding: 1rem;
+                    margin: 0;
+                    font-weight: 400;
+                    width: 100%;
+                    text-align: center;
+                }
+                @include respond-to('super-small') {
+                    //font-size: 25px;
+                }
+                & .regalo-3-header {
+                    position: absolute;
+                    right: 10px;
+                    top: -47px;
+                }
+            }
+            & .text-header {
+                font-size: $h5-size;
+                color: rgba($color-gray, .9);
+                font-weight: 300;
+                max-width: 500px;
+                text-align: center;
+            }
+        }
+        & .regalo-small-header {
+            position: absolute;
+            left: 1.5%;
+            bottom: -50px;
+        }
+        & .regalo-small-2-header {
+            @extend .regalo-small-header;
+            right: 2.5%;
+            left: inherit;
+        }
+    }
+    /* CONTAINER FORM DIAMICO */
+    .container-module {
+        animation: intro 1s 1 alternate;
+        min-height: 100%; //dejar auto
+        background: $color-white;
+        margin-bottom: 5rem;
+        border-radius: 3px;
+        box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.05);
+        position: relative;
+        top: -80px;
+        z-index: 100;
+        @keyframes intro {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /*----- FORMULARIO NAVIDAD -----*/
+        .form-regalos {
+            width: 100%;
+            padding: 2rem 0 3.8rem 0;
+            background-color: $color-white;
+            @include respond-to('medium') {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                height: 100%;
+            }
+            & .cont-form {
+                padding: 0 2rem;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+                transition: $transition1;
+                @include respond-to('medium') {
+                    padding: 1.5rem;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    align-items: flex-start;
                 }
                 & .cont-icons-user {
-                    margin-right: .5rem;
-                    height: 3rem;
-                    display: flex;
-                    align-items: center;
+                    position: relative;
                     & img {
-                        max-width: 27.5px;
+                        margin-right: 1rem;
+                        width: 100%;
+                        max-width: 30px;
                         @include respond-to('small') {
-                            width: 35px;
-                            margin-right: .5rem;
-                            margin-top: .5rem;
+                            max-width: 35px;
                         }
                     }
                 }
-                & input[type=email] {
-                    background-color: transparent;
-                    border: none;
-                    border-bottom: 1px solid $color-silver;
-                    outline: none;
-                    height: 3rem;
-                    font-size: 14px;
+                & .cont-icons-user-plus {
+                    margin: 1rem 0 2rem 0;
+                    display: flex;
+                    align-items: center;
+                    @include respond-to('small') {
+                        width: 100%;
+                        margin-top: 0;
+                    }
+                    & .text-agregar {
+                        cursor: pointer;
+                        padding: 0 .75rem;
+                        font-size: $p-size;
+                        border: 1px solid $color-mine-shaft;
+                        padding: 0 1.5rem;
+                        line-height: 2rem;
+                        border-radius: $border-botones;
+                        overflow: hidden;
+                        transition: $transition1;
+                        margin-left: .5rem;
+                        &:hover {
+                            background: $color-mine-shaft;
+                            color: $color-white;
+                            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
+                        }
+                        &:active {
+                            transform: scale(.98);
+                        }
+                    }
+                }
+                & .cont-input {
                     flex: auto;
-                    margin: 0 0 8px 0;
-                    padding: 0;
-                    box-shadow: none;
-                    box-sizing: content-box;
-                    border-radius: 0;
-                    transition: border .3s, -webkit-box-shadow .3s;
-                    transition: box-shadow .3s, border .3s;
-                    transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
-                    @include respond-to('medium') {
-                        margin-bottom: 0px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    & .input-field {
+                        position: relative;
+                        margin-top: 1rem;
+                        margin-bottom: 1rem;
+                        padding: 0 .75rem;
+                        min-height: 1px;
+                        @include respond-to('small') {
+                            padding: 0;
+                        }
+                        & input[type=text],
+                        input[type=tel],
+                        input[type=email],
+                        input[type=number],
+                        input[type=url] {
+                            background-color: transparent;
+                            -webkit-appearance: textfield;
+                            border: none;
+                            border-bottom: 1px solid $color-silver;
+                            border-radius: 0;
+                            outline: none;
+                            height: 3rem;
+                            width: 100%;
+                            font-size: $p-size;
+                            margin: 0 0 8px 0;
+                            padding: 0;
+                            box-shadow: none;
+                            box-sizing: content-box;
+                            transition: border .3s, -webkit-box-shadow .3s;
+                            transition: box-shadow .3s, border .3s;
+                            transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+                            &:focus {
+                                border-bottom: 1px solid $color-rio-grande;
+                                box-shadow: 0 1px 0 0 $color-rio-grande;
+                            }
+                        }
+                        & label {
+                            color: $color-silver;
+                            position: absolute;
+                            left: .75rem!important;
+                            top: 0;
+                            left: 0;
+                            font-size: 1rem;
+                            cursor: text;
+                            transition: color .2s ease-out, -webkit-transform .2s ease-out;
+                            transition: transform .2s ease-out, color .2s ease-out;
+                            transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
+                            transform-origin: 0% 100%;
+                            text-align: initial;
+                            transform: translateY(12px);
+                            &:focus,
+                            &:active {
+                                color: $color-rio-grande;
+                                transform: translateY(-24px) scale(.8);
+                            }
+                            &:after {
+                                display: block;
+                                content: "";
+                                position: absolute;
+                                top: 100%;
+                                left: 0;
+                                opacity: 0;
+                                -webkit-transition: .2s opacity ease-out, .2s color ease-out;
+                                transition: .2s opacity ease-out, .2s color ease-out;
+                            }
+                        }
+                        //Select
+                        & .select-hidden {
+                            display: none;
+                            visibility: hidden;
+                            padding-right: 10px;
+                        }
+                        & .select {
+                            background-color: $color-white;
+                            background: $color-white;
+                            color: $color-silver;
+                            border: none;
+                            border-bottom: 1px solid $color-silver;
+                            border-radius: 0;
+                            outline: none;
+                            height: 3rem;
+                            width: 100%;
+                            font-size: $p-size;
+                            margin: 0 0 8px 0;
+                            padding: 0;
+                            box-shadow: none;
+                            box-sizing: content-box;
+                            transition: $transition1;
+                            position: relative;
+                            cursor: pointer;
+                            display: inline-block;
+                            &:focus {
+                                border-bottom: 1px solid $color-rio-grande;
+                                box-shadow: 0 1px 0 0 $color-rio-grande;
+                            }
+                        }
+                        & .select-styled {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            line-height: 3rem;
+                            background-color: $color-white;
+                            background: $color-white;
+                            transition: all 0.2s ease-in;
+                        }
+                        .select-styled:after {
+                            content: "";
+                            width: 0;
+                            height: 0;
+                            border: 7px solid transparent;
+                            border-color: $color-gray transparent transparent transparent;
+                            position: absolute;
+                            top: 25px;
+                            right: 10px;
+                        }
+                        .select-styled:active,
+                        .select-styled.active {
+                            border-bottom: 1px solid $color-rio-grande;
+                            box-shadow: 0 1px 0 0 $color-rio-grande;
+                        }
+                        .select-styled:active:after,
+                        .select-styled.active:after {
+                            top: 9px;
+                            border-color: transparent transparent $color-gray transparent;
+                        }
+                        .select-options {
+                            display: none;
+                            position: absolute;
+                            top: 100%;
+                            right: 0;
+                            left: 0;
+                            z-index: 999;
+                            margin: 0;
+                            padding: 0;
+                            list-style: none;
+                            background-color: $color-white;
+                            box-shadow: 0 5px 20px -7px rgba(0, 0, 0, 0.2);
+                        }
+                        .select-options li {
+                            margin: 0;
+                            padding: 1rem 0;
+                            text-indent: $p-size;
+                            color: $color-mine-shaft;
+                            transition: all 0.15s ease-in;
+                        }
+                        .select-options li:hover {
+                            background: $color-alabaster;
+                            box-shadow: 3px 0 0 $color-rio-grande inset;
+                        }
+                        .select-options li[rel="hide"] {
+                            display: none;
+                        }
                     }
-                    &:focus {
-                        border-bottom: 1px solid $color-pistachio;
-                        box-shadow: 0 -1px 0 0 $color-pistachio inset;
+                }
+                & .delete-row {
+                    position: absolute;
+                    right: 10px;
+                    top: 0;
+                    padding: 5px;
+                    border: 1px solid transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: $border-botones-2;
+                    cursor: pointer;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: $transition1;
+                    width: 40px;
+                    height: 40px;
+                    &:hover {
+                        background-color: $color-alabaster;
+                    }
+                    &:active {
+                        background-color: $color-gallery;
+                    }
+                    @include respond-to('small') {
+                        opacity: 1;
+                        visibility: visible;
+                        top: 5%;
+                        right: 1rem;
+                        width: auto;
+                        padding: 0 10px;
+                        border-radius: $border-botones;
+                    }
+                    & .text-delete {
+                        color: $color-gray;
+                        font-size: 10px;
+                        letter-spacing: 1px;
+                        margin-right: 5px;
+                        text-transform: uppercase;
+                        display: none;
+                        @include respond-to('small') {
+                            display: block;
+                        }
+                    }
+                    & .close-img {
+                        transition: $transition1;
+                        opacity: .5;
                     }
                 }
-            }
-            /* Boton Enviar */
-            & .btn-enviar {
-                appearance: none;
-                height: 50px;
-                line-height: 50px;
-                background-color: $color-pistachio;
-                color: $color-white;
-                font-size: 14px;
-                text-transform: uppercase;
-                border: none;
-                outline: none;
-                cursor: pointer;
-                letter-spacing: 1px;
-                font-weight: 600;
-                transition: $transition1;
-                border-radius: $border-botones;
-                @include respond-to('small') {
-                    height: 55px;
-                    line-height: 55px;
-                    max-width: 100%;
-                    font-size: 13px;
-                    letter-spacing: 2px;
-                }
-                &:hover {
-                    background: darken($color-pistachio, 5%);
+                &:hover .delete-row {
+                    opacity: 1;
+                    visibility: visible;
                 }
             }
-            .btn-disabled {
-                pointer-events: none;
-                cursor: default;
-                background-color: $color-silver;
+            & .cont-add {
+                border-bottom: 1px solid $color-gallery;
             }
-            /* Cargador Boton */
-            .lds-ring {
-                display: inline-block;
-                position: absolute;
-                width: 30px;
-                height: 30px;
-                transform: translateX(-50%) translateY(-50%);
-                left: 50%;
-                top: 50%;
-            }
-            .lds-ring div {
-                box-sizing: border-box;
+            //Boton enviar
+            & .cont-btn {
                 display: block;
-                position: absolute;
-                width: 25px;
-                height: 25px;
-                margin: 2px;
-                border: 2px solid $color-white;
-                border-radius: 50%;
-                animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-                border-color: $color-white transparent transparent transparent;
-            }
-            .lds-ring div:nth-child(1) {
-                animation-delay: -0.45s;
-            }
-            .lds-ring div:nth-child(2) {
-                animation-delay: -0.3s;
-            }
-            .lds-ring div:nth-child(3) {
-                animation-delay: -0.15s;
-            }
-            @keyframes lds-ring {
-                0% {
-                    transform: rotate(0deg);
+                & .row-data {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    position: relative;
+                    margin-top: $p-size;
                 }
-                100% {
-                    transform: rotate(360deg);
+                & .conten-radio {
+                    margin-right: 25px;
+                }
+                & .terminos {
+                    color: $color-rio-grande;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+                & .row-data:nth-child(1) {
+                    margin-top: 2rem;
+                    padding-left: 3px;
+                    @include respond-to('small') {
+                        margin-top: 0;
+                        //padding-left: 0;
+                    }
+                }
+                //Data Input Boton Enviar
+                & .row-data:nth-child(2) {
+                    max-width: 51%;
+                    width: 100%;
+                    flex-wrap: wrap;
+                    @include respond-to('small') {
+                        margin-top: 1rem;
+                        max-width: 100%;
+                    }
+                    & .cont-input {
+                        padding-right: 1.5rem;
+                        justify-content: flex-start;
+                        @include respond-to('medium') {
+                            padding-right: 0;
+                            margin-bottom: 2rem;
+                            align-items: center;
+                        }
+                        & .cont-icons-user {
+                            margin-right: .5rem;
+                            height: 3rem;
+                            display: flex;
+                            align-items: center;
+                            & img {
+                                max-width: 27.5px;
+                                @include respond-to('small') {
+                                    width: 35px;
+                                    margin-right: .5rem;
+                                    margin-top: .5rem;
+                                }
+                            }
+                        }
+                        & input[type=email] {
+                            background-color: transparent;
+                            border: none;
+                            border-bottom: 1px solid $color-silver;
+                            outline: none;
+                            height: 3rem;
+                            font-size: $p-size;
+                            flex: auto;
+                            margin: 0 0 8px 0;
+                            padding: 0;
+                            box-shadow: none;
+                            box-sizing: content-box;
+                            border-radius: 0;
+                            transition: border .3s, -webkit-box-shadow .3s;
+                            transition: box-shadow .3s, border .3s;
+                            transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+                            @include respond-to('medium') {
+                                margin-bottom: 0px;
+                            }
+                            &:focus {
+                                border-bottom: 1px solid $color-rio-grande;
+                                box-shadow: 0 -1px 0 0 $color-rio-grande inset;
+                            }
+                        }
+                    }
+                    /* Boton Enviar */
+                    & .btn-enviar {
+                        appearance: none;
+                        height: 50px;
+                        line-height: 50px;
+                        background-color: $color-rio-grande;
+                        color: $color-white;
+                        font-size: $p-size;
+                        text-transform: uppercase;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                        letter-spacing: 1px;
+                        font-weight: 600;
+                        transition: $transition1;
+                        border-radius: $border-botones;
+                        @include respond-to('small') {
+                            height: 55px;
+                            line-height: 55px;
+                            max-width: 100%;
+                            font-size: 13px;
+                            letter-spacing: 2px;
+                        }
+                        &:hover {
+                            background: darken($color-rio-grande, 5%);
+                        }
+                        &:active {
+                            transform: scale(.98);
+                        }
+                    }
+                    /* Cargador Boton */
+                    .lds-ring {
+                        display: inline-block;
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        transform: translateX(-50%) translateY(-50%);
+                        left: 50%;
+                        top: 50%;
+                    }
+                    .lds-ring div {
+                        box-sizing: border-box;
+                        display: block;
+                        position: absolute;
+                        width: 25px;
+                        height: 25px;
+                        margin: 2px;
+                        border: 2px solid $color-white;
+                        border-radius: 50%;
+                        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+                        border-color: $color-white transparent transparent transparent;
+                    }
+                    .lds-ring div:nth-child(1) {
+                        animation-delay: -0.45s;
+                    }
+                    .lds-ring div:nth-child(2) {
+                        animation-delay: -0.3s;
+                    }
+                    .lds-ring div:nth-child(3) {
+                        animation-delay: -0.15s;
+                    }
+                    @keyframes lds-ring {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+                        100% {
+                            transform: rotate(360deg);
+                        }
+                    }
+                }
+            }
+        }
+        //MENSAJE SUCCESS & ERROR SERVER
+        & .msje-success {
+            @extend .form-regalos;
+            padding-bottom: 2.5rem;
+            min-height: 50vh;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            @include respond-to('small') {
+                min-height: auto;
+            }
+            & .cont-msje {
+                @extend .cont-form;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                & .img-success {
+                    max-width: 100%;
+                    width: 200px;
+                    margin-bottom: 16px;
+                    animation: success-img 1s 1 alternate;
+                }
+                @keyframes success-img {
+                    0% {
+                        transform: scale(0);
+                    }
+                    100% {
+                        transform: scale(1);
+                    }
+                }
+                & .title-success {
+                    font-size: 20px;
+                    color: $color-mine-shaft;
+                    margin-bottom: 16px;
+                }
+                & .text-success {
+                    @extend .title-success;
+                    font-size: $p-size;
+                }
+                & .btn-home {
+                    height: 50px;
+                    line-height: 50px;
+                    background-color: $color-rio-grande;
+                    color: $color-white;
+                    font-size: $p-size;
+                    text-transform: uppercase;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    letter-spacing: 1px;
+                    font-weight: 600;
+                    transition: $transition1;
+                    border-radius: $border-botones;
+                    padding: 0 20px;
+                    @include respond-to('small') {
+                        height: 55px;
+                        line-height: 55px;
+                        max-width: 100%;
+                        font-size: 13px;
+                        letter-spacing: 2px;
+                    }
+                    &:hover {
+                        background: darken($color-rio-grande, 5%);
+                    }
+                    &:active {
+                        transform: scale(.98);
+                    }
                 }
             }
         }
     }
+    & .regalo-big-page {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        max-width: 450px;
+        width: 100%;
+        @include respond-to('small') {
+            max-width: 100%;
+        }
+    }
+}
+
+//Boton Desabilitado
+.btn-disabled {
+    pointer-events: none;
+    cursor: default;
+    background-color: $color-silver;
+    color: white;
+    border: 1px solid $color-silver!important;
+    box-shadow: none;
+}
+
+.img-disabled {
+    opacity: .4;
+    pointer-events: none;
+    cursor: default;
+}
+
+//Errores
+.error-input {
+    border-bottom: 1px solid $color-error!important;
+    box-shadow: 0 1px 0 0 transparent!important;
+    transition: $transition1;
+}
+
+.msje-error-input {
+    color: $color-error!important;
+    font-size: 12px;
+    width: 100%;
+    margin: 0;
+    display: block;
+    line-height: 5px;
+    transition: $transition1;
 }
 
 
@@ -511,7 +686,7 @@
     display: inline-block;
     height: 25px;
     line-height: 25px;
-    font-size: 14px;
+    font-size: $p-size;
     transition: .28s ease;
     user-select: none;
     color: $color-mine-shaft;
@@ -546,18 +721,18 @@
 [type="radio"]:checked+span:after,
 [type="radio"].with-gap:checked+span:before,
 [type="radio"].with-gap:checked+span:after {
-    border: 2px solid $color-pistachio;
+    border: 2px solid $color-rio-grande;
 }
 
 [type="radio"]:checked+span:before {
     border-radius: 50%;
-    border: 2px solid $color-pistachio;
+    border: 2px solid $color-rio-grande;
 }
 
 [type="radio"]:checked+span:after {
     transform: scale(.50);
     border-radius: 50%;
-    background: $color-pistachio;
+    background: $color-rio-grande;
 }
 
 label {
@@ -613,15 +788,15 @@ label {
     height: 20px;
     border-top: 2px solid transparent;
     border-left: 2px solid transparent;
-    border-right: 2px solid $color-pistachio;
-    border-bottom: 2px solid $color-pistachio;
+    border-right: 2px solid $color-rio-grande;
+    border-bottom: 2px solid $color-rio-grande;
     transform: rotate(40deg);
     backface-visibility: hidden;
     transform-origin: 100% 100%;
 }
 
 
-/* Cargador */
+/* Cargador Home */
 
 .cont-cargador {
     width: 100%;
@@ -648,10 +823,10 @@ label {
     width: 51px;
     height: 51px;
     margin: 3px;
-    border: 3px solid $color-pistachio;
+    border: 3px solid $color-rio-grande;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: $color-pistachio transparent transparent transparent;
+    border-color: $color-rio-grande transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {
@@ -702,7 +877,7 @@ label {
 }
 
 :-ms-input-placeholder {
-    color: rgba(102, 102, 102, 0.6);
+    color: $color-silver;
 }
 
 ::-ms-input-placeholder {
