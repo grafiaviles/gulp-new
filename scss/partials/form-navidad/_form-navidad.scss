@@ -29,6 +29,8 @@ $p-size: 14px;
             align-items: center;
             justify-content: flex-start;
             background-repeat: no-repeat;
+            margin-top: 0;
+            opacity: 1;
             @include respond-to('medium') {
                 background-image: url("../img/header-mobile.jpg");
                 background-position: center top;
@@ -164,6 +166,7 @@ $p-size: 14px;
                     @include respond-to('small') {
                         width: 100%;
                         margin-top: 0;
+                        margin-bottom: 1rem;
                     }
                     & .text-agregar {
                         cursor: pointer;
@@ -402,6 +405,10 @@ $p-size: 14px;
             }
             & .cont-add {
                 border-bottom: 1px solid $color-gallery;
+                @include respond-to('small') {
+                    margin-bottom: 0;
+                    padding-top: 0;
+                }
             }
             //Boton enviar
             & .cont-btn {
@@ -424,9 +431,119 @@ $p-size: 14px;
                 & .row-data:nth-child(1) {
                     margin-top: 2rem;
                     padding-left: 3px;
+                    flex-direction: column;
                     @include respond-to('small') {
                         margin-top: 0;
-                        //padding-left: 0;
+                    }
+                    //Radio Button
+                    & .cont-chekcbox {
+                        margin-bottom: 10px;
+                        width: 100%;
+                        /* Reset Chekcbox */
+                        [type="radio"]:not(:checked)+span,
+                        [type="radio"]:checked+span {
+                            position: relative;
+                            padding-left: 30px;
+                            cursor: pointer;
+                            display: inline-block;
+                            height: 25px;
+                            line-height: 25px;
+                            font-size: $p-size;
+                            transition: .28s ease;
+                            user-select: none;
+                            color: $color-mine-shaft;
+                        }
+                        [type="radio"]:not(:checked),
+                        [type="radio"]:checked {
+                            position: absolute;
+                            opacity: 0;
+                            pointer-events: none;
+                        }
+                        [type="radio"]:not(:checked)+span:before,
+                        [type="radio"]:not(:checked)+span:after {
+                            border: 2px solid $color-silver;
+                            border-radius: 50%;
+                        }
+                        [type="radio"]+span:before,
+                        [type="radio"]+span:after {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            margin: 4px 0;
+                            width: 16px;
+                            height: 16px;
+                            z-index: 0;
+                            transition: .28s ease;
+                        }
+                        [type="radio"]:checked+span:after,
+                        [type="radio"].with-gap:checked+span:before,
+                        [type="radio"].with-gap:checked+span:after {
+                            border: 2px solid $color-rio-grande;
+                        }
+                        [type="radio"]:checked+span:before {
+                            border-radius: 50%;
+                            border: 2px solid $color-rio-grande;
+                        }
+                        [type="radio"]:checked+span:after {
+                            transform: scale(.50);
+                            border-radius: 50%;
+                            background: $color-rio-grande;
+                        }
+                        label {
+                            color: $color-mine-shaft;
+                        }
+                        //Checkbox
+                        [type="checkbox"]+span:not(.lever) {
+                            position: relative;
+                            padding-left: 35px;
+                            cursor: pointer;
+                            display: inline-block;
+                            height: 25px;
+                            line-height: 25px;
+                            font-size: 1rem;
+                            font-size: 12px;
+                            user-select: none;
+                            @include respond-to('super-small') {
+                                font-size: 10px
+                            }
+                        }
+                        [type="checkbox"]:not(:checked),
+                        [type="checkbox"]:checked {
+                            position: absolute;
+                            opacity: 0;
+                            pointer-events: none;
+                        }
+                        [type="checkbox"]+span:not(.lever):before,
+                        [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 16px;
+                            height: 16px;
+                            z-index: 0;
+                            border: 2px solid $color-silver;
+                            margin-top: 3px;
+                            transition: .2s;
+                        }
+                        [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+                            border: 0;
+                            transform: scale(0);
+                        }
+                        [type="checkbox"]:checked+span:not(.lever):before {
+                            top: -4px;
+                            left: -5px;
+                            width: 10px;
+                            height: 20px;
+                            border-top: 2px solid transparent;
+                            border-left: 2px solid transparent;
+                            border-right: 2px solid $color-rio-grande;
+                            border-bottom: 2px solid $color-rio-grande;
+                            transform: rotate(40deg);
+                            backface-visibility: hidden;
+                            transform-origin: 100% 100%;
+                        }
                     }
                 }
                 //Data Input Boton Enviar
@@ -486,144 +603,99 @@ $p-size: 14px;
                         }
                     }
                     /* Boton Enviar */
-                    & .btn-enviar {
-                        appearance: none;
-                        height: 50px;
-                        line-height: 50px;
-                        background-color: $color-rio-grande;
-                        color: $color-white;
-                        font-size: $p-size;
-                        text-transform: uppercase;
-                        border: none;
-                        outline: none;
-                        cursor: pointer;
-                        letter-spacing: 1px;
-                        font-weight: 600;
-                        transition: $transition1;
-                        border-radius: $border-botones;
+                    & .cont-submit {
                         @include respond-to('small') {
-                            height: 55px;
-                            line-height: 55px;
-                            max-width: 100%;
-                            font-size: 13px;
-                            letter-spacing: 2px;
+                            position: fixed;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            background: white;
+                            width: 100%;
+                            padding: 1rem 0;
+                            box-shadow: 0 -10px 20px rgba(0, 0, 0, .04);
+                            animation: init-btn .7s 1s alternate;
+                            z-index: 100;
                         }
-                        &:hover {
-                            background: darken($color-rio-grande, 5%);
+                        & .btn-enviar {
+                            appearance: none;
+                            height: 50px;
+                            line-height: 50px;
+                            background-color: $color-rio-grande;
+                            color: $color-white;
+                            font-size: $p-size;
+                            text-transform: uppercase;
+                            border: none;
+                            outline: none;
+                            cursor: pointer;
+                            letter-spacing: 1px;
+                            font-weight: 600;
+                            transition: $transition1;
+                            border-radius: $border-botones;
+                            width: 100%;
+                            @include respond-to('small') {
+                                width: 90%;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                font-size: 14px;
+                                letter-spacing: 2px;
+                                position: relative;
+                            }
+                            &:hover {
+                                background: darken($color-rio-grande, 5%);
+                            }
+                            &:active {
+                                transform: scale(.98);
+                            }
+                            /* Cargador Boton */
+                            .lds-ring {
+                                display: inline-block;
+                                position: absolute;
+                                width: 30px;
+                                height: 30px;
+                                transform: translateX(-50%) translateY(-50%);
+                                left: 50%;
+                                top: 50%;
+                            }
+                            .lds-ring div {
+                                box-sizing: border-box;
+                                display: block;
+                                position: absolute;
+                                width: 25px;
+                                height: 25px;
+                                margin: 2px;
+                                border: 2px solid $color-white;
+                                border-radius: 50%;
+                                animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+                                border-color: $color-white transparent transparent transparent;
+                            }
+                            .lds-ring div:nth-child(1) {
+                                animation-delay: -0.45s;
+                            }
+                            .lds-ring div:nth-child(2) {
+                                animation-delay: -0.3s;
+                            }
+                            .lds-ring div:nth-child(3) {
+                                animation-delay: -0.15s;
+                            }
+                            @keyframes lds-ring {
+                                0% {
+                                    transform: rotate(0deg);
+                                }
+                                100% {
+                                    transform: rotate(360deg);
+                                }
+                            }
                         }
-                        &:active {
-                            transform: scale(.98);
-                        }
                     }
-                    /* Cargador Boton */
-                    .lds-ring {
-                        display: inline-block;
-                        position: absolute;
-                        width: 30px;
-                        height: 30px;
-                        transform: translateX(-50%) translateY(-50%);
-                        left: 50%;
-                        top: 50%;
-                    }
-                    .lds-ring div {
-                        box-sizing: border-box;
-                        display: block;
-                        position: absolute;
-                        width: 25px;
-                        height: 25px;
-                        margin: 2px;
-                        border: 2px solid $color-white;
-                        border-radius: 50%;
-                        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-                        border-color: $color-white transparent transparent transparent;
-                    }
-                    .lds-ring div:nth-child(1) {
-                        animation-delay: -0.45s;
-                    }
-                    .lds-ring div:nth-child(2) {
-                        animation-delay: -0.3s;
-                    }
-                    .lds-ring div:nth-child(3) {
-                        animation-delay: -0.15s;
-                    }
-                    @keyframes lds-ring {
+                    @keyframes init-btn {
                         0% {
-                            transform: rotate(0deg);
+                            transform: translateY(30px);
+                            opacity: 0;
                         }
                         100% {
-                            transform: rotate(360deg);
+                            transform: translateY(0px);
+                            opacity: 1;
                         }
-                    }
-                }
-            }
-        }
-        //MENSAJE SUCCESS & ERROR SERVER
-        & .msje-success {
-            @extend .form-regalos;
-            padding-bottom: 2.5rem;
-            min-height: 50vh;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            @include respond-to('small') {
-                min-height: auto;
-            }
-            & .cont-msje {
-                @extend .cont-form;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                & .img-success {
-                    max-width: 100%;
-                    width: 200px;
-                    margin-bottom: 16px;
-                    animation: success-img 1s 1 alternate;
-                }
-                @keyframes success-img {
-                    0% {
-                        transform: scale(0);
-                    }
-                    100% {
-                        transform: scale(1);
-                    }
-                }
-                & .title-success {
-                    font-size: 20px;
-                    color: $color-mine-shaft;
-                    margin-bottom: 16px;
-                }
-                & .text-success {
-                    @extend .title-success;
-                    font-size: $p-size;
-                }
-                & .btn-home {
-                    height: 50px;
-                    line-height: 50px;
-                    background-color: $color-rio-grande;
-                    color: $color-white;
-                    font-size: $p-size;
-                    text-transform: uppercase;
-                    border: none;
-                    outline: none;
-                    cursor: pointer;
-                    letter-spacing: 1px;
-                    font-weight: 600;
-                    transition: $transition1;
-                    border-radius: $border-botones;
-                    padding: 0 20px;
-                    @include respond-to('small') {
-                        height: 55px;
-                        line-height: 55px;
-                        max-width: 100%;
-                        font-size: 13px;
-                        letter-spacing: 2px;
-                    }
-                    &:hover {
-                        background: darken($color-rio-grande, 5%);
-                    }
-                    &:active {
-                        transform: scale(.98);
                     }
                 }
             }
@@ -639,161 +711,206 @@ $p-size: 14px;
             max-width: 100%;
         }
     }
-}
-
-//Boton Desabilitado
-.btn-disabled {
-    pointer-events: none;
-    cursor: default;
-    background-color: $color-silver;
-    color: white;
-    border: 1px solid $color-silver!important;
-    box-shadow: none;
-}
-
-.img-disabled {
-    opacity: .4;
-    pointer-events: none;
-    cursor: default;
-}
-
-//Errores
-.error-input {
-    border-bottom: 1px solid $color-error!important;
-    box-shadow: 0 1px 0 0 transparent!important;
-    transition: $transition1;
-}
-
-.msje-error-input {
-    color: $color-error!important;
-    font-size: 12px;
-    width: 100%;
-    margin: 0;
-    display: block;
-    line-height: 5px;
-    transition: $transition1;
-}
-
-
-/* Reset */
-
-//Radio Button
-[type="radio"]:not(:checked)+span,
-[type="radio"]:checked+span {
-    position: relative;
-    padding-left: 30px;
-    cursor: pointer;
-    display: inline-block;
-    height: 25px;
-    line-height: 25px;
-    font-size: $p-size;
-    transition: .28s ease;
-    user-select: none;
-    color: $color-mine-shaft;
-}
-
-[type="radio"]:not(:checked),
-[type="radio"]:checked {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-
-[type="radio"]:not(:checked)+span:before,
-[type="radio"]:not(:checked)+span:after {
-    border: 2px solid $color-silver;
-    border-radius: 50%;
-}
-
-[type="radio"]+span:before,
-[type="radio"]+span:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin: 4px 0;
-    width: 16px;
-    height: 16px;
-    z-index: 0;
-    transition: .28s ease;
-}
-
-[type="radio"]:checked+span:after,
-[type="radio"].with-gap:checked+span:before,
-[type="radio"].with-gap:checked+span:after {
-    border: 2px solid $color-rio-grande;
-}
-
-[type="radio"]:checked+span:before {
-    border-radius: 50%;
-    border: 2px solid $color-rio-grande;
-}
-
-[type="radio"]:checked+span:after {
-    transform: scale(.50);
-    border-radius: 50%;
-    background: $color-rio-grande;
-}
-
-label {
-    color: $color-mine-shaft;
-}
-
-//Checkbox
-[type="checkbox"]+span:not(.lever) {
-    position: relative;
-    padding-left: 35px;
-    cursor: pointer;
-    display: inline-block;
-    height: 25px;
-    line-height: 25px;
-    font-size: 1rem;
-    font-size: 12px;
-    user-select: none;
-    @include respond-to('super-small') {
-        font-size: 10px
+    //Boton Desabilitado
+    .btn-disabled {
+        pointer-events: none;
+        cursor: default;
+        background-color: $color-silver;
+        color: white;
+        border: 1px solid $color-silver!important;
+        box-shadow: none;
+    }
+    //Img Desabilitado
+    .img-disabled {
+        opacity: .4;
+        pointer-events: none;
+        cursor: default;
+    }
+    //Errores
+    .error-input {
+        border-bottom: 1px solid $color-error!important;
+        box-shadow: 0 1px 0 0 transparent!important;
+        transition: $transition1;
+    }
+    .msje-error-input {
+        color: $color-error!important;
+        font-size: 12px;
+        width: 100%;
+        margin: 0;
+        display: block;
+        line-height: 5px;
+        transition: $transition1;
+    }
+    /* NEW SUCCES */
+    .overlay-success {
+        background: rgba(black, .5);
+        width: 100%;
+        max-width: 100%;
+        min-height: 100vh;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        animation: cont-overlay 1s .1s 1 backwards;
+        position: fixed;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        font-family: $font-family-text;
+        @include respond-to('small') {
+            justify-content: flex-start;
+        }
+        /* INIT MODAL MEDIUM */
+        .modal-newsletter {
+            max-width: 500px;
+            width: 100%;
+            background: $color-white;
+            background-image: url(../img/news/model.png);
+            background-size: contain;
+            background-position: 275px center;
+            background-repeat: no-repeat;
+            position: relative;
+            animation: cont-form 1s .2s 1 backwards;
+            border-radius: 3px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .09);
+            @include respond-to('small') {
+                background-image: none;
+                align-content: flex-start;
+                flex-wrap: wrap;
+                display: flex;
+                max-width: 100%;
+                width: auto;
+                border-radius: 0;
+            }
+            & .close {
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                cursor: pointer;
+                z-index: 10;
+                opacity: .4;
+                transition: $transition1;
+                &:hover {
+                    opacity: .7;
+                }
+            }
+            & .modal-content {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                @include respond-to('small') {
+                    max-width: 100%;
+                }
+                & .cont-title-modal {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    border-bottom: 1px solid $color-gallery;
+                    padding: 20px;
+                    & h1.title-modal {
+                        font-size: 18px;
+                        color: $color-mine-shaft;
+                        font-weight: normal;
+                        margin: 0;
+                    }
+                    & img.icon-title-modal {
+                        width: 100%;
+                        max-width: 30px;
+                        display: inline-block;
+                        margin-right: .75rem;
+                    }
+                }
+                & .msje-modal {
+                    padding: 30px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    & h3,
+                    & p,
+                    & a,
+                    {
+                        margin: 0;
+                        width: 100%;
+                        display: block;
+                        margin-bottom: 15px;
+                    }
+                    & .img-success {
+                        max-width: 150px;
+                        margin-bottom: 1rem;
+                    }
+                    & .title-success {
+                        font-size: 25px;
+                        font-weight: 400;
+                        color: $color-mine-shaft;
+                        @include respond-to('small') {
+                            font-size: $h5-size;
+                        }
+                    }
+                    & .text-success {
+                        font-size: 14px;
+                        color: $color-gray;
+                        margin-bottom: 2rem;
+                    }
+                    & .btn-success {
+                        height: 50px;
+                        line-height: 50px;
+                        background-color: $color-rio-grande;
+                        color: $color-white;
+                        font-size: $p-size;
+                        text-transform: uppercase;
+                        border: none;
+                        outline: none;
+                        letter-spacing: 1px;
+                        font-weight: 600;
+                        transition: $transition1;
+                        border-radius: $border-botones;
+                        padding: 0 20px;
+                        @include respond-to('small') {
+                            max-width: 100%;
+                            font-size: 15px;
+                        }
+                        &:hover {
+                            background: darken($color-rio-grande, 5%);
+                        }
+                        &:active {
+                            transform: scale(.98);
+                        }
+                    }
+                }
+            }
+        }
+        @keyframes cont-form {
+            0% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    }
+    /* Animation Modal Completo */
+    @keyframes cont-overlay {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 }
 
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
 
-[type="checkbox"]+span:not(.lever):before,
-[type="checkbox"]:not(.filled-in)+span:not(.lever):after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 16px;
-    height: 16px;
-    z-index: 0;
-    border: 2px solid $color-silver;
-    margin-top: 3px;
-    transition: .2s;
-}
-
-[type="checkbox"]:not(.filled-in)+span:not(.lever):after {
-    border: 0;
-    transform: scale(0);
-}
-
-[type="checkbox"]:checked+span:not(.lever):before {
-    top: -4px;
-    left: -5px;
-    width: 10px;
-    height: 20px;
-    border-top: 2px solid transparent;
-    border-left: 2px solid transparent;
-    border-right: 2px solid $color-rio-grande;
-    border-bottom: 2px solid $color-rio-grande;
-    transform: rotate(40deg);
-    backface-visibility: hidden;
-    transform-origin: 100% 100%;
-}
+/* END MAIN */
 
 
 /* Cargador Home */

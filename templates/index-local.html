@@ -24,7 +24,7 @@
         </div>
         <!-- Init Header -->
         <div class="header">
-            <div class="header__background" style="margin-top: 0px; opacity: 1;">
+            <div class="header__background">
                 <div class="header-left">
                     <h1 class="title-header">Encuentra el regalo perfecto!
                         <img class="regalo-3-header" src="img/regalo-small-3.svg" width="60" alt="iconos regalos">
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Contentainer User 2 -->
+                <!-- Container User 2 -->
                 <div class="cont-form row-input">
                     <figure class="cont-icons-user">
                         <img src="img/user-2.svg" alt="Usuario">
@@ -89,34 +89,38 @@
                     <div class="cont-input">
                         <div class="grid-1-4 input-field">
                             <input class="" id="nombreApodo" type="text" placeholder="Nombre / Apodo">
-                            <label class="hide" for="nombreApodo" class="">Nombre / Apodo</label>
+                            <div class="msje-error-input hide">Se requiere un nombre o apodo de la persona</div>
                         </div>
                         <div class="grid-1-4 input-field">
                             <select id="tipo" class="select">
-                                <option value="hide">Tipo</option>
-                                <option value="MU">Mujer</option>
-                                <option value="HO">Hombre</option>
-                                <option value="NI">Niños</option>
-                                <option value="TE">Teens</option>
-                                <option value="MA">Mascotas</option>
-                            </select>
+                                    <option value="hide">Tipo</option>
+                                    <option value="MU">Mujer</option>
+                                    <option value="HO">Hombre</option>
+                                    <option value="NI">Niños</option>
+                                    <option value="TE">Teens</option>
+                                    <option value="MA">Mascotas</option>
+                                </select>
+                            <div class="msje-error-input hide">Se requiere un tipo de persona</div>
                         </div>
+
                         <div class="grid-1-4 input-field">
                             <input class="" id="edad" type="number" placeholder="Edad">
-                            <label class="hide" for="edad" class="">Edad</label>
+                            <div class="msje-error-input hide">Se requiere la edad de la persona</div>
                         </div>
+
                         <div class="grid-1-4 input-field">
                             <select id="interes" class="select">
-                                <option value="hide">Intereses</option>
-                                <option value="TE">Tecnológico</option>
-                                <option value="SM">Siempre a la moda</option>
-                                <option value="AV">Aventurero</option>
-                                <option value="DE">Deportista</option>
-                                <option value="GO">Gourmet</option>
-                                <option value="MU">Músico</option>
-                                <option value="HU">Hágalo usted mismo</option>
-                                <option value="SE">Senior</option>
-                            </select>
+                                    <option value="hide">Intereses</option>
+                                    <option value="TE">Tecnológico</option>
+                                    <option value="SM">Siempre a la moda</option>
+                                    <option value="AV">Aventurero</option>
+                                    <option value="DE">Deportista</option>
+                                    <option value="GO">Gourmet</option>
+                                    <option value="MU">Músico</option>
+                                    <option value="HU">Hágalo usted mismo</option>
+                                    <option value="SE">Senior</option>
+                                </select>
+                            <div class="msje-error-input hide">Se requiere un interés por persona</div>
                         </div>
                     </div>
                     <!-- Delete Row -->
@@ -129,18 +133,21 @@
                 <div id="addRow" class="cont-form cont-add">
                     <figure id="agregar-usuario" class="cont-icons-user cont-icons-user-plus">
                         <img src="img/user-plus.svg" class="" alt="Agregar otro usuario">
+                        <!-- .img-disabled -->
                         <span class="text-agregar">Agregar</span>
+                        <!-- .btn-disabled -->
                     </figure>
                 </div>
                 <!-- Boton Enviar -->
                 <div class="cont-form cont-btn">
                     <div class="row-data">
-                        <p>
+                        <p class="cont-chekcbox">
                             <label>
                                 <input id="checkNavidad" type="checkbox"/>
                                 <span>Al enviar estás aceptando <a href="" class="terminos">términos y condiciones</a></span>
                             </label>
                         </p>
+                        <div class="msje-error-input hide">Este campo es obligtorio</div>
                     </div>
                     <div class="row-data grid-1-2">
                         <div class="cont-input grid-1-2">
@@ -149,7 +156,8 @@
                             </figure>
                             <input id="email" type="email" placeholder="Ingresa tu email">
                         </div>
-                        <button class="grid-1-2 btn-enviar btn-disabled" type="submit" name="action">ENVIAR
+                        <div class="cont-submit grid-1-2">
+                            <button class="btn-enviar btn-disabled" type="submit" name="action">ENVIAR
                             <div class="lds-ring hide">
                                 <div></div>
                                 <div></div>
@@ -157,27 +165,47 @@
                                 <div></div>
                             </div>
                         </button>
+                        </div>
                     </div>
                 </div>
             </form>
-            <!-- MENSAJE SUCCESS & ERROR -->
-            <div class="msje-success hide">
-                <div class="cont-msje hide" id="succses">
-                    <img class="img-success" src="img/regalo-small.svg">
-                    <h3 class="title-success">Perfecto, mensaje enviado con éxito.</h3>
-                    <p class="text-success"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    <a href="#!" class="grid-1-2 btn-home">APLICAR DE NUEVO</a>
+        </section>
+        <img class="regalo-big-page" src="img/regalo-big.svg" alt="iconos regalos">
+        <!-- NEW SUCCESS -->
+        <section class="overlay-success">
+            <div id="exito" class="modal-newsletter">
+                <span id="close" class="close"><img src="img/close.svg" alt=""></span>
+                <div class="modal-content">
+                    <div class="cont-title-modal">
+                        <img class="icon-title-modal" src="img/check-modal.svg" alt="">
+                        <h1 class="title-modal">Mensaje enviado</h1>
+                    </div>
+                    <div class="msje-modal" id="exito">
+                        <img class="img-success" src="img/regalo-small-2.svg">
+                        <h3 class="title-success">Perfecto, mensaje enviado.</h3>
+                        <p class="text-success"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <a href="#!" class="grid-1-2 btn-success">OK, Gracias</a>
+                    </div>
                 </div>
-                <div class="cont-msje" id="error">
-                    <img class="img-success" src="img/regalo-small.svg">
-                    <h3 class="title-success">Lo sentimos, hubo un error .</h3>
-                    <p class="text-success"> En este momento no podemos atender su solicitud, intente de nuevo o más tarde.</p>
-                    <a href="#!" class="grid-1-2 btn-home">INTENTAR DE NUEVO</a>
+            </div>
+            <div id="error" class="modal-newsletter hide">
+                <span id="close" class="close"><img src="img/close.svg" alt=""></span>
+                <div class="modal-content">
+                    <div class="cont-title-modal">
+                        <img class="icon-title-modal" src="img/error.svg" alt="">
+                        <h1 class="title-modal">Lo sentimos</h1>
+                    </div>
+                    <div class="msje-modal" id="exito">
+                        <img class="img-success" src="img/regalo-small-2.svg">
+                        <h3 class="title-success">No se pudo enviar su mensaje</h3>
+                        <p class="text-success"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <a href="#!" class="grid-1-2 btn-success">Intentar de nuevo</a>
+                    </div>
                 </div>
             </div>
         </section>
-        <img class="regalo-big-page" src="img/regalo-big.svg" alt="iconos regalos">
     </main>
+
 
     <iframe src="" id="iframeChristmas" class="hide" width="0" height="0" frameborder="0" scrolling="no"></iframe>
 
