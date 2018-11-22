@@ -576,7 +576,7 @@ $p-size: 13px;
                             display: flex;
                             align-items: center;
                             & img {
-                                max-width: 27.5px;
+                                max-width: 26px;
                                 @include respond-to('small') {
                                     width: 35px;
                                     margin-right: .5rem;
@@ -711,11 +711,14 @@ $p-size: 13px;
     & .regalo-big-page {
         position: absolute;
         bottom: 0;
-        right: 0;
-        max-width: 450px;
+        right: -3rem;
+        max-width: 400px;
         width: 100%;
+        z-index: 100;
         @include respond-to('small') {
             max-width: 100%;
+            z-index: inherit;
+            right: 0;
         }
     }
     //Boton Desabilitado
@@ -929,8 +932,8 @@ $p-size: 13px;
     justify-content: center;
     align-items: center;
     position: absolute;
-    background: transparent;
-    z-index: 100;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 1000;
 }
 
 .lds-ring {
