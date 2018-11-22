@@ -1,7 +1,7 @@
 $h1-size: 40px;
 $h3-size: 25px;
 $h5-size: 20px;
-$p-size: 14px;
+$p-size: 13px;
 .main-module {
     height: 100%;
     background: transparent;
@@ -42,8 +42,14 @@ $p-size: 14px;
             text-align: left;
             width: 100%;
             max-width: 1280px;
-            margin: auto;
+            margin: 0 auto;
             animation: intro 1s 1 alternate;
+            @include respond-to('full-large') {
+                padding-left: 4rem;
+            }
+            @include respond-to('large') {
+                padding-left: 0;
+            }
             @include respond-to('medium') {
                 background: transparent;
                 height: auto;
@@ -56,7 +62,7 @@ $p-size: 14px;
                 position: relative;
                 display: inline-block;
                 background: $color-rio-grande;
-                padding: .5rem 1rem;
+                padding: 1.8rem 1rem;
                 font-weight: 300;
                 font-size: $h1-size;
                 background-image: url("../img/decoration.svg");
@@ -66,17 +72,17 @@ $p-size: 14px;
                 @include respond-to('large') {
                     margin-left: 2rem;
                     font-size: 35px;
+                    padding: 1.5rem;
                 }
                 @include respond-to('medium') {
                     font-size: 20px;
-                    padding: 1rem;
                     margin: 0;
                     font-weight: 400;
                     width: 100%;
                     text-align: center;
                 }
                 @include respond-to('super-small') {
-                    //font-size: 25px;
+                    padding: 1rem;
                 }
                 & .regalo-3-header {
                     position: absolute;
@@ -90,6 +96,7 @@ $p-size: 14px;
                 font-weight: 300;
                 max-width: 500px;
                 text-align: center;
+                padding: 0 1rem;
             }
         }
         & .regalo-small-header {
@@ -109,7 +116,7 @@ $p-size: 14px;
         min-height: 100%; //dejar auto
         background: $color-white;
         margin-bottom: 5rem;
-        border-radius: 3px;
+        border-radius: 5px;
         box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.05);
         position: relative;
         top: -80px;
@@ -127,7 +134,7 @@ $p-size: 14px;
         /*----- FORMULARIO NAVIDAD -----*/
         .form-regalos {
             width: 100%;
-            padding: 2rem 0 3.8rem 0;
+            padding: 4rem 0;
             background-color: $color-white;
             @include respond-to('medium') {
                 padding-top: 1rem;
@@ -135,7 +142,7 @@ $p-size: 14px;
                 height: 100%;
             }
             & .cont-form {
-                padding: 0 2rem;
+                padding: 0 4rem;
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
@@ -143,7 +150,7 @@ $p-size: 14px;
                 position: relative;
                 transition: $transition1;
                 @include respond-to('medium') {
-                    padding: 1.5rem;
+                    padding: 2.5rem;
                     flex-wrap: wrap;
                     flex-direction: column;
                     align-items: flex-start;
@@ -153,7 +160,7 @@ $p-size: 14px;
                     & img {
                         margin-right: 1rem;
                         width: 100%;
-                        max-width: 30px;
+                        max-width: 27.5px;
                         @include respond-to('small') {
                             max-width: 35px;
                         }
@@ -173,8 +180,8 @@ $p-size: 14px;
                         padding: 0 .75rem;
                         font-size: $p-size;
                         border: 1px solid $color-mine-shaft;
-                        padding: 0 1.5rem;
-                        line-height: 2rem;
+                        padding: 0 2rem;
+                        line-height: 3rem;
                         border-radius: $border-botones;
                         overflow: hidden;
                         transition: $transition1;
@@ -216,10 +223,10 @@ $p-size: 14px;
                             border-bottom: 1px solid $color-silver;
                             border-radius: 0;
                             outline: none;
-                            height: 3rem;
+                            height: 4rem;
                             width: 100%;
                             font-size: $p-size;
-                            margin: 0 0 8px 0;
+                            margin: 0 0 20px 0;
                             padding: 0;
                             box-shadow: none;
                             box-sizing: content-box;
@@ -309,7 +316,7 @@ $p-size: 14px;
                             border: 7px solid transparent;
                             border-color: $color-gray transparent transparent transparent;
                             position: absolute;
-                            top: 25px;
+                            top: 12px;
                             right: 10px;
                         }
                         .select-styled:active,
@@ -471,8 +478,8 @@ $p-size: 14px;
                             left: 0;
                             top: 0;
                             margin: 4px 0;
-                            width: 16px;
-                            height: 16px;
+                            width: 20px;
+                            height: 20px;
                             z-index: 0;
                             transition: .28s ease;
                         }
@@ -520,8 +527,8 @@ $p-size: 14px;
                             position: absolute;
                             top: 0;
                             left: 0;
-                            width: 16px;
-                            height: 16px;
+                            width: 18px;
+                            height: 18px;
                             z-index: 0;
                             border: 2px solid $color-silver;
                             margin-top: 3px;
@@ -534,8 +541,8 @@ $p-size: 14px;
                         [type="checkbox"]:checked+span:not(.lever):before {
                             top: -4px;
                             left: -5px;
-                            width: 10px;
-                            height: 20px;
+                            width: 12px;
+                            height: 22px;
                             border-top: 2px solid transparent;
                             border-left: 2px solid transparent;
                             border-right: 2px solid $color-rio-grande;
@@ -582,7 +589,7 @@ $p-size: 14px;
                             border: none;
                             border-bottom: 1px solid $color-silver;
                             outline: none;
-                            height: 3rem;
+                            height: 5rem;
                             font-size: $p-size;
                             flex: auto;
                             margin: 0 0 8px 0;
@@ -633,7 +640,7 @@ $p-size: 14px;
                             border-radius: $border-botones;
                             width: 100%;
                             @include respond-to('small') {
-                                width: 90%;
+                                width: 95%;
                                 left: 50%;
                                 transform: translateX(-50%);
                                 font-size: 14px;
@@ -747,7 +754,7 @@ $p-size: 14px;
         width: 100%;
         max-width: 100%;
         min-height: 100vh;
-        z-index: 1000;
+        z-index: 2000;
         left: 0;
         top: 0;
         bottom: 0;
@@ -999,4 +1006,8 @@ $p-size: 14px;
 
 ::-ms-input-placeholder {
     color: $color-silver;
+}
+
+.page-wrapper {
+    padding-bottom: 0;
 }

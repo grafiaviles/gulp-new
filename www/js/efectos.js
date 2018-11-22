@@ -1,5 +1,5 @@
 //SELECT
-$('select').each(function() {
+/* $('select').each(function() {
     var $this = $(this),
         numberOfOptions = $(this).children('option').length;
 
@@ -44,7 +44,7 @@ $('select').each(function() {
         $list.hide();
     });
 
-});
+}); */
 
 //Paralax Header
 $(document).ready(function() {
@@ -60,7 +60,7 @@ function fixStaticPageStyles() {
 
     document.querySelector('.fb-masthead__breadcrumb').style.display = 'none';
     document.querySelector('.huincha-navidad-content').style.display = 'none';
-    document.querySelector('.page-wrapper').style.maxWidth = '100%'.paddingBottom = 0
+    document.querySelector('.page-wrapper').style.maxWidth = '100%'
 
 }
 fixStaticPageStyles();
