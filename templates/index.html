@@ -13,7 +13,7 @@
     <!-- Init New Section -->
     <main class="main-module">
         <!-- Init Spinners -->
-        <div class="cont-cargador">
+        <div class="cont-cargador hide">
             <div class="lds-ring">
                 <div></div>
                 <div></div>
@@ -58,20 +58,12 @@
                         <!-- Como se llama -->
                         <div class="grid-1-4 input-field">
                             <input class="" id="nombreApodo" type="text" placeholder="¿Cómo se llama?">
-                            <div class="msje-error-input hide">Se requiere un nombre o apodo de la persona</div>
+                            <div class="msje-error-input hide">Se requiere el nombre de la persona</div>
                         </div>
                         <!-- Que le gusta -->
                         <div class="grid-1-4 input-field">
                             <select id="interes" class="select">
-                                <option value="hide">¿Qué le gusta?</option>
-                                <option value="TE">Tecnológico</option>
-                                <option value="SM">Siempre a la moda</option>
-                                <option value="AV">Aventurero</option>
-                                <option value="DE">Deportista</option>
-                                <option value="GO">Gourmet</option>
-                                <option value="MU">Músico</option>
-                                <option value="HU">Hágalo usted mismo</option>
-                                <option value="SE">Senior</option>
+                                <option value="hide">¿Cómo lo describirías?</option>
                             </select>
                             <div class="msje-error-input hide">Se requiere un interés por persona</div>
                         </div>
@@ -103,20 +95,12 @@
                         <!-- Como se llama -->
                         <div class="grid-1-4 input-field">
                             <input class="" id="nombreApodo" type="text" placeholder="¿Cómo se llama?">
-                            <div class="msje-error-input hide">Se requiere un nombre o apodo de la persona</div>
+                            <div class="msje-error-input hide">Se requiere el nombre de la persona</div>
                         </div>
                         <!-- Que le gusta -->
                         <div class="grid-1-4 input-field">
                             <select id="interes" class="select">
-                                    <option value="hide">¿Qué le gusta?</option>
-                                    <option value="TE">Tecnológico</option>
-                                    <option value="SM">Siempre a la moda</option>
-                                    <option value="AV">Aventurero</option>
-                                    <option value="DE">Deportista</option>
-                                    <option value="GO">Gourmet</option>
-                                    <option value="MU">Músico</option>
-                                    <option value="HU">Hágalo usted mismo</option>
-                                    <option value="SE">Senior</option>
+                                    <option value="hide">¿Cómo lo describirías?</option>
                                 </select>
                             <div class="msje-error-input hide">Se requiere un interés por persona</div>
                         </div>
@@ -158,6 +142,7 @@
                                 <img src="/static/RDF/site/content/regalos-navidad/img/mail.svg" alt="Ingresa tu email">
                             </figure>
                             <input id="email" type="email" placeholder="Ingresa tu email">
+                            <div class="msje-error-input msje-error-input-email hide">Se requiere un email válido</div>
                         </div>
                         <div class="cont-submit grid-1-2">
                             <button class="btn-enviar btn-disabled" type="submit" name="action">ENVIAR
@@ -210,9 +195,7 @@
             </div>
         </section>
     </main>
-
     <iframe src="" id="iframeChristmas" class="hide" width="0" height="0" frameborder="0" scrolling="no"></iframe>
-
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="/static/RDF/site/content/regalos-navidad/js/dist/all.min.js"></script>
 </body>

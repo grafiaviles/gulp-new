@@ -226,7 +226,7 @@ $p-size: 13px;
                             height: 4rem;
                             width: 100%;
                             font-size: $p-size;
-                            margin: 0 0 20px 0;
+                            margin: 0 0 8px 0;
                             padding: 0;
                             box-shadow: none;
                             box-sizing: content-box;
@@ -282,7 +282,7 @@ $p-size: 13px;
                             border-bottom: 1px solid $color-silver;
                             border-radius: 0;
                             outline: none;
-                            height: 3rem;
+                            height: 4rem;
                             width: 100%;
                             font-size: $p-size;
                             margin: 0 0 8px 0;
@@ -304,7 +304,7 @@ $p-size: 13px;
                             right: 0;
                             bottom: 0;
                             left: 0;
-                            line-height: 3rem;
+                            line-height: 4rem;
                             background-color: $color-white;
                             background: $color-white;
                             transition: all 0.2s ease-in;
@@ -572,7 +572,7 @@ $p-size: 13px;
                         }
                         & .cont-icons-user {
                             margin-right: .5rem;
-                            height: 3rem;
+                            height: 4rem;
                             display: flex;
                             align-items: center;
                             & img {
@@ -601,7 +601,7 @@ $p-size: 13px;
                             transition: box-shadow .3s, border .3s;
                             transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
                             @include respond-to('medium') {
-                                margin-bottom: 0px;
+                                //margin-bottom: 0px;
                             }
                             &:focus {
                                 border-bottom: 1px solid $color-rio-grande;
@@ -748,8 +748,11 @@ $p-size: 13px;
         width: 100%;
         margin: 0;
         display: block;
-        line-height: 5px;
+        line-height: 10px;
         transition: $transition1;
+    }
+    .msje-error-input-email {
+        margin-left: 3.8rem;
     }
     /* NEW SUCCES */
     .overlay-success {
