@@ -26,14 +26,14 @@
         <div class="header">
             <div class="header__background">
                 <div class="header-left">
-                    <h1 class="title-header">Encuentra el regalo perfecto!
-                        <img class="regalo-3-header" src="img/regalo-small-3.svg" width="60" alt="iconos regalos">
+                    <h1 class="title-header">¡Encuentra el regalo perfecto!
+                        <img class="regalo-3-header" src="/static/RDF/site/content/regalos-navidad/img/regalo-small-3.svg" width="60" alt="iconos regalos">
                     </h1>
-                    <p class="text-header hide-tablet">Con unos simples datos te recomendaremos los mejores regalos para esa persona especial!</p>
+                    <p class="text-header hide-tablet">Con unos simples datos te recomendaremos los mejores regalos para esa persona especial</p>
                 </div>
             </div>
-            <img class="regalo-small-header hide" src="img/regalo-small.svg" width="150" alt="iconos regalos">
-            <img class="regalo-small-2-header hide" src="img/regalo-small-2.svg" width="130" alt="iconos regalos">
+            <img class="regalo-small-header hide" src="/static/RDF/site/content/regalos-navidad/img/regalo-small.svg" width="150" alt="iconos regalos">
+            <img class="regalo-small-2-header hide" src="/static/RDF/site/content/regalos-navidad/img/regalo-small-2.svg" width="130" alt="iconos regalos">
         </div>
         <!-- Init Formulario de Navidad -->
         <section class="grid-container container-module">
@@ -41,16 +41,13 @@
                 <!-- Container User 1 Autofocus -->
                 <div class="cont-form row-input">
                     <figure class="cont-icons-user">
-                        <img src="img/user-1.svg" alt="Usuario">
+                        <img src="/static/RDF/site/content/regalos-navidad/img/user-1.svg" alt="Usuario">
                     </figure>
                     <div class="cont-input">
-                        <div class="grid-1-4 input-field">
-                            <input class="" id="nombreApodo" type="text" placeholder="Nombre / Apodo" autofocus>
-                            <div class="msje-error-input hide">Se requiere un nombre o apodo de la persona</div>
-                        </div>
+                        <!-- Para qeuien -->
                         <div class="grid-1-4 input-field">
                             <select id="tipo" class="select">
-                                <option value="hide">Tipo</option>
+                                <option value="hide">¿Para quién?</option>
                                 <option value="MU">Mujer</option>
                                 <option value="HO">Hombre</option>
                                 <option value="NI">Niños</option>
@@ -59,41 +56,35 @@
                             </select>
                             <div class="msje-error-input hide">Se requiere un tipo de persona</div>
                         </div>
-
+                        <!-- Como se llama -->
                         <div class="grid-1-4 input-field">
-                            <input class="" id="edad" type="number" placeholder="Edad">
-                            <div class="msje-error-input hide">Se requiere la edad de la persona</div>
+                            <input class="" id="nombreApodo" type="text" placeholder="¿Cómo se llama?">
+                            <div class="msje-error-input hide">Se requiere el nombre de la persona</div>
                         </div>
-
+                        <!-- Que le gusta -->
                         <div class="grid-1-4 input-field">
                             <select id="interes" class="select">
-                                <option value="hide">Intereses</option>
-                                <option value="TE">Tecnológico</option>
-                                <option value="SM">Siempre a la moda</option>
-                                <option value="AV">Aventurero</option>
-                                <option value="DE">Deportista</option>
-                                <option value="GO">Gourmet</option>
-                                <option value="MU">Músico</option>
-                                <option value="HU">Hágalo usted mismo</option>
-                                <option value="SE">Senior</option>
+                                <option value="hide">¿Cómo lo describirías?</option>
                             </select>
                             <div class="msje-error-input hide">Se requiere un interés por persona</div>
+                        </div>
+                        <!-- Que edad tiene -->
+                        <div class="grid-1-4 input-field">
+                            <input class="" id="edad" type="number" placeholder="¿Qué edad tiene?">
+                            <div class="msje-error-input hide">Se requiere la edad de la persona</div>
                         </div>
                     </div>
                 </div>
                 <!-- Container User 2 -->
                 <div class="cont-form row-input">
                     <figure class="cont-icons-user">
-                        <img src="img/user-2.svg" alt="Usuario">
+                        <img src="/static/RDF/site/content/regalos-navidad/img/user-2.svg" alt="Usuario">
                     </figure>
                     <div class="cont-input">
-                        <div class="grid-1-4 input-field">
-                            <input class="" id="nombreApodo" type="text" placeholder="Nombre / Apodo">
-                            <div class="msje-error-input hide">Se requiere un nombre o apodo de la persona</div>
-                        </div>
+                        <!-- Para qeuien -->
                         <div class="grid-1-4 input-field">
                             <select id="tipo" class="select">
-                                    <option value="hide">Tipo</option>
+                                    <option value="hide">¿Para quién?</option>
                                     <option value="MU">Mujer</option>
                                     <option value="HO">Hombre</option>
                                     <option value="NI">Niños</option>
@@ -102,37 +93,34 @@
                                 </select>
                             <div class="msje-error-input hide">Se requiere un tipo de persona</div>
                         </div>
-
+                        <!-- Como se llama -->
                         <div class="grid-1-4 input-field">
-                            <input class="" id="edad" type="number" placeholder="Edad">
-                            <div class="msje-error-input hide">Se requiere la edad de la persona</div>
+                            <input class="" id="nombreApodo" type="text" placeholder="¿Cómo se llama?">
+                            <div class="msje-error-input hide">Se requiere el nombre de la persona</div>
                         </div>
-
+                        <!-- Que le gusta -->
                         <div class="grid-1-4 input-field">
                             <select id="interes" class="select">
-                                    <option value="hide">Intereses</option>
-                                    <option value="TE">Tecnológico</option>
-                                    <option value="SM">Siempre a la moda</option>
-                                    <option value="AV">Aventurero</option>
-                                    <option value="DE">Deportista</option>
-                                    <option value="GO">Gourmet</option>
-                                    <option value="MU">Músico</option>
-                                    <option value="HU">Hágalo usted mismo</option>
-                                    <option value="SE">Senior</option>
+                                    <option value="hide">¿Cómo lo describirías?</option>
                                 </select>
                             <div class="msje-error-input hide">Se requiere un interés por persona</div>
+                        </div>
+                        <!-- Que edad tiene -->
+                        <div class="grid-1-4 input-field">
+                            <input class="" id="edad" type="number" placeholder="¿Qué edad tiene?">
+                            <div class="msje-error-input hide">Se requiere la edad de la persona</div>
                         </div>
                     </div>
                     <!-- Delete Row -->
                     <div id="deleteRow" class="delete-row">
                         <p class="text-delete">Eliminar</p>
-                        <img class="close-img" src="img/close.svg" width="17">
+                        <img class="close-img" src="/static/RDF/site/content/regalos-navidad/img/close.svg" width="17">
                     </div>
                 </div>
                 <!-- Container Agregar Usuario -->
                 <div id="addRow" class="cont-form cont-add">
                     <figure id="agregar-usuario" class="cont-icons-user cont-icons-user-plus">
-                        <img src="img/user-plus.svg" class="" alt="Agregar otro usuario">
+                        <img src="/static/RDF/site/content/regalos-navidad/img/user-plus.svg" class="" alt="Agregar otro usuario">
                         <!-- .img-disabled -->
                         <span class="text-agregar">Agregar</span>
                         <!-- .btn-disabled -->
@@ -152,9 +140,10 @@
                     <div class="row-data grid-1-2">
                         <div class="cont-input grid-1-2">
                             <figure class="cont-icons-user">
-                                <img src="img/mail.svg" alt="Ingresa tu email">
+                                <img src="/static/RDF/site/content/regalos-navidad/img/mail.svg" alt="Ingresa tu email">
                             </figure>
                             <input id="email" type="email" placeholder="Ingresa tu email">
+                            <div class="msje-error-input msje-error-input-email hide">Se requiere un email válido</div>
                         </div>
                         <div class="cont-submit grid-1-2">
                             <button class="btn-enviar btn-disabled" type="submit" name="action">ENVIAR
@@ -170,36 +159,38 @@
                 </div>
             </form>
         </section>
-        <img class="regalo-big-page" src="img/regalo-big.svg" alt="iconos regalos">
+        <img class="regalo-big-page" src="/static/RDF/site/content/regalos-navidad/img/regalo-big.svg" alt="iconos regalos">
         <!-- NEW SUCCESS -->
-        <section class="overlay-success">
+        <section class="overlay-success hide">
+            <!-- EXITO -->
             <div id="exito" class="modal-newsletter">
-                <span id="close" class="close"><img src="img/close.svg" alt=""></span>
+                <span id="close" class="close"><img src="/static/RDF/site/content/regalos-navidad/img/close.svg" alt=""></span>
                 <div class="modal-content">
                     <div class="cont-title-modal">
-                        <img class="icon-title-modal" src="img/check-modal.svg" alt="">
-                        <h1 class="title-modal">Mensaje enviado</h1>
+                        <img class="icon-title-modal" src="/static/RDF/site/content/regalos-navidad/img/check-modal.svg" alt="">
+                        <h1 class="title-modal">Perfecto</h1>
                     </div>
-                    <div class="msje-modal" id="exito">
-                        <img class="img-success" src="img/regalo-small-2.svg">
-                        <h3 class="title-success">Perfecto, mensaje enviado.</h3>
-                        <p class="text-success"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                    <div class="msje-modal">
+                        <img class="img-success" src="/static/RDF/site/content/regalos-navidad/img/regalo-small-2.svg">
+                        <h3 class="title-success">¡Recibimos tu solicitud!</h3>
+                        <p class="text-success">Pronto te enviaremos las mejores recomendaciones para que sorprendas esta Navidad</p>
                         <a href="#!" class="grid-1-2 btn-success">OK, Gracias</a>
                     </div>
                 </div>
             </div>
-            <div id="error" class="modal-newsletter hide">
-                <span id="close" class="close"><img src="img/close.svg" alt=""></span>
+            <!-- ERROR -->
+            <div id="error" class="modal-newsletter">
+                <span id="close" class="close"><img src="/static/RDF/site/content/regalos-navidad/img/close.svg" alt=""></span>
                 <div class="modal-content">
                     <div class="cont-title-modal">
-                        <img class="icon-title-modal" src="img/error.svg" alt="">
-                        <h1 class="title-modal">Lo sentimos</h1>
+                        <img class="icon-title-modal" src="/static/RDF/site/content/regalos-navidad/img/error.svg" alt="">
+                        <h1 class="title-modal">Error</h1>
                     </div>
-                    <div class="msje-modal" id="exito">
-                        <img class="img-success" src="img/regalo-small-2.svg">
-                        <h3 class="title-success">No se pudo enviar su mensaje</h3>
-                        <p class="text-success"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <a href="#!" class="grid-1-2 btn-success">Intentar de nuevo</a>
+                    <div class="msje-modal">
+                        <img class="img-success" src="/static/RDF/site/content/regalos-navidad/img/regalo-small-2.svg">
+                        <h3 class="title-success">No pudimos recibir tu solicitud</h3>
+                        <p class="text-success">¡Queremos ayudarte! Por favor, actualiza la página e inténtalo nuevamente</p>
+                        <a href="https://www.falabella.com/falabella-cl/page/Regalos-de-Navidad?staticPageId=27800001" class="grid-1-2 btn-success">Actualizar página</a>
                     </div>
                 </div>
             </div>
