@@ -750,9 +750,11 @@ $p-size: 13px;
         display: block;
         line-height: 10px;
         transition: $transition1;
+        position: absolute;
     }
     .msje-error-input-email {
         margin-left: 3.8rem;
+        position: relative;
     }
     /* NEW SUCCES */
     .overlay-success {
