@@ -737,23 +737,26 @@ $p-size: 13px;
         cursor: default;
     }
     //Errores
-    .error-input {
+    /*     .error-input {
         border-bottom: 1px solid $color-error!important;
         box-shadow: 0 1px 0 0 transparent!important;
         transition: $transition1;
-    }
+    } */
     .msje-error-input {
         color: $color-error!important;
-        font-size: 12px;
+        font-size: 11px;
         width: 100%;
         margin: 0;
         display: block;
-        line-height: 10px;
+        line-height: 5px;
         transition: $transition1;
         position: absolute;
     }
     .msje-error-input-email {
         margin-left: 3.8rem;
+        position: relative;
+    }
+    .msje-error-input-checkbox {
         position: relative;
     }
     /* NEW SUCCES */
