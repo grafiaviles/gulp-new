@@ -31,20 +31,48 @@ body {
 }
 
 .hide-mobile {
+    display: block!important;
     @include respond-to('small') {
         display: none!important;
     }
 }
 
 .hide-tablet {
+    display: block!important;
     @include respond-to('medium') {
         display: none!important;
     }
 }
 
 .hide-desktop {
+    display: block!important;
     @include respond-to('large') {
         display: none!important;
+    }
+}
+
+.show {
+    display: block!important;
+}
+
+.show-mobile {
+    display: none!important;
+    @include respond-to('small') {
+        display: block!important;
+    }
+}
+
+.show-tablet {
+    display: none!important;
+    @include respond-to('medium') {
+        display: block!important;
+    }
+}
+
+.show-desktop {
+    display: none!important;
+    @include respond-to('large') {
+        display: block!important;
     }
 }
 
