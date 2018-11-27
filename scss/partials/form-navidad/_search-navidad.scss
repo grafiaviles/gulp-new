@@ -1,16 +1,19 @@
-$h1-size: 40px;
+$h1-size: 50px;
+$h2-size: 28px;
 $h3-size: 25px;
-$h5-size: 20px;
-$p-size: 13px;
+$h4-size: 20px;
+$h5-size: 16px;
+$p-size: 14px;
 $bg-gray-navidad:#f4f5f7;
 .main-module {
-    height: 350px;
     overflow: hidden;
     background: transparent;
     position: relative;
-    margin: 6rem 0;
+    padding: 6rem 0;
     @include respond-to('medium') {
         height: auto;
+        padding: 0;
+        //margin: 3rem 0;
     }
     //SEARCH REGALOS
     & .cont-search-regalos {
@@ -18,7 +21,7 @@ $bg-gray-navidad:#f4f5f7;
         height: 350px;
         position: relative;
         @include respond-to('medium') {
-            height: 300px;
+            height: auto;
         }
         & .bg-image {
             height: 350px;
@@ -36,6 +39,9 @@ $bg-gray-navidad:#f4f5f7;
                 background-image: url("../img/header-mobile.jpg");
                 height: 300px;
             }
+            @include respond-to('small') {
+                position: relative;
+            }
         }
         & .bg-blur-active {
             -webkit-filter: blur(5px);
@@ -51,9 +57,357 @@ $bg-gray-navidad:#f4f5f7;
             justify-content: flex-start;
             align-items: center;
             margin: 0 auto;
+            @include respond-to('small') {
+                position: relative;
+                top: -100px;
+                width: 92.5%;
+            }
             /* Contenido Search */
             & .container-search-navidad {
                 background: $color-white;
+                min-height: 420px;
+                box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.07);
+                border: solid 1px $color-alabaster;
+                border-radius: 3px;
+                margin-right: 2rem;
+                @include respond-to('medium') {
+                    margin-right: 0;
+                    border: none;
+                    box-shadow: 0 1px 20px -5px rgba(0, 0, 0, 0.15);
+                    min-height: auto;
+                }
+                & .title-header {
+                    border-radius: 3px 3px 0 0;
+                    color: $color-white;
+                    position: relative;
+                    display: inline-block;
+                    background: $color-rio-grande;
+                    padding: 1rem 1rem;
+                    font-weight: 300;
+                    width: 100%;
+                    font-size: $h2-size;
+                    background-image: url("../img/decoration.svg");
+                    background-position-y: bottom;
+                    background-repeat: no-repeat;
+                    margin-bottom: 1rem;
+                    text-align: center;
+                    margin: 0 auto;
+                    border-radius: 3px 3px 0 0;
+                    @include respond-to('medium') {
+                        font-size: 20px;
+                        font-weight: 400;
+                    }
+                    @include respond-to('super-small') {
+                        padding: 1rem;
+                    }
+                    & .regalo-3-header {
+                        position: absolute;
+                        right: 10px;
+                        top: -47px;
+                    }
+                }
+                & .cont-select {
+                    padding: 1.5rem 1.5rem 0 1.5rem;
+                    //Init Select
+                    & .input-field {
+                        position: relative;
+                        margin-top: 1rem;
+                        margin-bottom: 1rem;
+                        //padding: 0 .75rem;
+                        min-height: 1px;
+                        @include respond-to('small') {
+                            padding: 0;
+                        }
+                        //New Dropdown
+                        .dropholder {
+                            width: 100%;
+                            height: 3rem;
+                            background-color: $color-white;
+                            background: $color-white;
+                            color: $color-silver;
+                            position: relative;
+                            border: none;
+                            border-bottom: 1px solid $color-silver;
+                            border-radius: 0;
+                            outline: none;
+                            margin: 0 0 8px 0;
+                            padding: 0;
+                            box-shadow: none;
+                            box-sizing: content-box;
+                            transition: $transition1;
+                            cursor: pointer;
+                            display: inline-block;
+                        }
+                        p {
+                            line-height: 3rem;
+                            font-size: $p-size;
+                            margin: 0;
+                        }
+                        .dropdown,
+                        .dropholder {
+                            background: $color-white;
+                        }
+                        .dropdown {
+                            float: left;
+                            width: 100%;
+                            border-radius: 0;
+                            cursor: pointer;
+                            height: 3rem;
+                            position: relative;
+                            &:after {
+                                content: "";
+                                width: 0;
+                                height: 0;
+                                border: 7px solid transparent;
+                                border-color: $color-silver transparent transparent transparent;
+                                position: absolute;
+                                top: 20px;
+                                right: 5px;
+                                transition: $transition3;
+                            }
+                            &.active+.dropdownMenu {
+                                display: block;
+                            }
+                        }
+                        .dropdownMenu {
+                            padding: 0;
+                            position: absolute;
+                            left: 0;
+                            top: 60px;
+                            right: 0;
+                            margin: 0;
+                            cursor: pointer;
+                            display: none;
+                            background: red;
+                            border: 2px solid #f27100;
+                            border-radius: 10px;
+                            z-index: 5;
+                            overflow: hidden;
+                            li {
+                                padding: 10px 10px;
+                                border-bottom: 1px dotted #fff;
+                                color: #e8f8ff;
+                                list-style: none;
+                                &:hover {
+                                    background: #E53500;
+                                }
+                                &:last-child {
+                                    border: none;
+                                }
+                            }
+                        }
+                        //Select
+                        & .select-hidden {
+                            display: none;
+                            visibility: hidden;
+                            padding-right: 10px;
+                        }
+                        & .select {
+                            background-color: $color-white;
+                            background: $color-white;
+                            color: $color-silver;
+                            border: none;
+                            border-bottom: 1px solid $color-silver;
+                            border-radius: 0;
+                            outline: none;
+                            height: 3rem;
+                            width: 100%;
+                            font-size: $p-size;
+                            margin: 0 0 8px 0;
+                            padding: 0;
+                            box-shadow: none;
+                            box-sizing: content-box;
+                            transition: $transition1;
+                            position: relative;
+                            cursor: pointer;
+                            display: inline-block;
+                            &:focus {
+                                border-bottom: 1px solid $color-rio-grande;
+                                box-shadow: 0 1px 0 0 $color-rio-grande;
+                            }
+                        }
+                        & .select-styled {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            line-height: 3rem;
+                            background-color: $color-white;
+                            background: $color-white;
+                            transition: all 0.2s ease-in;
+                        }
+                        .select-styled:after {
+                            content: "";
+                            width: 0;
+                            height: 0;
+                            border: 7px solid transparent;
+                            border-color: $color-gray transparent transparent transparent;
+                            position: absolute;
+                            top: 20px;
+                            right: 10px;
+                            transition: $transition3;
+                        }
+                        .select-styled:active,
+                        .select-styled.active {
+                            border-bottom: 1px solid $color-rio-grande;
+                            box-shadow: 0 1px 0 0 $color-rio-grande;
+                        }
+                        .select-styled:active:after,
+                        .select-styled.active:after {
+                            top: 9px;
+                            border-color: transparent transparent transparent $color-gray;
+                        }
+                        .select-options {
+                            display: none;
+                            position: absolute;
+                            top: 100%;
+                            right: 0;
+                            left: 0;
+                            z-index: 999;
+                            margin: 0;
+                            padding: 0;
+                            list-style: none;
+                            background-color: $color-white;
+                            box-shadow: 0 5px 20px -7px rgba(0, 0, 0, 0.2);
+                        }
+                        .select-options li {
+                            margin: 0;
+                            padding: 1rem 0;
+                            text-indent: $p-size;
+                            color: $color-mine-shaft;
+                            transition: all 0.15s ease-in;
+                        }
+                        .select-options li:hover {
+                            background: $color-alabaster;
+                            box-shadow: 3px 0 0 $color-rio-grande inset;
+                        }
+                        .select-options li[rel="hide"] {
+                            display: none;
+                        }
+                    }
+                }
+                & .cont-regalos {
+                    width: 100%;
+                    padding: 0 1.5rem 1.5rem 1.5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    & .contador-img-number {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        margin-bottom: .5rem;
+                        & .contador-img {
+                            max-width: 100%;
+                            width: 60px;
+                            margin-bottom: .25rem;
+                            margin-right: .5rem;
+                        }
+                        & .contador-number {
+                            font-size: $h1-size;
+                            font-weight: 300;
+                        }
+                    }
+                    & .contador-text {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        & .text {
+                            font-size: $h5-size;
+                            color: $color-mine-shaft;
+                            font-weight: 300;
+                        }
+                    }
+                }
+                & .cont-btn {
+                    width: 90%;
+                    margin: auto;
+                    margin-bottom: 2rem;
+                    padding: 0 1.5rem;
+                    position: relative;
+                    @include respond-to('small') {
+                        width: 100%;
+                    }
+                    & .btn-search {
+                        height: 50px;
+                        line-height: 50px;
+                        position: absolute;
+                        top: 8px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: block;
+                        background-color: $color-rio-grande;
+                        color: $color-white;
+                        font-size: $p-size;
+                        text-transform: uppercase;
+                        border: none;
+                        outline: none;
+                        letter-spacing: 1px;
+                        font-weight: 600;
+                        transition: $transition1;
+                        border-radius: $border-botones;
+                        width: 100%;
+                        text-align: center;
+                        @include respond-to('small') {
+                            padding: 0;
+                            font-size: 14px;
+                            position: relative;
+                            width: 100%;
+                        }
+                        &:hover {
+                            background: darken($color-rio-grande, 5%);
+                        }
+                        &:active {
+                            transform: scale(.98) translateX(-50%);
+                            left: 50%;
+                            box-shadow: 0 10px 20px -2spx rgba(0, 0, 0, .9);
+                        }
+                    }
+                    /* Cargador Boton */
+                    .lds-ring {
+                        display: inline-block;
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        transform: translateX(-50%) translateY(-50%);
+                        left: 50%;
+                        top: 50%;
+                        z-index: 100;
+                    }
+                    .lds-ring div {
+                        box-sizing: border-box;
+                        display: block;
+                        position: absolute;
+                        width: 25px;
+                        height: 25px;
+                        margin: 2px;
+                        border: 2px solid $color-white;
+                        border-radius: 50%;
+                        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+                        border-color: $color-white transparent transparent transparent;
+                    }
+                    .lds-ring div:nth-child(1) {
+                        animation-delay: -0.45s;
+                    }
+                    .lds-ring div:nth-child(2) {
+                        animation-delay: -0.3s;
+                    }
+                    .lds-ring div:nth-child(3) {
+                        animation-delay: -0.15s;
+                    }
+                    @keyframes lds-ring {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+                        100% {
+                            transform: rotate(360deg);
+                        }
+                    }
+                }
             }
             /* Contenido Mensaje */
             & .container-mensaje-navidad {
@@ -998,6 +1352,7 @@ $bg-gray-navidad:#f4f5f7;
     background: rgba(255, 255, 255, 0.6);
     z-index: 1000;
     top: 0;
+    left: 0;
 }
 
 .lds-ring {
