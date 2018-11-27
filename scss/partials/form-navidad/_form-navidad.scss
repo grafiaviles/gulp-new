@@ -292,9 +292,9 @@ $p-size: 13px;
                             transition: $transition1;
                             position: relative;
                             cursor: pointer;
+                            padding-left: 5px;
                             display: inline-block;
                             &:focus {
-                                border-bottom: 1px solid $color-rio-grande;
                                 box-shadow: 0 1px 0 0 $color-rio-grande;
                             }
                         }
@@ -307,33 +307,32 @@ $p-size: 13px;
                             line-height: 4rem;
                             background-color: $color-white;
                             background: $color-white;
-                            transition: $transition1;
+                            transition: box-shadow 0.4s ease-in-out;
                         }
                         .select-styled:after {
                             content: "";
                             width: 0;
                             height: 0;
-                            border: 7px solid transparent;
+                            border: 5px solid transparent;
                             border-color: $color-silver transparent transparent transparent;
                             position: absolute;
-                            top: 12px;
-                            right: 10px;
+                            top: 0;
+                            transform: translateY(20px);
+                            right: 5px;
                             transition: $transition1;
                         }
                         .select-styled:active,
                         .select-styled.active {
-                            border-bottom: 1px solid $color-rio-grande;
                             box-shadow: 0 1px 0 0 $color-rio-grande;
                         }
                         .select-styled:active:after,
                         .select-styled.active:after {
-                            top: 9px;
-                            border-color: transparent transparent $color-silver transparent;
+                            transform: translateY(15px) rotate(180deg);
                         }
                         .select-options {
                             display: none;
                             position: absolute;
-                            top: 100%;
+                            top: 4.2rem;
                             right: 0;
                             left: 0;
                             z-index: 999;
@@ -412,7 +411,7 @@ $p-size: 13px;
                 }
             }
             & .cont-add {
-                border-bottom: 1px solid $color-gallery;
+                //border-bottom: 1px solid $color-gallery;
                 @include respond-to('small') {
                     margin-bottom: 0;
                     padding-top: 0;
@@ -749,7 +748,7 @@ $p-size: 13px;
         width: 100%;
         margin: 0;
         display: block;
-        line-height: 5px;
+        line-height: 1px;
         transition: $transition1;
         position: absolute;
     }
@@ -941,8 +940,8 @@ $p-size: 13px;
     justify-content: center;
     align-items: center;
     position: fixed;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 1000;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: 2000;
     top: 0;
     left: 0;
 }
