@@ -307,17 +307,18 @@ $p-size: 13px;
                             line-height: 4rem;
                             background-color: $color-white;
                             background: $color-white;
-                            transition: all 0.2s ease-in;
+                            transition: $transition1;
                         }
                         .select-styled:after {
                             content: "";
                             width: 0;
                             height: 0;
                             border: 7px solid transparent;
-                            border-color: $color-gray transparent transparent transparent;
+                            border-color: $color-silver transparent transparent transparent;
                             position: absolute;
                             top: 12px;
                             right: 10px;
+                            transition: $transition1;
                         }
                         .select-styled:active,
                         .select-styled.active {
@@ -327,7 +328,7 @@ $p-size: 13px;
                         .select-styled:active:after,
                         .select-styled.active:after {
                             top: 9px;
-                            border-color: transparent transparent $color-gray transparent;
+                            border-color: transparent transparent $color-silver transparent;
                         }
                         .select-options {
                             display: none;
@@ -939,9 +940,11 @@ $p-size: 13px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     background: rgba(255, 255, 255, 0.6);
     z-index: 1000;
+    top: 0;
+    left: 0;
 }
 
 .lds-ring {
