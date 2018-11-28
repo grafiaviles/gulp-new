@@ -1,7 +1,7 @@
 $h1-size: 40px;
 $h3-size: 25px;
 $h5-size: 20px;
-$p-size: 13px;
+$p-size: 14px;
 .main-module {
     height: 100%;
     background: transparent;
@@ -53,9 +53,9 @@ $p-size: 13px;
             @include respond-to('medium') {
                 background: transparent;
                 height: auto;
-                bottom: 80px;
-                margin: 0;
-                position: absolute;
+                transform: translateY(55px);
+                width: 93%;
+                position: relative;
             }
             & .title-header {
                 color: $color-white;
@@ -119,8 +119,17 @@ $p-size: 13px;
         border-radius: 5px;
         box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.05);
         position: relative;
-        top: -80px;
+        transform: translateY(-80px);
         z-index: 100;
+        width: 100%;
+        transition: $transition1;
+        @include respond-to('full-large') {
+            width: 95%;
+        }
+        @include respond-to('medium') {
+            width: 93%;
+            box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.08);
+        }
         @keyframes intro {
             0% {
                 opacity: 0;
@@ -313,7 +322,7 @@ $p-size: 13px;
                             content: "";
                             width: 0;
                             height: 0;
-                            border: 5px solid transparent;
+                            border: 6px solid transparent;
                             border-color: $color-silver transparent transparent transparent;
                             position: absolute;
                             top: 0;
@@ -650,9 +659,6 @@ $p-size: 13px;
                             &:hover {
                                 background: darken($color-rio-grande, 5%);
                             }
-                            &:active {
-                                transform: scale(.98);
-                            }
                             /* Cargador Boton */
                             .lds-ring {
                                 display: inline-block;
@@ -940,7 +946,7 @@ $p-size: 13px;
     justify-content: center;
     align-items: center;
     position: fixed;
-    background: rgba(255, 255, 255, 0.85);
+    background: $color-white;
     z-index: 2000;
     top: 0;
     left: 0;
