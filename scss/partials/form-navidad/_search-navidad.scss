@@ -18,27 +18,35 @@ $bg-gray-navidad:#f4f5f7;
     //SEARCH REGALOS
     & .cont-search-regalos {
         width: 100%;
-        height: 350px;
+        height: 300px;
         position: relative;
         @include respond-to('medium') {
             height: auto;
         }
-        & .bg-image {
-            height: 350px;
+        & .cont-bg-blur {
+            height: 300px;
             width: 100%;
-            background-image: url("../img/header.jpg");
-            background-size: cover;
-            background-position: top center;
-            background-repeat: no-repeat;
             position: absolute;
             z-index: -1;
             left: 0;
             top: 0;
             transition: $transition1;
+            overflow: hidden;
             @include respond-to('medium') {
-                background-image: url("../img/header-mobile.jpg");
                 height: 250px;
                 position: relative;
+            }
+            & .bg-blur {
+                background-image: url("../img/header.jpg");
+                background-size: cover;
+                background-position: top center;
+                background-repeat: no-repeat;
+                height: 110%;
+                width: 100%;
+                @include respond-to('medium') {
+                    background-image: url("../img/header-mobile.jpg");
+                    width: 105%;
+                }
             }
         }
         & .bg-blur-active {
@@ -65,7 +73,7 @@ $bg-gray-navidad:#f4f5f7;
             /* Contenido Search */
             & .container-search-navidad {
                 background: $color-white;
-                min-height: 420px;
+                min-height: auto;
                 box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.07);
                 border: solid 1px $color-alabaster;
                 border-radius: 3px;
@@ -85,9 +93,9 @@ $bg-gray-navidad:#f4f5f7;
                     display: inline-block;
                     background: $color-rio-grande;
                     padding: 1rem 1rem;
-                    font-weight: 300;
+                    font-weight: 400;
                     width: 100%;
-                    font-size: $h2-size;
+                    font-size: $h3-size;
                     background-image: url("../img/decoration.svg");
                     background-position-y: bottom;
                     background-repeat: no-repeat;
@@ -108,7 +116,7 @@ $bg-gray-navidad:#f4f5f7;
                     }
                 }
                 & .cont-select {
-                    padding: 1.5rem 1.5rem 0 1.5rem;
+                    padding: 0 1.5rem 0 1.5rem;
                     //Init Select
                     & .input-field {
                         position: relative;
@@ -247,7 +255,7 @@ $bg-gray-navidad:#f4f5f7;
                 }
                 & .cont-regalos {
                     width: 100%;
-                    padding: 0 1.5rem 1.5rem 1.5rem;
+                    padding: 0 1.5rem 1rem 1.5rem;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -257,7 +265,6 @@ $bg-gray-navidad:#f4f5f7;
                         align-items: center;
                         justify-content: center;
                         width: 100%;
-                        margin-bottom: .5rem;
                         & .contador-img {
                             max-width: 100%;
                             width: 60px;
