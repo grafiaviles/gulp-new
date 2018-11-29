@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-.main-module * {
+.main-module-regalos * {
     box-sizing: border-box;
     font-weight: 500;
     font-family: $font-family-text;
@@ -13,7 +13,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.main-module {
+.main-module-regalos {
     max-width: 100%;
     display: flex;
     flex-direction: column;
