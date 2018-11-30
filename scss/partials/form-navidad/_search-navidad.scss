@@ -5,26 +5,29 @@ $h4-size: 20px;
 $h5-size: 16px;
 $p-size: 14px;
 $bg-gray-navidad:#f4f5f7;
+$bg-gray-2:#CBCBCB;
+$color-top:#ff3e54;
 .main-module-regalos {
     overflow: hidden;
     background: transparent;
     position: relative;
     padding: 6rem 0;
+    min-height: 100vh;
+    justify-content: flex-start;
     @include respond-to('medium') {
-        height: auto;
         padding: 0;
-        //margin: 3rem 0;
+        min-height: 2000px;
     }
     //SEARCH REGALOS
     & .cont-search-regalos {
         width: 100%;
-        height: 300px;
+        height: 320px;
         position: relative;
         @include respond-to('medium') {
             height: auto;
         }
         & .cont-bg-blur {
-            height: 300px;
+            height: 320px;
             width: 100%;
             position: absolute;
             z-index: -1;
@@ -53,6 +56,11 @@ $bg-gray-navidad:#f4f5f7;
             -webkit-filter: blur(5px);
             /* Safari 6.0 - 9.0 */
             filter: blur(5px);
+            @include respond-to('medium') {
+                -webkit-filter: blur(0);
+                /* Safari 6.0 - 9.0 */
+                filter: blur(0);
+            }
         }
         .content-navidad {
             width: 100%;
@@ -156,13 +164,12 @@ $bg-gray-navidad:#f4f5f7;
                             line-height: 3rem;
                             font-size: $p-size;
                             margin: 0;
-                            transition: $transition1;
                             padding-left: 5px;
                             @include respond-to('medium') {
                                 font-size: 15px;
                             }
-                            & img.personajes {
-                                transition: $transition1;
+                            & img.personajes,
+                            & img.interes {
                                 max-width: 100%;
                                 width: 35px;
                                 align-self: flex-start;
@@ -170,6 +177,12 @@ $bg-gray-navidad:#f4f5f7;
                                 margin: 0;
                                 vertical-align: middle;
                                 margin-right: .8rem;
+                            }
+                            & .others {
+                                margin-left: 5px;
+                            }
+                            & img.interes-top {
+                                box-shadow: 0 0 0 2px rgba($color-top, 1);
                             }
                         }
                         & .dropdown,
@@ -227,6 +240,11 @@ $bg-gray-navidad:#f4f5f7;
                             overflow: hidden;
                             transform: translateY(20px);
                             border-radius: 0 0 3px 3px;
+                            min-height: 100%;
+                            @include respond-to('small') {
+                                //overflow-y: auto;
+                                //max-height: 300px;
+                            }
                             & li {
                                 margin: 0;
                                 padding: .5rem 1rem;
@@ -236,6 +254,11 @@ $bg-gray-navidad:#f4f5f7;
                                 display: flex;
                                 justify-content: flex-start;
                                 align-items: center;
+                                position: relative;
+                                width: 100%;
+                                & .others {
+                                    margin-left: 5px;
+                                }
                                 & img.personajes {
                                     max-width: 100%;
                                     width: 35px;
@@ -244,8 +267,14 @@ $bg-gray-navidad:#f4f5f7;
                                     margin: 0;
                                     margin-right: 1rem;
                                 }
-                                &:hover,
-                                &:active {
+                                & img.interes {
+                                    @extend img.personajes;
+                                }
+                                & img.interes-top {
+                                    box-shadow: 0 0 0 2px rgba($color-top, 1);
+                                }
+                                &:hover:not(.save),
+                                &:active:not(.save) {
                                     background: $color-alabaster;
                                     box-shadow: 4px 0 0 $color-rio-grande inset;
                                 }
@@ -254,6 +283,33 @@ $bg-gray-navidad:#f4f5f7;
                                 }
                                 &:last-child {
                                     margin-bottom: .5rem;
+                                }
+                                & p.cont-checkbox {
+                                    position: absolute;
+                                    line-height: inherit;
+                                    right: 0;
+                                }
+                            }
+                            & .save {
+                                display: flex;
+                                width: 100%;
+                                justify-content: flex-end;
+                                & .btn-save {
+                                    line-height: 35px;
+                                    margin: 0;
+                                    padding: 0;
+                                    background-color: $color-rio-grande;
+                                    border-radius: $border-botones;
+                                    color: $color-white;
+                                    display: block;
+                                    text-align: center;
+                                    width: 100%;
+                                    max-width: 100px;
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    @include respond-to('small') {
+                                        max-width: 100%;
+                                    }
                                 }
                             }
                         }
@@ -336,46 +392,6 @@ $bg-gray-navidad:#f4f5f7;
                             box-shadow: 0 10px 20px -2px rgba(0, 0, 0, .05);
                         }
                     }
-                    /* Cargador Boton */
-                    .lds-ring {
-                        display: inline-block;
-                        position: absolute;
-                        width: 30px;
-                        height: 30px;
-                        transform: translateX(-50%) translateY(-50%);
-                        left: 50%;
-                        top: 50%;
-                        z-index: 100;
-                    }
-                    .lds-ring div {
-                        box-sizing: border-box;
-                        display: block;
-                        position: absolute;
-                        width: 25px;
-                        height: 25px;
-                        margin: 2px;
-                        border: 2px solid $color-white;
-                        border-radius: 50%;
-                        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-                        border-color: $color-white transparent transparent transparent;
-                    }
-                    .lds-ring div:nth-child(1) {
-                        animation-delay: -0.45s;
-                    }
-                    .lds-ring div:nth-child(2) {
-                        animation-delay: -0.3s;
-                    }
-                    .lds-ring div:nth-child(3) {
-                        animation-delay: -0.15s;
-                    }
-                    @keyframes lds-ring {
-                        0% {
-                            transform: rotate(0deg);
-                        }
-                        100% {
-                            transform: rotate(360deg);
-                        }
-                    }
                 }
             }
             /* Contenido Mensaje */
@@ -401,23 +417,30 @@ $bg-gray-navidad:#f4f5f7;
                         border-left: solid 1px $color-rio-grande;
                     }
                 }
+                & .cont-mensaje-blur {
+                    -webkit-filter: blur(5px);
+                    /* Safari 6.0 - 9.0 */
+                    filter: blur(5px);
+                }
             }
             //Resultados Navidad
             & .item-desktop {
-                box-shadow: 0 3px 30px -3px rgba(0, 0, 0, 0.07);
                 left: 27.5%;
                 z-index: 10;
-                background: $color-white;
+                background: transparent;
                 position: absolute;
-                &::after {
+                opacity: 0;
+                transform: translateX(50px);
+                visibility: hidden;
+                transition: $transition1;
+                /* &::after {
                     content: "";
                     width: 0;
                     height: 0;
                     border: 10px solid transparent;
                     border-color: transparent $color-white transparent transparent;
                     position: absolute;
-                    top: 15%;
-                    transform: translateY(-50%);
+                    top: 9%;
                     left: -20px;
                 }
                 &::before {
@@ -427,11 +450,10 @@ $bg-gray-navidad:#f4f5f7;
                     border: 10px solid transparent;
                     border-color: transparent $color-white transparent transparent;
                     position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
+                    top: 55%;
                     left: -20px;
                     display: none;
-                }
+                } */
                 & .container-item {
                     display: flex;
                     flex: auto;
@@ -452,65 +474,14 @@ $bg-gray-navidad:#f4f5f7;
                         background: $color-white;
                         //height: 155px;
                         width: 150px;
+                        max-width: 100%;
                         cursor: pointer;
                         position: relative;
                         //Checkbox
-                        & p.cont-checkbox,
-                        & p.cont-radio {
+                        & p.cont-checkbox {
                             position: absolute;
                             left: 10px;
                             top: 10px;
-                            //Checkbox
-                            [type="checkbox"]+span:not(.lever) {
-                                position: relative;
-                                padding-left: 35px;
-                                cursor: pointer;
-                                display: inline-block;
-                                height: 25px;
-                                line-height: 25px;
-                                font-size: 1rem;
-                                font-size: 12px;
-                                user-select: none;
-                                @include respond-to('super-small') {
-                                    font-size: 10px
-                                }
-                            }
-                            [type="checkbox"]:not(:checked),
-                            [type="checkbox"]:checked {
-                                position: absolute;
-                                opacity: 0;
-                                pointer-events: none;
-                            }
-                            [type="checkbox"]+span:not(.lever):before,
-                            [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
-                                content: '';
-                                position: absolute;
-                                top: 0;
-                                left: 0;
-                                width: 12px;
-                                height: 12px;
-                                z-index: 0;
-                                border: 2px solid $color-silver;
-                                margin-top: 3px;
-                                transition: .2s;
-                            }
-                            [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
-                                border: 0;
-                                transform: scale(0);
-                            }
-                            [type="checkbox"]:checked+span:not(.lever):before {
-                                top: -4px;
-                                left: -5px;
-                                width: 6px;
-                                height: 15px;
-                                border-top: 2px solid transparent;
-                                border-left: 2px solid transparent;
-                                border-right: 2px solid $color-rio-grande;
-                                border-bottom: 2px solid $color-rio-grande;
-                                transform: rotate(40deg);
-                                backface-visibility: hidden;
-                                transform-origin: 100% 100%;
-                            }
                         }
                         & .user-img {
                             width: 80px;
@@ -520,7 +491,7 @@ $bg-gray-navidad:#f4f5f7;
                         & .name-tipo {
                             font-size: $p-size;
                             color: $color-white;
-                            background: $color-gray;
+                            background: $bg-gray-2;
                             padding: 0 1rem;
                             line-height: 25px;
                             border-radius: 12.5px;
@@ -530,6 +501,9 @@ $bg-gray-navidad:#f4f5f7;
                             &.name-active {
                                 background: $color-rio-grande;
                             }
+                        }
+                        & .name-top {
+                            background: $color-top;
                         }
                         &.item:hover .name-tipo,
                         &.item-checkbox:hover .name-tipo {
@@ -559,7 +533,15 @@ $bg-gray-navidad:#f4f5f7;
                             transform: none;
                         }
                     }
+                    &.item-checkbox {
+                        width: 185px!important;
+                    }
                 }
+            }
+            & .item-desktop-active {
+                visibility: visible;
+                opacity: 1;
+                transform: translateX(0);
             }
         }
     }
@@ -595,6 +577,57 @@ $bg-gray-navidad:#f4f5f7;
     }
     .msje-error-input-email {
         margin-left: 3.8rem;
+    }
+    //Checkbox
+    [type="checkbox"]+span:not(.lever) {
+        position: relative;
+        padding-left: 35px;
+        cursor: pointer;
+        display: inline-block;
+        height: 25px;
+        line-height: 25px;
+        font-size: 1rem;
+        font-size: 12px;
+        user-select: none;
+        @include respond-to('super-small') {
+            font-size: 10px
+        }
+    }
+    [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+    [type="checkbox"]+span:not(.lever):before,
+    [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 12px;
+        height: 12px;
+        z-index: 0;
+        border: 2px solid $color-silver;
+        margin-top: 3px;
+        transition: .2s;
+    }
+    [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+        border: 0;
+        transform: scale(0);
+    }
+    [type="checkbox"]:checked+span:not(.lever):before {
+        top: -4px;
+        left: -5px;
+        width: 6px;
+        height: 15px;
+        border-top: 2px solid transparent;
+        border-left: 2px solid transparent;
+        border-right: 2px solid $color-rio-grande;
+        border-bottom: 2px solid $color-rio-grande;
+        transform: rotate(40deg);
+        backface-visibility: hidden;
+        transform-origin: 100% 100%;
     }
 }
 
