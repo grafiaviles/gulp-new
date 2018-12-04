@@ -11,8 +11,8 @@ $color-top:#ff3e54;
     overflow: hidden;
     background: transparent;
     position: relative;
-    padding: 6rem 0;
-    min-height: 100vh;
+    padding: 8rem 0 7rem 0;
+    /*min-height: 100vh;*/
     justify-content: flex-start;
     @include respond-to('medium') {
         padding: 0;
@@ -42,7 +42,7 @@ $color-top:#ff3e54;
             & .bg-blur {
                 background-image: url("https://www.falabella.com/static/RDF/site/content/buscador-navidad/public-img/header.jpg");
                 background-size: cover;
-                background-position: top center;
+                background-position: bottom center;
                 background-repeat: no-repeat;
                 height: 110%;
                 width: 100%;
@@ -71,7 +71,6 @@ $color-top:#ff3e54;
             justify-content: flex-start;
             align-items: center;
             margin: 0 auto;
-            padding: 0 1rem;
             @include respond-to('medium') {
                 padding: 0;
                 position: relative;
@@ -85,6 +84,7 @@ $color-top:#ff3e54;
                 box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.07);
                 border-radius: 3px;
                 margin-right: 5rem;
+                position: initial;
                 @include respond-to('medium') {
                     margin-right: 0;
                     border: none;
@@ -103,7 +103,7 @@ $color-top:#ff3e54;
                     font-weight: 300;
                     width: 100%;
                     font-size: $h3-size;
-                    background-image: url("../img/decoration.svg");
+                    background-image: url("https://www.falabella.com/static/RDF/site/content/buscador-navidad/public-img/decoration.svg");
                     background-position-y: bottom;
                     background-repeat: no-repeat;
                     margin-bottom: 1rem;
@@ -120,13 +120,13 @@ $color-top:#ff3e54;
                         position: absolute;
                         right: 10px;
                         top: -47px;
+                        width: 42px!important;
                     }
                 }
                 & .cont-select {
-                    padding: 0 2.5rem 0 2.5rem;
+                    padding: .5rem 3.5rem;
                     //Init Select
                     & .input-field {
-                        position: relative;
                         margin-top: 1rem;
                         margin-bottom: 1rem;
                         min-height: 1px;
@@ -140,7 +140,6 @@ $color-top:#ff3e54;
                             background-color: $color-white;
                             background: $color-white;
                             color: $color-silver;
-                            position: relative;
                             border: none;
                             border-bottom: 1px solid $color-silver;
                             border-radius: 0;
@@ -152,11 +151,17 @@ $color-top:#ff3e54;
                             transition: $transition1;
                             cursor: pointer;
                             display: inline-block;
+                            @include respond-to('medium') {
+                                position: relative;
+                            }
                             &:active,
                             &:focus,
                             &:hover {
                                 box-shadow: 0 1px 0 $color-rio-grande;
                                 border-bottom: 1px solid $color-rio-grande;
+                            }
+                            &.disabled {
+                                pointer-events: none;
                             }
                         }
                         & p {
@@ -170,7 +175,7 @@ $color-top:#ff3e54;
                             & img.personajes,
                             & img.interes {
                                 max-width: 100%;
-                                width: 35px;
+                                width: 35px!important;
                                 align-self: flex-start;
                                 border-radius: 50px;
                                 margin: 0;
@@ -183,6 +188,10 @@ $color-top:#ff3e54;
                             & img.interes-top {
                                 box-shadow: 0 0 0 2px rgba($color-top, 1);
                             }
+                        }
+                        & .click-active {
+                            color: $color-mine-shaft;
+                            text-transform: lowercase;
                         }
                         & .dropdown,
                         & .dropholder {
@@ -239,14 +248,14 @@ $color-top:#ff3e54;
                             overflow: hidden;
                             transform: translateY(20px);
                             border-radius: 0 0 3px 3px;
-                            min-height: 100%;
+                            //min-height: 100%;
                             @include respond-to('small') {
                                 //overflow-y: auto;
                                 //max-height: 300px;
                             }
                             & li {
                                 margin: 0;
-                                padding: .5rem 1rem;
+                                padding: 1rem 2rem;
                                 font-size: $p-size;
                                 color: $color-mine-shaft;
                                 transition: $transition1;
@@ -255,6 +264,7 @@ $color-top:#ff3e54;
                                 align-items: center;
                                 position: relative;
                                 width: 100%;
+                                text-transform: lowercase;
                                 & .others {
                                     margin-left: 5px;
                                 }
@@ -286,7 +296,8 @@ $color-top:#ff3e54;
                                 & p.cont-checkbox {
                                     position: absolute;
                                     line-height: inherit;
-                                    right: 0;
+                                    right: 35px;
+                                    top: 25px;
                                 }
                             }
                             & .save {
@@ -328,7 +339,7 @@ $color-top:#ff3e54;
                         width: 100%;
                         & .contador-img {
                             max-width: 100%;
-                            width: 60px;
+                            width: 60px!important;
                             margin-bottom: .5rem;
                             margin-right: .5rem;
                         }
@@ -425,7 +436,6 @@ $color-top:#ff3e54;
             }
             //Resultados Navidad
             & .item-desktop {
-                left: 115%;
                 z-index: 10;
                 background: transparent;
                 position: absolute;
@@ -433,34 +443,21 @@ $color-top:#ff3e54;
                 transform: translateX(50px);
                 visibility: hidden;
                 transition: $transition1;
-                /* &::after {
-                    content: "";
-                    width: 0;
-                    height: 0;
-                    border: 10px solid transparent;
-                    border-color: transparent $color-white transparent transparent;
-                    position: absolute;
-                    top: 9%;
-                    left: -20px;
-                }
-                &::before {
-                    content: "";
-                    width: 0;
-                    height: 0;
-                    border: 10px solid transparent;
-                    border-color: transparent $color-white transparent transparent;
-                    position: absolute;
-                    top: 55%;
-                    left: -20px;
-                    display: none;
-                } */
+                width: 72%;
+                left: 27%;
+                height: 100%;
+                top: 0;
+                bottom: 0;
+                align-items: center;
                 & .container-item {
+                    background: $color-white;
                     display: flex;
                     flex: auto;
                     justify-content: flex-start;
-                    align-items: center;
+                    align-items: flex-start;
                     flex-flow: row wrap;
-                    height: 100%;
+                    align-content: center;
+                    box-shadow: 0 0px 30px -5px rgba(0, 0, 0, 0.15);
                     & .item,
                     & .item-checkbox {
                         display: flex;
@@ -470,11 +467,12 @@ $color-top:#ff3e54;
                         padding: 1rem;
                         border-right: 1px solid $color-gallery;
                         border-bottom: 1px solid $color-gallery;
+                        border-radius: 0;
                         transition: $transition1;
                         background: $color-white;
                         //height: 155px;
-                        width: 150px;
-                        max-width: 100%;
+                        width: 16%;
+                        min-width: 16.66%;
                         cursor: pointer;
                         position: relative;
                         //Checkbox
@@ -484,20 +482,21 @@ $color-top:#ff3e54;
                             top: 10px;
                         }
                         & .user-img {
-                            width: 80px;
+                            width: 80px!important;
                             border-radius: 50%;
                             margin-bottom: .5rem;
                         }
                         & .name-tipo {
                             font-size: $p-size;
                             color: $color-white;
-                            background: $bg-gray-2;
+                            background: #b1b1b1;
                             padding: 0 1rem;
                             line-height: 25px;
                             border-radius: 12.5px;
                             width: 100%;
                             text-align: center;
                             transition: $transition1;
+                            text-transform: lowercase;
                             &.name-active {
                                 background: $color-rio-grande;
                             }
@@ -527,14 +526,83 @@ $color-top:#ff3e54;
                             box-shadow: none;
                             transform: none;
                             z-index: initial;
+                            flex: 0;
                         }
                         &.item-checkbox-active:hover {
                             box-shadow: 0 3px 0 $color-rio-grande inset;
                             transform: none;
                         }
+                        //Order
+                        &.ninos {
+                            order: 1;
+                        }
+                        &.teens {
+                            order: 2;
+                        }
+                        &.mujer {
+                            order: 3;
+                        }
+                        &.hombre {
+                            order: 4;
+                        }
+                        &.mascotas {
+                            order: 5;
+                        }
+                        &.familias {
+                            order: 6;
+                        }
                     }
                     &.item-checkbox {
                         width: 185px!important;
+                    }
+                }
+            }
+            & .facet-especial-para {
+                & .item-desktop {
+                    & .container-item {
+                        &:before {
+                            content: "";
+                            width: 0;
+                            height: 0;
+                            border-top: 20px solid transparent;
+                            border-right: 20px solid $color-white;
+                            border-bottom: 20px solid transparent;
+                            position: absolute;
+                            z-index: 100;
+                            left: -1.5%;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                        & .item,
+                        & .item-checkbox {
+                            & .cont-checkbox {
+                                visibility: hidden;
+                            }
+                        }
+                    }
+                }
+            }
+            & .facet-interes {
+                & .item-desktop {
+                    & .container-item {
+                        &:before {
+                            content: "";
+                            width: 0;
+                            height: 0;
+                            border-top: 20px solid transparent;
+                            border-right: 20px solid $color-white;
+                            border-bottom: 20px solid transparent;
+                            position: absolute;
+                            z-index: 100;
+                            left: -1.5%;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                        & .item,
+                        & .item-checkbox {
+                            min-width: 20%;
+                            min-height: 140px;
+                        }
                     }
                 }
             }
@@ -550,7 +618,7 @@ $color-top:#ff3e54;
         pointer-events: none;
         cursor: default;
         background-color: $color-silver;
-        color: white;
+        color: $color-white;
         border: 1px solid $color-silver!important;
         box-shadow: none;
     }
@@ -581,13 +649,17 @@ $color-top:#ff3e54;
     //Checkbox
     [type="checkbox"]+span:not(.lever) {
         position: relative;
-        padding-left: 35px;
+        padding-left: 0 !important;
         cursor: pointer;
         display: inline-block;
-        height: 25px;
+        height: 0 !important;
+        top: -25px !important;
         line-height: 25px;
         font-size: 1rem;
         font-size: 12px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
         @include respond-to('super-small') {
             font-size: 10px
@@ -605,29 +677,46 @@ $color-top:#ff3e54;
         position: absolute;
         top: 0;
         left: 0;
-        width: 12px;
-        height: 12px;
+        width: 13px;
+        height: 13px;
         z-index: 0;
-        border: 2px solid $color-silver;
+        border: 2px solid $color-silver !important;
         margin-top: 3px;
+        -webkit-transition: .2s;
+        -o-transition: .2s;
         transition: .2s;
+        @include respond-to('small') {
+            width: 15px;
+            height: 15px;
+        }
     }
     [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
         border: 0;
-        transform: scale(0);
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0)
     }
     [type="checkbox"]:checked+span:not(.lever):before {
         top: -4px;
         left: -5px;
-        width: 6px;
-        height: 15px;
-        border-top: 2px solid transparent;
-        border-left: 2px solid transparent;
-        border-right: 2px solid $color-rio-grande;
-        border-bottom: 2px solid $color-rio-grande;
+        width: 8px;
+        height: 16px;
+        border-top: 2px solid transparent !important;
+        border-left: 2px solid transparent !important;
+        border-right: 2px solid #aad500 !important;
+        border-bottom: 2px solid #aad500 !important;
+        -webkit-transform: rotate(40deg);
+        -ms-transform: rotate(40deg);
         transform: rotate(40deg);
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+        -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
         transform-origin: 100% 100%;
+        @include respond-to('small') {
+            width: 10px;
+            height: 18px;
+        }
     }
     //New number style
     .number-column {
@@ -658,7 +747,7 @@ $color-top:#ff3e54;
         font-weight: 300;
         height: 5.5rem;
         overflow: hidden;
-        color: #333333;
+        color: $color-mine-shaft;
         letter-spacing: -1px;
     }
 }

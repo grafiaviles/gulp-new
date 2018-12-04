@@ -38,14 +38,14 @@ body {
 }
 
 .hide-tablet {
-    display: block!important;
+    display: flex!important;
     @include respond-to('medium') {
         display: none!important;
     }
 }
 
 .hide-desktop {
-    display: block!important;
+    display: flex!important;
     @include respond-to('large') {
         display: none!important;
     }
