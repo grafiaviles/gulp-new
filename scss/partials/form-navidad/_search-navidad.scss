@@ -197,7 +197,7 @@ $color-red:#ec003d;
                         }
                         & .click-active {
                             color: $color-mine-shaft;
-                            text-transform: lowercase;
+                            text-transform: capitalize;
                         }
                         & .dropdown,
                         & .dropholder {
@@ -501,6 +501,7 @@ $color-red:#ec003d;
                             width: 100%;
                             text-align: center;
                             transition: $transition1;
+                            text-transform: capitalize;
                             &.name-active {
                                 background: $color-rio-grande;
                             }
