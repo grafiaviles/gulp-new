@@ -14,6 +14,7 @@ $color-red:#ec003d;
     position: relative;
     padding: 8rem 0 7rem 0;
     justify-content: flex-start;
+    margin-bottom: 10px;
     @include respond-to('medium') {
         padding: 0;
         overflow: visible;
@@ -51,6 +52,7 @@ $color-red:#ec003d;
                 background-repeat: no-repeat;
                 height: 110%;
                 width: 100%;
+                transition: $transition1;
                 @include respond-to('medium') {
                     background-image: url("https://www.falabella.com/static/RDF/site/content/buscador-navidad/public-img/header-mobile.jpg");
                     width: 105%;
