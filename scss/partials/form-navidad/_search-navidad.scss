@@ -271,7 +271,7 @@ $color-red:#ec003d;
                                 align-items: center;
                                 position: relative;
                                 width: 100%;
-                                text-transform: lowercase;
+                                text-transform: capitalize;
                                 & .others {
                                     margin-left: 5px;
                                 }
@@ -679,6 +679,9 @@ $color-red:#ec003d;
         pointer-events: visible;
         z-index: 1;
         top: 6px;
+        @include respond-to('small') {
+            top: -2px;
+        }
     }
     [type="checkbox"]+span:not(.lever):before,
     [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
