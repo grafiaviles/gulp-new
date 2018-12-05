@@ -1,35 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 483.109 6.215">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #e80037;
-      }
-
-      .cls-2 {
-        fill: #31a283;
-      }
-    </style>
-  </defs>
-  <g id="Group_99" data-name="Group 99" transform="translate(-240 -319)">
-    <g id="Group_97" data-name="Group 97" transform="translate(240 319)">
-      <circle id="Ellipse_28" data-name="Ellipse 28" class="cls-1" cx="3.107" cy="3.107" r="3.107" transform="translate(0 0)"/>
-      <circle id="Ellipse_29" data-name="Ellipse 29" class="cls-2" cx="3.107" cy="3.107" r="3.107" transform="translate(31.842 0)"/>
-      <circle id="Ellipse_30" data-name="Ellipse 30" class="cls-1" cx="3.107" cy="3.107" r="3.107" transform="translate(63.684 0)"/>
-      <circle id="Ellipse_31" data-name="Ellipse 31" class="cls-2" cx="3.107" cy="3.107" r="3.107" transform="translate(95.526 0)"/>
-      <circle id="Ellipse_32" data-name="Ellipse 32" class="cls-1" cx="3.107" cy="3.107" r="3.107" transform="translate(127.368 0)"/>
-      <circle id="Ellipse_33" data-name="Ellipse 33" class="cls-2" cx="3.107" cy="3.107" r="3.107" transform="translate(159.21 0)"/>
-      <circle id="Ellipse_34" data-name="Ellipse 34" class="cls-1" cx="3.107" cy="3.107" r="3.107" transform="translate(191.052 0)"/>
-      <circle id="Ellipse_35" data-name="Ellipse 35" class="cls-2" cx="3.107" cy="3.107" r="3.107" transform="translate(222.894 0)"/>
-    </g>
-    <g id="Group_98" data-name="Group 98" transform="translate(494 319)">
-      <circle id="Ellipse_28-2" data-name="Ellipse 28" class="cls-1" cx="3.107" cy="3.107" r="3.107" transform="translate(0 0)"/>
-      <circle id="Ellipse_29-2" data-name="Ellipse 29" class="cls-2" cx="3.107" cy="3.107" r="3.107" transform="translate(31.842 0)"/>
-      <circle id="Ellipse_30-2" data-name="Ellipse 30" class="cls-1" cx="3.107" cy="3.107" r="3.107" transform="translate(63.684 0)"/>
-      <circle id="Ellipse_31-2" data-name="Ellipse 31" class="cls-2" cx="3.107" cy="3.107" r="3.107" transform="translate(95.526 0)"/>
-      <circle id="Ellipse_32-2" data-name="Ellipse 32" class="cls-1" cx="3.107" cy="3.107" r="3.107" transform="translate(127.368 0)"/>
-      <circle id="Ellipse_33-2" data-name="Ellipse 33" class="cls-2" cx="3.107" cy="3.107" r="3.107" transform="translate(159.21 0)"/>
-      <circle id="Ellipse_34-2" data-name="Ellipse 34" class="cls-1" cx="3.107" cy="3.107" r="3.107" transform="translate(191.052 0)"/>
-      <circle id="Ellipse_35-2" data-name="Ellipse 35" class="cls-2" cx="3.107" cy="3.107" r="3.107" transform="translate(222.894 0)"/>
-    </g>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 483.1 6.2" style="enable-background:new 0 0 483.1 6.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#AAD500;}
+</style>
+<g id="Group_97" transform="translate(240 319)">
+	<circle id="Ellipse_28" class="st0" cx="-236.9" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_29" class="st0" cx="-205.1" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_30" class="st0" cx="-173.2" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_31" class="st0" cx="-141.4" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_32" class="st0" cx="-109.5" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_33" class="st0" cx="-77.7" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_34" class="st0" cx="-45.8" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_35" class="st0" cx="-14" cy="-315.9" r="3.1"/>
+</g>
+<g id="Group_98" transform="translate(494 319)">
+	<circle id="Ellipse_28-2" class="st0" cx="-236.9" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_29-2" class="st0" cx="-205.1" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_30-2" class="st0" cx="-173.2" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_31-2" class="st0" cx="-141.4" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_32-2" class="st0" cx="-109.5" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_33-2" class="st0" cx="-77.7" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_34-2" class="st0" cx="-45.8" cy="-315.9" r="3.1"/>
+	<circle id="Ellipse_35-2" class="st0" cx="-14" cy="-315.9" r="3.1"/>
+</g>
 </svg>
