@@ -60,9 +60,9 @@ $color-red:#ec003d;
             }
         }
         & .bg-blur-active {
-            -webkit-filter: blur(5px);
+            -webkit-filter: blur(7px);
             /* Safari 6.0 - 9.0 */
-            filter: blur(5px);
+            filter: blur(7px);
             @include respond-to('medium') {
                 -webkit-filter: blur(0);
                 /* Safari 6.0 - 9.0 */
@@ -436,9 +436,9 @@ $color-red:#ec003d;
                     }
                 }
                 & .cont-mensaje-blur {
-                    -webkit-filter: blur(5px);
+                    -webkit-filter: blur(7px);
                     /* Safari 6.0 - 9.0 */
-                    filter: blur(5px);
+                    filter: blur(7px);
                 }
             }
             //Resultados Navidad
@@ -449,7 +449,7 @@ $color-red:#ec003d;
                 opacity: 0;
                 transform: translateX(50px);
                 visibility: hidden;
-                transition: $transition1;
+                transition: $transition0;
                 width: 72%;
                 left: 27%;
                 height: 100%;
@@ -457,14 +457,14 @@ $color-red:#ec003d;
                 bottom: 0;
                 align-items: center;
                 & .container-item {
-                    background: $color-white;
+                    //background: $color-white;
                     display: flex;
                     flex: auto;
                     justify-content: flex-start;
                     align-items: flex-start;
                     flex-flow: row wrap;
                     align-content: center;
-                    box-shadow: 0 0px 30px -5px rgba(0, 0, 0, 0.15);
+                    //box-shadow: 0 0px 30px -5px rgba(0, 0, 0, 0.15);
                     & .item,
                     & .item-checkbox {
                         display: flex;
@@ -617,6 +617,9 @@ $color-red:#ec003d;
                 visibility: visible;
                 opacity: 1;
                 transform: translateX(0);
+            }
+            & .item-desktop-first {
+                top: -50px;
             }
         }
     }
