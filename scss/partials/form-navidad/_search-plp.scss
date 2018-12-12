@@ -7,6 +7,7 @@ $p-size: 14px;
 $bg-gray-navidad:#f4f5f7;
 $bg-gray-2:#CBCBCB;
 $color-top:#ff3e54;
+$color-red:#ec003d;
 $color-green:#62A083;
 .main-module-search-plp-regalos {
     overflow: hidden;
@@ -22,12 +23,13 @@ $color-green:#62A083;
     & .cont-search-regalos {
         width: 100%;
         position: relative;
+        background: $color-red;
+        border-radius: 3px;
         @include respond-to('medium') {
             height: auto;
         }
         .content-navidad {
             width: 100%;
-            border: #CBCBCB solid 1px;
             height: 100%;
             max-width: 1280px;
             position: relative;
@@ -38,19 +40,19 @@ $color-green:#62A083;
             @include respond-to('medium') {
                 padding: 0;
                 position: relative;
-                top: -30px;
                 width: 92.5%;
             }
             /* Contenido Search */
             & .container-search-navidad {
-                background: $color-white;
+                background: $color-red;
                 min-height: auto;
                 border-radius: 3px;
                 position: initial;
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
+                justify-content: flex-start;
                 flex-wrap: wrap;
+                padding: 0 1rem;
                 @include respond-to('medium') {
                     margin-right: 0;
                     border: none;
@@ -63,17 +65,16 @@ $color-green:#62A083;
                     color: $color-white;
                     position: relative;
                     display: inline-block;
-                    background: $color-green;
+                    background: $color-red;
                     padding: 1rem;
-                    font-weight: 400;
+                    font-weight: 700;
                     font-size: $h4-size;
-                    background-image: url("https://www.falabella.com/static/RDF/site/content/buscador-navidad/public-img/decoration.svg");
-                    background-position-y: bottom;
-                    background-repeat: no-repeat;
                     text-align: center;
-                    @include respond-to('small') {
+                    @include respond-to('medium') {
                         font-size: $h3-size;
+                        width: 100%;
                         font-weight: 400;
+                        margin: 1.5rem 0;
                     }
                     @include respond-to('super-small') {
                         padding: 1rem;
@@ -90,6 +91,10 @@ $color-green:#62A083;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    flex-wrap: wrap;
+                    @include respond-to('small') {
+                        padding: 0;
+                    }
                     //Init Select
                     & .input-field {
                         min-height: 1px;
@@ -98,30 +103,31 @@ $color-green:#62A083;
                         }
                         //New Dropdown
                         .dropholder {
-                            width: 100%;
+                            width: 95%;
                             height: 4.5rem;
                             background-color: $color-white;
                             background: $color-white;
-                            color: $color-silver;
+                            color: $color-mine-shaft;
                             border: none;
-                            border-bottom: 1px solid $color-silver;
                             border-radius: 0;
                             outline: none;
-                            margin: 0 0 8px 0;
                             padding: 0;
                             box-shadow: none;
                             box-sizing: content-box;
                             transition: $transition1;
                             cursor: pointer;
                             display: inline-block;
+                            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+                            border-radius: 3px;
                             @include respond-to('medium') {
+                                margin: 0 0 8px 0;
                                 position: relative;
+                                width: 100%;
                             }
                             &:active,
                             &:focus,
                             &:hover {
-                                box-shadow: 0 1px 0 $color-rio-grande;
-                                border-bottom: 1px solid $color-rio-grande;
+                                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
                             }
                             &.disabled {
                                 pointer-events: none;
@@ -168,15 +174,16 @@ $color-green:#62A083;
                             cursor: pointer;
                             height: 4.5rem;
                             position: relative;
+                            border-radius: 3px;
                             &:after {
                                 content: "";
                                 width: 0;
                                 height: 0;
                                 border: 6px solid transparent;
-                                border-color: $color-silver transparent transparent transparent;
+                                border-color: $color-mine-shaft transparent transparent transparent;
                                 position: absolute;
                                 top: 0;
-                                right: 5px;
+                                right: 13px;
                                 transition: $transition3;
                                 transform: translateY(20px);
                             }
@@ -287,75 +294,88 @@ $color-green:#62A083;
                         }
                     }
                 }
-                & .cont-regalos {
-                    width: 100%;
-                    padding: 0 1.5rem 1rem 1.5rem;
+                & .cont-number-btn {
                     display: flex;
-                    justify-content: center;
                     align-items: center;
-                    flex-wrap: wrap;
-                    & .contador-img-number {
+                    justify-content: space-between;
+                    & .result-box {
                         display: flex;
                         align-items: center;
-                        justify-content: center;
-                        width: 100%;
-                        & .contador-img {
-                            max-width: 100%;
-                            width: 60px!important;
-                            margin-bottom: 1.5rem;
-                            margin-right: .5rem;
-                        }
-                        & .contador-number {
-                            font-size: $h1-size;
-                            font-weight: 300;
-                        }
-                    }
-                    & .contador-text {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 100%;
-                        font-weight: 300;
-                        & .text {
-                            font-size: $h5-size;
-                            color: $color-mine-shaft;
-                            font-weight: 300;
-                        }
-                    }
-                }
-                & .cont-btn {
-                    width: 100%;
-                    position: relative;
-                    @include respond-to('small') {
-                        width: 100%;
-                    }
-                    & .btn-search {
-                        height: 50px;
-                        line-height: 50px;
-                        display: block;
-                        background-color: $color-rio-grande;
-                        color: $color-white;
-                        font-size: $p-size;
-                        text-transform: uppercase;
-                        border: none;
-                        outline: none;
-                        letter-spacing: 1px;
-                        font-weight: 600;
-                        transition: $transition1;
-                        border-radius: $border-botones;
-                        width: 100%;
-                        text-align: center;
-                        @include respond-to('small') {
-                            padding: 0;
-                            font-size: 14px;
-                            position: relative;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        & .cont-regalos {
                             width: 100%;
+                            padding: 0 1.5rem 1rem 1.5rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-wrap: wrap;
+                            & .contador-img-number {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 100%;
+                                & .contador-img {
+                                    max-width: 100%;
+                                    width: 60px!important;
+                                    margin-bottom: 1rem;
+                                    margin-right: .5rem;
+                                }
+                                & .contador-number {
+                                    font-size: $h1-size;
+                                    font-weight: 400;
+                                    color: $color-white;
+                                }
+                            }
+                            & .contador-text {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 100%;
+                                color: $color-white;
+                                font-size: $p-size;
+                                @include respond-to('small') {
+                                    margin-bottom: 1rem;
+                                }
+                            }
                         }
-                        &:hover {
-                            background: darken($color-rio-grande, 5%);
-                        }
-                        &:active {
-                            box-shadow: 0 10px 20px -2px rgba(0, 0, 0, .05);
+                        & .cont-btn {
+                            position: relative;
+                            @include respond-to('medium') {
+                                width: 100%;
+                                margin-bottom: 3.4rem;
+                            }
+                            & .btn-search {
+                                height: 50px;
+                                line-height: 50px;
+                                display: block;
+                                background-color: $color-rio-grande;
+                                color: $color-white;
+                                font-size: $p-size;
+                                text-transform: uppercase;
+                                border: none;
+                                outline: none;
+                                letter-spacing: 1px;
+                                font-weight: 600;
+                                transition: $transition1;
+                                border-radius: $border-botones;
+                                width: 100%;
+                                text-align: center;
+                                padding: 0 1rem;
+                                box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.15);
+                                @include respond-to('small') {
+                                    padding: 0;
+                                    font-size: 14px;
+                                    position: relative;
+                                    width: 100%;
+                                }
+                                &:hover {
+                                    background: darken($color-rio-grande, 5%);
+                                }
+                                &:active {
+                                    box-shadow: 0 10px 20px -2px rgba(0, 0, 0, .05);
+                                }
+                            }
                         }
                     }
                 }
@@ -695,6 +715,11 @@ $color-green:#62A083;
         transition: transform .1s ease-in, top 250ms ease-in;
         transition: transform .1s ease-in, top 250ms ease-in, -webkit-transform .1s ease-in;
     }
+    .result-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     a.result-box.mobile .result-number {
         color: white;
         font-weight: 300;
@@ -710,7 +735,7 @@ $color-green:#62A083;
         font-weight: 300;
         height: 5.5rem;
         overflow: hidden;
-        color: $color-mine-shaft;
+        color: $color-white;
         letter-spacing: -1px;
     }
 }
