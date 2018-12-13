@@ -20,6 +20,19 @@
                     <h1>REGISTRA <span>TU-EMAIL</span></h1>
                     <h3>Sé el primero en enterarte de lo último y recibe nuestros beneficios!</h3>
                     <span class="divider"></span>
+
+                    <div class="wrapper-arrow">
+                        <div class="wrapper wrapper3" id="wrapper3">
+                            <p class="click-text">
+                                What is your favourite colour? <span class="arrow"></span>
+                            </p>
+                            <ul>
+                                <li>Blue</li>
+                                <li>Yellow</li>
+                                <li>Not Sure</li>
+                            </ul>
+                        </div>
+                    </div>
                 </hgroup>
                 <form class="form-newsletter" action="" autocomplete="off" role="form">
                     <div class="row-data">
@@ -69,4 +82,21 @@
     <!-- Script -->
     <!-- <script src="/static/RDF/site/content/landing/guidedSelling/js/lib/jquery-3.3.1.min.js"></script> -->
     <!-- <script src="js/lib/jquery-3.3.1.min.js"></script> -->
+    <script>
+        document.getElementById("wrapper3").onclick = function() {
+            var className = " " + wrapper3.className + " ";
+
+            this.className = ~className.indexOf(" active ") ?
+                className.replace(" active ", " ") :
+                this.className + " active";
+        };
+        document.getElementById('wrapper3').onclick = function() {
+
+            var className = ' ' + wrapper3.className + ' ';
+
+            this.className = ~className.indexOf(' active ') ?
+                className.replace(' active ', ' ') :
+                this.className + ' active';
+        }
+    </script>
 </body>
