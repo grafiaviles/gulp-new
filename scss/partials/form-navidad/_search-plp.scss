@@ -10,14 +10,19 @@ $color-top:#ff3e54;
 $color-red:#ec003d;
 $color-green:#62A083;
 .main-module-search-plp-regalos {
-    overflow: hidden;
     background: transparent;
     position: relative;
     justify-content: flex-start;
+    box-shadow: 0 15px 40px -15px rgba(0, 0, 0, .5);
+    margin-top: 3rem;
+    transition: $transition1;
+    animation: intro 1s .5s 1 alternate;
     @include respond-to('medium') {
         padding: 0;
         overflow: visible;
         margin-bottom: 0;
+        margin-top: 0;
+        box-shadow: none;
     }
     //SEARCH REGALOS
     & .cont-search-regalos {
@@ -25,8 +30,10 @@ $color-green:#62A083;
         position: relative;
         background: $color-red;
         border-radius: 3px;
+        padding: 0 1rem;
         @include respond-to('medium') {
             height: auto;
+            border-radius: 0;
         }
         .content-navidad {
             width: 100%;
@@ -50,7 +57,7 @@ $color-green:#62A083;
                 position: initial;
                 display: flex;
                 align-items: center;
-                justify-content: flex-start;
+                justify-content: space-between;
                 flex-wrap: wrap;
                 padding: 0 1rem;
                 @include respond-to('medium') {
@@ -66,7 +73,6 @@ $color-green:#62A083;
                     position: relative;
                     display: inline-block;
                     background: $color-red;
-                    padding: 1rem;
                     font-weight: 700;
                     font-size: $h4-size;
                     text-align: center;
@@ -74,7 +80,7 @@ $color-green:#62A083;
                         font-size: $h3-size;
                         width: 100%;
                         font-weight: 400;
-                        margin: 1.5rem 0;
+                        margin: 2rem 0;
                     }
                     @include respond-to('super-small') {
                         padding: 1rem;
@@ -98,8 +104,14 @@ $color-green:#62A083;
                     //Init Select
                     & .input-field {
                         min-height: 1px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                         @include respond-to('small') {
                             padding: 0;
+                            &:nth-of-type(1) {
+                                margin-bottom: 1rem;
+                            }
                         }
                         //New Dropdown
                         .dropholder {
@@ -137,7 +149,7 @@ $color-green:#62A083;
                             line-height: 4.5rem;
                             font-size: $p-size;
                             margin: 0;
-                            padding-left: 5px;
+                            padding-left: 1.5rem;
                             @include respond-to('medium') {
                                 font-size: 15px;
                             }
@@ -189,15 +201,12 @@ $color-green:#62A083;
                             }
                             &:active:after,
                             &.active:after {
-                                transform: translateY(15px) rotate(-90deg);
-                                @include respond-to('medium') {
-                                    transform: translateY(15px) rotate(180deg);
-                                }
+                                transform: translateY(15px) rotate(180deg);
                             }
                             &.active+.dropdownMenu {
                                 opacity: 1;
                                 visibility: visible;
-                                transform: translateY(0);
+                                transform: translateY(0) translateX(-50%);
                             }
                         }
                         & .dropdownMenu {
@@ -211,16 +220,22 @@ $color-green:#62A083;
                             cursor: pointer;
                             background-color: $color-white;
                             color: $color-mine-shaft;
-                            box-shadow: 0 5px 20px -7px rgba(0, 0, 0, 0.2);
-                            z-index: 5;
+                            box-shadow: 0 5px 30px -7px rgba(0, 0, 0, 0.4);
+                            z-index: 1000;
                             opacity: 0;
                             visibility: hidden;
                             overflow: hidden;
-                            transform: translateY(20px);
-                            border-radius: 0 0 3px 3px;
+                            transform: translateY(20px) translateX(-50%);
+                            border-radius: 3px;
+                            width: 95%;
+                            left: 50%;
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            justify-content: center;
                             @include respond-to('small') {
                                 //overflow-y: auto;
-                                //max-height: 300px;
+                                width: 100%;
                             }
                             & li {
                                 margin: 0;
@@ -269,6 +284,25 @@ $color-green:#62A083;
                                     top: 25px;
                                 }
                             }
+                            //Order
+                            & li.ninos {
+                                order: 1;
+                            }
+                            & li.teens {
+                                order: 2;
+                            }
+                            & li.mujer {
+                                order: 3;
+                            }
+                            & li.hombre {
+                                order: 4;
+                            }
+                            & li.mascotas {
+                                order: 5;
+                            }
+                            & li.familias {
+                                order: 6;
+                            }
                             & .save {
                                 display: flex;
                                 width: 100%;
@@ -305,21 +339,26 @@ $color-green:#62A083;
                         flex-wrap: wrap;
                         & .cont-regalos {
                             width: 100%;
-                            padding: 0 1.5rem 1rem 1.5rem;
+                            padding: 0;
                             display: flex;
                             justify-content: center;
                             align-items: center;
                             flex-wrap: wrap;
+                            margin: 1rem 0;
                             & .contador-img-number {
                                 display: flex;
                                 align-items: center;
-                                justify-content: center;
+                                justify-content: flex-start;
                                 width: 100%;
+                                @include respond-to('small') {
+                                    justify-content: center;
+                                }
                                 & .contador-img {
                                     max-width: 100%;
-                                    width: 60px!important;
-                                    margin-bottom: 1rem;
+                                    width: 50px!important;
                                     margin-right: .5rem;
+                                    position: relative;
+                                    top: -7px;
                                 }
                                 & .contador-number {
                                     font-size: $h1-size;
@@ -334,8 +373,13 @@ $color-green:#62A083;
                                 width: 100%;
                                 color: $color-white;
                                 font-size: $p-size;
+                                font-weight: 600;
+                                padding-right: 4rem;
+                                position: relative;
+                                top: -5px;
                                 @include respond-to('small') {
                                     margin-bottom: 1rem;
+                                    padding-right: 0;
                                 }
                             }
                         }
@@ -356,7 +400,7 @@ $color-green:#62A083;
                                 border: none;
                                 outline: none;
                                 letter-spacing: 1px;
-                                font-weight: 600;
+                                font-weight: 800;
                                 transition: $transition1;
                                 border-radius: $border-botones;
                                 width: 100%;
@@ -380,158 +424,7 @@ $color-green:#62A083;
                     }
                 }
             }
-            /* Contenido Mensaje */
-            & .container-mensaje-navidad {
-                background: transparent;
-                & .cont-mensaje {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-                    & h2 {
-                        font-size: $h2-size;
-                        font-weight: 300;
-                        color: $color-mine-shaft;
-                        margin-bottom: 1rem;
-                        padding-left: 2.5rem;
-                    }
-                    & p {
-                        color: $color-mine-shaft;
-                        font-size: $h4-size;
-                        font-weight: 300;
-                        padding-left: 2.5rem;
-                        border-left: solid 1px $color-rio-grande;
-                    }
-                }
-                & .cont-mensaje-blur {
-                    -webkit-filter: blur(7px);
-                    /* Safari 6.0 - 9.0 */
-                    filter: blur(7px);
-                }
-            }
             //Resultados Navidad
-            & .item-desktop {
-                z-index: 10;
-                background: transparent;
-                position: absolute;
-                opacity: 0;
-                transform: translateX(50px);
-                visibility: hidden;
-                transition: $transition0;
-                width: 72%;
-                left: 27%;
-                height: 100%;
-                top: 0;
-                bottom: 0;
-                align-items: center;
-                & .container-item {
-                    //background: $color-white;
-                    display: flex;
-                    flex: auto;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-                    flex-flow: row wrap;
-                    align-content: center;
-                    //box-shadow: 0 0px 30px -5px rgba(0, 0, 0, 0.15);
-                    & .item,
-                    & .item-checkbox {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 1rem;
-                        border-right: 1px solid $color-gallery;
-                        border-bottom: 1px solid $color-gallery;
-                        border-radius: 0;
-                        transition: $transition1;
-                        background: $color-white;
-                        //height: 155px;
-                        width: 16%;
-                        min-width: 16.66%;
-                        cursor: pointer;
-                        position: relative;
-                        //Checkbox
-                        & p.cont-checkbox {
-                            position: absolute;
-                            left: 10px;
-                            top: 10px;
-                        }
-                        & .user-img {
-                            width: 80px!important;
-                            border-radius: 50%;
-                            margin-bottom: .5rem;
-                        }
-                        & .name-tipo {
-                            font-size: $p-size;
-                            color: $color-white;
-                            background: #b1b1b1;
-                            padding: 0 1rem;
-                            line-height: 25px;
-                            border-radius: 12.5px;
-                            width: 100%;
-                            text-align: center;
-                            transition: $transition1;
-                            text-transform: capitalize;
-                            &.name-active {
-                                background: $color-rio-grande;
-                            }
-                        }
-                        & .name-top {
-                            background: $color-top;
-                        }
-                        &.item:hover .name-tipo,
-                        &.item-checkbox:hover .name-tipo {
-                            background: $color-rio-grande;
-                        }
-                        &.item-checkbox:hover,
-                        &.item:hover {
-                            box-shadow: 0 3px 0 $color-rio-grande inset;
-                        }
-                        &.item-active {
-                            box-shadow: 0 5px 50px 0 rgba(0, 0, 0, .15);
-                            transform: scale(1.1);
-                            z-index: 100;
-                        }
-                        &.item-active:hover {
-                            box-shadow: 0 5px 50px 0 rgba(0, 0, 0, .15);
-                            transform: scale(1.1);
-                            z-index: 100;
-                        }
-                        &.item-checkbox-active {
-                            box-shadow: none;
-                            transform: none;
-                            z-index: initial;
-                            flex: 0;
-                        }
-                        &.item-checkbox-active:hover {
-                            box-shadow: 0 3px 0 $color-rio-grande inset;
-                            transform: none;
-                        }
-                        //Order
-                        &.ninos {
-                            order: 1;
-                        }
-                        &.teens {
-                            order: 2;
-                        }
-                        &.mujer {
-                            order: 3;
-                        }
-                        &.hombre {
-                            order: 4;
-                        }
-                        &.mascotas {
-                            order: 5;
-                        }
-                        &.familias {
-                            order: 6;
-                        }
-                    }
-                    &.item-checkbox {
-                        width: 185px!important;
-                    }
-                }
-            }
             & .facet-especial-para {
                 & .item-desktop {
                     & .container-item {
@@ -649,7 +542,7 @@ $color-green:#62A083;
         opacity: 0;
         pointer-events: visible;
         z-index: 1;
-        top: 6px;
+        top: -6px;
         @include respond-to('small') {
             top: -2px;
         }
@@ -737,6 +630,20 @@ $color-green:#62A083;
         overflow: hidden;
         color: $color-white;
         letter-spacing: -1px;
+        transform: scale(.90);
+    }
+}
+
+@keyframes intro {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 }
 
