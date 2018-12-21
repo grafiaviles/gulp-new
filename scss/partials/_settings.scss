@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-.main-module-search-plp-regalos * {
+.main-module-filters * {
     box-sizing: border-box;
     font-weight: 500;
     font-family: $font-family-text;
@@ -13,17 +13,14 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.main-module-search-plp-regalos {
-    max-width: 100%;
+.main-module-filters {
+    width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
     justify-content: center;
-    @include respond-to('medium') {
-        min-height: auto;
-    }
 }
 
 .hide {
