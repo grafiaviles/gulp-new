@@ -256,13 +256,13 @@
         max-width: 600px;
         min-width: 300px;
         min-height: 400px;
-        background: $color-white;
+        position: relative;
         padding: 30px;
+        background: $color-white;
         background-image: url(../img/news/model.png);
         background-size: contain;
-        background-position: 260px center;
+        background-position: 275px center;
         background-repeat: no-repeat;
-        position: relative;
         animation: cont-form 1s .2s 1 backwards;
         border-radius: 5px;
         @include respond-to('small') {
@@ -270,6 +270,7 @@
             align-content: flex-start;
             flex-wrap: wrap;
             display: flex;
+            border-radius: 0;
         }
         & .close {
             position: absolute;
@@ -292,17 +293,18 @@
             @include respond-to('small') {
                 max-width: 100%;
             }
-            & .title-subtitle {
+            & .title-subtitle,
+            & .msjes-result {
                 margin-bottom: 15px;
                 & h1 {
                     font-family: $font-family;
                     font-size: 25px;
-                    color: $color-pistachio;
-                    font-weight: 400;
+                    color: $color-mine-shaft;
+                    font-weight: 300;
+                    margin-bottom: 1rem;
                     & span {
                         font-weight: 300;
                         color: $color-mine-shaft;
-                        margin-bottom: 10px;
                         display: inline-block;
                     }
                 }
@@ -328,6 +330,45 @@
                         max-width: 100%;
                     }
                 }
+                & .btn-ok {
+                    background: $color-pistachio;
+                    color: $color-white;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    padding: 0 1rem;
+                    line-height: 45px;
+                    height: 45px;
+                    display: inline-block;
+                    border-radius: 3px;
+                    margin-top: 1rem;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }
+            & .msjes-result {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                animation: message 1s .4s 1 backwards;
+                & .title-error {
+                    color: $color-red;
+                }
+                & .title-exito {
+                    color: $color-pistachio;
+                }
+            }
+            @keyframes message {
+                0% {
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateY(10px);
+                }
+                100% {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0px);
+                }
             }
             & .form-newsletter {
                 margin: 25px 0 0 0;
@@ -351,7 +392,7 @@
                     flex-direction: column;
                     margin-bottom: 20px;
                 }
-                //Data Input text
+                //Data Checkbox
                 & .row-data:nth-child(3) {
                     margin-top: 0;
                 }
@@ -362,8 +403,6 @@
                 }
                 //Data Input Boton Enviar
                 & .row-data:nth-child(4) {
-                    max-width: 120px;
-                    width: 100%;
                     @include respond-to('small') {
                         margin-top: 2rem;
                         max-width: 100%;
@@ -377,13 +416,14 @@
                         font-size: 12px;
                         text-transform: uppercase;
                         width: 100%;
-                        max-width: 120px;
+                        max-width: 200px;
                         border: none;
                         outline: none;
                         cursor: pointer;
                         letter-spacing: 1px;
                         font-weight: 600;
                         transition: $transition1;
+                        border-radius: 3px;
                         @include respond-to('small') {
                             height: 55px;
                             line-height: 55px;
@@ -509,45 +549,6 @@
         border-radius: 50%;
         background: $color-pistachio;
     }
-    //Input texto
-    .input-field {
-        position: relative;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        align-self: flex-start;
-    }
-    input[type=text]:not(.browser-default) {
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid $color-silver;
-        outline: none;
-        height: 45px;
-        line-break: 45px;
-        width: 90%;
-        font-size: 13px;
-        margin: 0 0 15px 0;
-        padding: 0;
-        box-shadow: none;
-        box-sizing: content-box;
-        transition: all .3s;
-        padding: 0;
-        color: $color-mine-shaft;
-        border-radius: 0;
-        -webkit-appearance: none;
-        @include respond-to('small') {
-            height: 55px;
-            line-height: 55px;
-            width: 100%;
-            &:nth-of-type(1) {
-                margin-bottom: 20px;
-            }
-        }
-    }
-    input[type=text]:not(.browser-default):focus {
-        border-bottom: 1px solid $color-pistachio;
-        box-shadow: 0 1px 0 0 $color-pistachio;
-    }
     //Checkbox
     [type="checkbox"]+span:not(.lever) {
         position: relative;
@@ -595,6 +596,61 @@
         transform: rotate(40deg);
         backface-visibility: hidden;
         transform-origin: 100% 100%;
+    }
+    //Input texto
+    & .input-field {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        align-self: flex-start;
+        & .input-news[type=email]:not(.browser-default),
+        & .input-news[type=number]:not(.browser-default),
+        & .input-news[type=text]:not(.browser-default) {
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid $color-silver;
+            outline: none;
+            height: 45px;
+            line-break: 45px;
+            width: 90%;
+            font-size: 13px;
+            margin: 0 0 15px 0;
+            padding: 0;
+            box-shadow: none;
+            box-sizing: content-box;
+            transition: all .3s;
+            padding: 0;
+            color: $color-mine-shaft;
+            border-radius: 0;
+            -webkit-appearance: none;
+            @include respond-to('small') {
+                height: 55px;
+                line-height: 55px;
+                width: 100%;
+                &:nth-of-type(1) {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        & .input-news[type=email]:not(.browser-default):focus,
+        & .input-news[type=number]:not(.browser-default):focus,
+        & .input-news[type=text]:not(.browser-default):focus {
+            border-bottom: 1px solid $color-pistachio;
+            box-shadow: 0 1px 0 0 $color-pistachio;
+        }
+    }
+    //Error inPUT
+    & .msg-error-lightbox {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 11px;
+        color: $color-red;
+    }
+    & .msg-error-lightbox-check {
+        @extend .msg-error-lightbox-check;
+        bottom: -10px;
     }
 }
 
