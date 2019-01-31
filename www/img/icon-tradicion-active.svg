@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="29px" viewBox="0 0 50 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-tradicion-active</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Filter-Notebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DESKTOP-Circle---Marcas-Copy-2" transform="translate(-794.000000, -247.000000)">
+            <g id="icon-tradicion-active" transform="translate(794.000000, 247.000000)">
+                <rect id="Rectangle-2" stroke="#8FCA00" stroke-width="1.5" fill="#FFFFFF" x="5.75" y="0.75" width="38.5" height="24.5"></rect>
+                <polygon id="Fill-5" fill="#8FCA00" points="48.3053097 29 1.69469027 29 0 27.5 0 26 50 26 50 27.5"></polygon>
+                <polygon id="Fill-1" fill="#8FCA00" points="18 14.8589625 18 19.211525 23.3275625 19.9452125 23.3275625 14.8589625"></polygon>
+                <polygon id="Fill-2" fill="#8FCA00" points="18 9.788475 18 14.2036 23.3275625 14.2036 23.3275625 9.0547875"></polygon>
+                <polygon id="Fill-3" fill="#8FCA00" points="23.91435 14.8589625 23.91435 20.024025 30.994475 20.9998375 31.0001625 20.9998375 31.0001625 14.8589625"></polygon>
+                <polygon id="Fill-4" fill="#8FCA00" points="23.91435 8.9767875 23.91435 14.2036 31.0001625 14.2036 31.0001625 8.000975"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

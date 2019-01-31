@@ -3,14 +3,14 @@ UX Falabella.com - César Avilés
 *******************************/
 
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
 /* PARTIALS MAIN */
 
 @import "partials/variables";
 @import "partials/grids";
-@import "partials/lato";
 @import "partials/settings";
 
 /* GUIDED SETTINGS */
 
-@import "partials/filter-rango-edad/rango-edad";
+@import "partials/filter-notebook/notebook";
