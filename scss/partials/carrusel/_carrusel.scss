@@ -577,11 +577,11 @@
                                 }
                             }
                             & .link-product:hover {
-                                transform: scale(1.2) translateY(-20px);
-                                box-shadow: 0 0 20px rgba(0, 0, 0, .05);
-                                border-right: 0 transparent;
+                                //transform: scale(1.2) translateY(-20px);
+                                box-shadow: 0 0 100px rgba(0, 0, 0, .07);
+                                //border-right: 0 transparent;
                                 z-index: 20;
-                                height: 140px;
+                                //height: 140px;
                                 @include respond-to('medium') {
                                     transform: none;
                                     box-shadow: none;
@@ -590,9 +590,9 @@
                                 }
                             }
                             & .link-product:hover .image-product {
-                                @include respond-to('medium') {
+                                /*                                 @include respond-to('medium') {
                                     transform: scale(.80);
-                                }
+                                } */
                             }
                         }
                     }
