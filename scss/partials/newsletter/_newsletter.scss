@@ -259,9 +259,9 @@
         position: relative;
         padding: 30px;
         background: $color-white;
-        background-image: url(../img/news/model.png);
+        background-image: url(../img/news/model.jpg);
         background-size: contain;
-        background-position: 275px center;
+        background-position: right top;
         background-repeat: no-repeat;
         animation: cont-form 1s .2s 1 backwards;
         border-radius: 5px;
@@ -271,6 +271,9 @@
             flex-wrap: wrap;
             display: flex;
             border-radius: 0;
+            position: absolute;
+            bottom: 0;
+            animation: cont-form-mobile 1s .1s 1 backwards;
         }
         & .close {
             position: absolute;
@@ -481,6 +484,14 @@
     @keyframes cont-form {
         0% {
             transform: translateY(-20px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    @keyframes cont-form-mobile {
+        0% {
+            transform: translateY(100px);
         }
         100% {
             transform: translateY(0);
