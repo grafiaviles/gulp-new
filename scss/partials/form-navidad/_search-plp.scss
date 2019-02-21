@@ -16,6 +16,7 @@ $color-green:#62A083;
     box-shadow: 0 15px 40px -15px rgba(0, 0, 0, .5);
     margin-top: 3rem;
     transition: $transition1;
+    z-index: 1;
     @include respond-to('medium') {
         padding: 0;
         overflow: visible;
