@@ -1,0 +1,76 @@
+.header-menu {
+    width: 100%;
+}
+
+.navbar-top {
+    background-color: #f1f1f1;
+    padding: 30px;
+    text-align: center;
+}
+
+.navbar-bottom {
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.navbar-bottom a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar-bottom a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar-bottom a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.content {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky+.content {
+    padding-top: 60px;
+}
+
+.CategoryElement_categoryElement__2GjtJ:hover {
+    background: #A7D500;
+    width: 211px;
+    height: 76px;
+    border-radius: 0 38px 38px 38px;
+    margin-left: -5px;
+    cursor: pointer;
+    z-index: 10;
+    position: relative!important;
+    min-width: 211px!important;
+}
+
+.CategoryElement_categoryElement__2GjtJ:hover .CategoryElement_iconTitle__14Hxx {
+    display: block;
+    text-align: center;
+    transition: all .4s;
+}
+
+.CategoryElement_categoryElement__2GjtJ:hover .CategoryElement_iconContainer__2vLRM::after {
+    content: '';
+}
+
+.content-main {
+    height: 100vh;
+    background: #A7D500;
+    width: 100%;
+}
