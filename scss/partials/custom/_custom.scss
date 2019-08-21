@@ -47,7 +47,6 @@
         background: $color-white;
         animation: cont-form 1s .2s 1 backwards;
         border-radius: 5px;
-        overflow: hidden;
         @include respond-to('small') {
             min-height: 400px;
             background-image: none;
@@ -56,10 +55,11 @@
             display: flex;
             border-radius: 5px 5px 0 0;
             position: absolute;
-            bottom: 0;
+            top: 10px;
             animation: cont-form-mobile 1s .1s 1 backwards;
         }
         & .close {
+            border-radius: 0 5px 0 0;
             position: absolute;
             right: 0;
             top: 0;
@@ -89,7 +89,7 @@
             }
             // TITLE MODAL
             & .title-subtitle {
-                margin-bottom: 30px;
+                margin-bottom: 20px;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
@@ -116,14 +116,166 @@
                 justify-content: flex-start;
                 align-items: center;
                 flex-wrap: wrap;
-                padding: 0 30px;
-                margin-bottom: 25px;
+                padding: 0 35px;
+                margin-bottom: 15px;
                 @include respond-to('small') {
                     //justify-content: space-between;
                 }
                 & .container-input-dropdown {
                     width: 100%;
-                    background-color: salmon;
+                    //Init Select
+                    & .input-field {
+                        position: relative;
+                        margin-bottom: 1.5rem;
+                        min-height: 1px;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        @include respond-to('small') {
+                            padding: 0;
+                        }
+                        & .cont-icon-location {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-right: .7rem;
+                            & .icon-location {
+                                display: flex;
+                                width: 24px;
+                                height: 28px;
+                                //background: cadetblue;
+                                background-image: url("data:image/svg+xml,%3Csvg width='24' height='28' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%23FFF' d='M0 0h24v28H0z'/%3E%3Cg stroke='%23333' stroke-width='1.5'%3E%3Cpath d='M11.66 1c5.89 0 10.66 4.56 10.66 10.18 0 7.78-10.66 14.97-10.66 14.97S1 18.96 1 11.18C1 5.56 5.77 1 11.66 1z'/%3E%3Cpath d='M11.66 6.78a3.9 3.9 0 0 1 3.98 3.8 3.9 3.9 0 0 1-3.98 3.8 3.9 3.9 0 0 1-3.98-3.8 3.9 3.9 0 0 1 3.98-3.8'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                                background-position: center center;
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                transform: scale(1.2);
+                            }
+                        }
+                        //New Dropdown
+                        & .dropholder {
+                            width: 100%;
+                            height: 3rem;
+                            background-color: $color-white;
+                            color: $color-silver;
+                            position: relative;
+                            border: none;
+                            border-bottom: 1px solid $color-silver;
+                            border-radius: 0;
+                            outline: none;
+                            margin: 0 0 8px 0;
+                            padding: 0;
+                            box-shadow: none;
+                            box-sizing: content-box;
+                            transition: $transition1;
+                            cursor: pointer;
+                            display: inline-block;
+                            &:active,
+                            &:focus,
+                            &:hover {
+                                border-bottom: 1px solid $color-mine-shaft;
+                            }
+                        }
+                        & p {
+                            line-height: 3rem;
+                            font-size: 16px;
+                            margin: 0;
+                            padding-left: 5px;
+                            color: $color-mine-shaft;
+                            text-transform: capitalize;
+                            @include respond-to('medium') {
+                                font-size: 15px;
+                            }
+                        }
+                        & .icon-arrow {
+                            width: 20px;
+                            height: 47px;
+                            background-image: url("data:image/svg+xml,%3Csvg width='52' height='47' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter x='-11.9%25' y='-16.5%25' width='123.8%25' height='133.1%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='2' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='10' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0' in='shadowBlurOuter1' result='shadowMatrixOuter1'/%3E%3CfeMerge%3E%3CfeMergeNode in='shadowMatrixOuter1'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M335 91l-6.44 6.34L322 91' filter='url(%23a)' transform='translate(-304 -74)' stroke='%23333' stroke-width='1.3' fill='none' fill-rule='evenodd' stroke-linecap='round'/%3E%3C/svg%3E");
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            position: absolute;
+                            top: 8px;
+                            right: 0;
+                            transition: $transition1;
+                            transform: scale(1.2);
+                            z-index: -1;
+                        }
+                        & .dropdown,
+                        & .dropholder {
+                            background: $color-white;
+                        }
+                        & .dropdown {
+                            float: left;
+                            width: 100%;
+                            border-radius: 0;
+                            overflow: hidden;
+                            cursor: pointer;
+                            height: 3rem;
+                            position: relative;
+                            z-index: 10;
+                            &:active .icon-arrow,
+                            &.active .icon-arrow {
+                                transform: scale(1.2) translateY(-5px) rotateX(180deg);
+                            }
+                            &.active+.dropdownMenu {
+                                opacity: 1;
+                                visibility: visible;
+                                transform: translateY(0);
+                            }
+                        }
+                        & .dropdownMenu {
+                            padding: 0;
+                            transition: $transition1;
+                            position: absolute;
+                            left: 0;
+                            top: 50px;
+                            right: 0;
+                            margin: 0;
+                            cursor: pointer;
+                            background-color: $color-white;
+                            color: $color-mine-shaft;
+                            box-shadow: 0 5px 20px -7px rgba(0, 0, 0, 0.2);
+                            z-index: 5;
+                            opacity: 0;
+                            visibility: hidden;
+                            overflow: hidden;
+                            transform: translateY(20px);
+                            border-radius: 0 0 3px 3px;
+                            min-height: 100%;
+                            max-height: 400px;
+                            overflow-y: auto;
+                            overflow-x: hidden;
+                            @include respond-to('small') {
+                                //overflow-y: auto;
+                                //max-height: 300px;
+                            }
+                            & li {
+                                margin: 0;
+                                padding: 1rem;
+                                font-size: 16px;
+                                color: $color-mine-shaft;
+                                transition: $transition1;
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                position: relative;
+                                text-transform: capitalize;
+                                width: 100%;
+                                font-weight: 400;
+                                &:hover,
+                                &:active {
+                                    background: $color-alabaster;
+                                    box-shadow: 4px 0 0 $color-rio-grande inset;
+                                }
+                                &:first-child {
+                                    margin-top: .5rem;
+                                }
+                                &:last-child {
+                                    margin-bottom: .5rem;
+                                }
+                            }
+                        }
+                    }
                 }
                 & .container-info-result {
                     width: 100%;
@@ -169,12 +321,13 @@
                             margin-bottom: 5px;
                         }
                         & .text-result {
-                            font-size: 16px;
+                            font-size: 14px;
                             text-align: left;
                             padding-left: 1.5rem;
-                            border-left: 2px solid $color-pistachio;
+                            border-left: 2px solid $color-rio-grande;
                             font-weight: 400;
                             line-height: 25px;
+                            margin-left: .7rem;
                         }
                         & .text-result-2 {
                             border-left: none;
@@ -204,7 +357,7 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                padding: 0 30px 10px 30px;
+                padding: 15px 30px 10px 30px;
                 & .box-btn {
                     width: 100%;
                     position: relative;

@@ -17,6 +17,13 @@ body {
     display: none!important;
 }
 
+.hide-small {
+    @include respond-to('small') {
+        font-size: 15px;
+        display: none!important;
+    }
+}
+
 a {
     background-color: transparent;
     text-decoration: none;

@@ -1,26 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="61px" height="64px" viewBox="0 0 61 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="24px" height="28px" viewBox="0 0 24 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
-    <title>Group 23</title>
+    <title>Group 11</title>
     <desc>Created with Sketch.</desc>
-    <defs>
-        <filter x="-11.9%" y="-16.5%" width="123.8%" height="133.1%" filterUnits="objectBoundingBox" id="filter-1">
-            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-            <feMerge>
-                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                <feMergeNode in="SourceGraphic"></feMergeNode>
-            </feMerge>
-        </filter>
-    </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="DESKTOP--PLP" transform="translate(-508.000000, -288.000000)" stroke="#333333" stroke-width="1.8">
-            <g id="Group-2" filter="url(#filter-1)" transform="translate(498.000000, 220.000000)">
-                <g id="Group-23" transform="translate(30.000000, 86.000000)">
-                    <path d="M10.6608118,0.0539661157 C16.5490471,0.0539661157 21.3217529,4.61062727 21.3217529,10.2323215 C21.3217529,18.0162058 10.6608118,25.2008545 10.6608118,25.2008545 C10.6608118,25.2008545 -0.000129411764,18.0162058 -0.000129411764,10.2323215 C-0.000129411764,4.61062727 4.77257647,0.0539661157 10.6608118,0.0539661157 Z" id="Fill-1"></path>
-                    <path d="M10.6608118,5.83195579 C12.8556353,5.83195579 14.6428118,7.53699711 14.6428118,9.63370372 C14.6428118,11.7291748 12.8556353,13.4354517 10.6608118,13.4354517 C8.46598824,13.4354517 6.68010588,11.7291748 6.68010588,9.63370372 C6.68010588,7.53699711 8.46598824,5.83195579 10.6608118,5.83195579" id="Fill-4"></path>
-                </g>
+        <g id="Group-11">
+            <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="24" height="28"></rect>
+            <g id="Group-10" transform="translate(1.000000, 1.000000)" stroke="#333333" stroke-width="1.8">
+                <path d="M10.6609412,-6.75015599e-14 C16.5491765,-6.75015599e-14 21.3218824,4.55666116 21.3218824,10.1783554 C21.3218824,17.9622397 10.6609412,25.1468884 10.6609412,25.1468884 C10.6609412,25.1468884 1.0658141e-14,17.9622397 1.0658141e-14,10.1783554 C1.0658141e-14,4.55666116 4.77270588,-6.75015599e-14 10.6609412,-6.75015599e-14 Z" id="Fill-1"></path>
+                <path d="M10.6609412,5.77798967 C12.8557647,5.77798967 14.6429412,7.48303099 14.6429412,9.5797376 C14.6429412,11.6752087 12.8557647,13.3814855 10.6609412,13.3814855 C8.46611765,13.3814855 6.68023529,11.6752087 6.68023529,9.5797376 C6.68023529,7.48303099 8.46611765,5.77798967 10.6609412,5.77798967" id="Fill-4"></path>
             </g>
         </g>
     </g>
