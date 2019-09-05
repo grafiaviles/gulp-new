@@ -48,12 +48,11 @@
         animation: cont-form 1s .2s 1 backwards;
         border-radius: 5px;
         @include respond-to('small') {
-            min-height: 400px;
             background-image: none;
             align-content: flex-start;
             flex-wrap: wrap;
             display: flex;
-            border-radius: 5px 5px 0 0;
+            border-radius: 5px;
             position: absolute;
             top: 10px;
             animation: cont-form-mobile 1s .1s 1 backwards;
@@ -215,7 +214,7 @@
                             z-index: 10;
                             &:active .icon-arrow,
                             &.active .icon-arrow {
-                                transform: scale(1.2) translateY(-5px) rotateX(180deg);
+                                transform: scale(1.2) translateY(-6px) rotateX(180deg);
                             }
                             &.active+.dropdownMenu {
                                 opacity: 1;
@@ -240,7 +239,7 @@
                             visibility: hidden;
                             overflow: hidden;
                             transform: translateY(20px);
-                            border-radius: 0 0 3px 3px;
+                            border-radius: 0 0 5px 5px;
                             min-height: 100%;
                             max-height: 400px;
                             overflow-y: auto;
@@ -439,18 +438,6 @@
         }
         100% {
             transform: translateY(0);
-        }
-    }
-    /* HIDE */
-    .hide-only-mobile {
-        @include respond-to('small') {
-            display: none;
-        }
-    }
-    .hide-only-tablet-desktop {
-        display: none;
-        @include respond-to('small') {
-            display: block;
         }
     }
     //Error inPUT

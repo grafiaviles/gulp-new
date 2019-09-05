@@ -13,14 +13,25 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+
+/* HIDE */
+
 .hide {
     display: none!important;
 }
 
-.hide-small {
+.hide-only-mobile {
     @include respond-to('small') {
-        font-size: 15px;
         display: none!important;
+        ;
+    }
+}
+
+.hide-only-tablet-desktop {
+    display: none!important;
+    ;
+    @include respond-to('small') {
+        display: block!important;
     }
 }
 
